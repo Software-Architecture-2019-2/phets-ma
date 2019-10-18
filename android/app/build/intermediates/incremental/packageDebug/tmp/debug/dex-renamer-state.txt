@@ -1,4 +1,0 @@
-#Thu Oct 17 20:52:21 COT 2019
-base.0=/home/julian/Documentos/Arquitectura/phets-ma/android/app/build/intermediates/transforms/dexMerger/debug/0
-renamed.0=classes.dex
-path.0=classes.dex
