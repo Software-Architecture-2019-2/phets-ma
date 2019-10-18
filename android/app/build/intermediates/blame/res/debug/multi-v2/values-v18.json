@@ -1,0 +1,19 @@
+{
+    "logs": [
+        {
+            "outputFile": "/home/julian/Documentos/Arquitectura/phets-ma/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v18/values-v18.xml",
+            "map": [
+                {
+                    "source": "/home/julian/.gradle/caches/transforms-2/files-2.1/2f2e84926e4349e681f9fa1328f88fa1/res/values-v18/values-v18.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "48",
+                        "endOffsets": "99"
+                    }
+                }
+            ]
+        }
+    ]
+}
