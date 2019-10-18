@@ -5,6 +5,10 @@ INJECTED from /home/julian/Documentos/Arquitectura/phets-ma/android/app/src/main
 INJECTED from /home/julian/Documentos/Arquitectura/phets-ma/android/app/src/main/AndroidManifest.xml:1:1-26:12
 INJECTED from /home/julian/Documentos/Arquitectura/phets-ma/android/app/src/main/AndroidManifest.xml:1:1-26:12
 MERGED from /home/julian/Documentos/Arquitectura/phets-ma/android/app/src/main/AndroidManifest.xml:1:1-26:12
+MERGED from [:react-native-gesture-handler] /home/julian/Documentos/Arquitectura/phets-ma/node_modules/react-native-gesture-handler/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-11:12
+MERGED from [:react-native-reanimated] /home/julian/Documentos/Arquitectura/phets-ma/node_modules/react-native-reanimated/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-11:12
+MERGED from [:react-native-screens] /home/julian/Documentos/Arquitectura/phets-ma/node_modules/react-native-screens/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-11:12
+MERGED from [:react-native-vector-icons] /home/julian/Documentos/Arquitectura/phets-ma/node_modules/react-native-vector-icons/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-11:12
 MERGED from [com.facebook.react:react-native:0.61.2] /home/julian/.gradle/caches/transforms-2/files-2.1/66fccd19e0e2d0e8bb10775b60ed2d07/AndroidManifest.xml:2:1-13:12
 MERGED from [org.webkit:android-jsc:r245459] /home/julian/.gradle/caches/transforms-2/files-2.1/63bc2bc4e2689bdf5a6c4d5279f6e48e/AndroidManifest.xml:2:1-11:12
 MERGED from [androidx.appcompat:appcompat:1.0.2] /home/julian/.gradle/caches/transforms-2/files-2.1/2f2e84926e4349e681f9fa1328f88fa1/AndroidManifest.xml:17:1-22:12
@@ -16,6 +20,7 @@ MERGED from [com.facebook.fresco:imagepipeline:2.0.0] /home/julian/.gradle/cache
 MERGED from [com.facebook.fresco:nativeimagetranscoder:2.0.0] /home/julian/.gradle/caches/transforms-2/files-2.1/c71bb7fadd56e96094b0437bb08fe5fe/AndroidManifest.xml:2:1-9:12
 MERGED from [com.facebook.fresco:imagepipeline-base:2.0.0] /home/julian/.gradle/caches/transforms-2/files-2.1/650677f3dc8c426934c7acb6904be067/AndroidManifest.xml:2:1-9:12
 MERGED from [com.facebook.soloader:soloader:0.6.0] /home/julian/.gradle/caches/transforms-2/files-2.1/b0be30dd291c92f37ae610fc3db5fd8f/AndroidManifest.xml:2:1-13:12
+MERGED from [androidx.transition:transition:1.1.0] /home/julian/.gradle/caches/transforms-2/files-2.1/ee0be45b7b36b63c6b5bfc837e4e39c8/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.fragment:fragment:1.0.0] /home/julian/.gradle/caches/transforms-2/files-2.1/ff2542c2f1149ac51f5547b59340baf3/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.vectordrawable:vectordrawable-animated:1.0.0] /home/julian/.gradle/caches/transforms-2/files-2.1/efd16e2c7f223bc2b99fe3f818f60f60/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] /home/julian/.gradle/caches/transforms-2/files-2.1/b6d9a74318eb8464c2b9180ffc8cece3/AndroidManifest.xml:17:1-22:12
@@ -132,6 +137,14 @@ uses-sdk
 INJECTED from /home/julian/Documentos/Arquitectura/phets-ma/android/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from /home/julian/Documentos/Arquitectura/phets-ma/android/app/src/main/AndroidManifest.xml
 INJECTED from /home/julian/Documentos/Arquitectura/phets-ma/android/app/src/main/AndroidManifest.xml
+MERGED from [:react-native-gesture-handler] /home/julian/Documentos/Arquitectura/phets-ma/node_modules/react-native-gesture-handler/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-gesture-handler] /home/julian/Documentos/Arquitectura/phets-ma/node_modules/react-native-gesture-handler/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-reanimated] /home/julian/Documentos/Arquitectura/phets-ma/node_modules/react-native-reanimated/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-reanimated] /home/julian/Documentos/Arquitectura/phets-ma/node_modules/react-native-reanimated/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-screens] /home/julian/Documentos/Arquitectura/phets-ma/node_modules/react-native-screens/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-screens] /home/julian/Documentos/Arquitectura/phets-ma/node_modules/react-native-screens/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-vector-icons] /home/julian/Documentos/Arquitectura/phets-ma/node_modules/react-native-vector-icons/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-vector-icons] /home/julian/Documentos/Arquitectura/phets-ma/node_modules/react-native-vector-icons/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
 MERGED from [com.facebook.react:react-native:0.61.2] /home/julian/.gradle/caches/transforms-2/files-2.1/66fccd19e0e2d0e8bb10775b60ed2d07/AndroidManifest.xml:7:5-9:41
 MERGED from [com.facebook.react:react-native:0.61.2] /home/julian/.gradle/caches/transforms-2/files-2.1/66fccd19e0e2d0e8bb10775b60ed2d07/AndroidManifest.xml:7:5-9:41
 MERGED from [org.webkit:android-jsc:r245459] /home/julian/.gradle/caches/transforms-2/files-2.1/63bc2bc4e2689bdf5a6c4d5279f6e48e/AndroidManifest.xml:7:5-9:41
@@ -154,6 +167,8 @@ MERGED from [com.facebook.fresco:imagepipeline-base:2.0.0] /home/julian/.gradle/
 MERGED from [com.facebook.fresco:imagepipeline-base:2.0.0] /home/julian/.gradle/caches/transforms-2/files-2.1/650677f3dc8c426934c7acb6904be067/AndroidManifest.xml:5:5-7:41
 MERGED from [com.facebook.soloader:soloader:0.6.0] /home/julian/.gradle/caches/transforms-2/files-2.1/b0be30dd291c92f37ae610fc3db5fd8f/AndroidManifest.xml:7:5-9:41
 MERGED from [com.facebook.soloader:soloader:0.6.0] /home/julian/.gradle/caches/transforms-2/files-2.1/b0be30dd291c92f37ae610fc3db5fd8f/AndroidManifest.xml:7:5-9:41
+MERGED from [androidx.transition:transition:1.1.0] /home/julian/.gradle/caches/transforms-2/files-2.1/ee0be45b7b36b63c6b5bfc837e4e39c8/AndroidManifest.xml:20:5-44
+MERGED from [androidx.transition:transition:1.1.0] /home/julian/.gradle/caches/transforms-2/files-2.1/ee0be45b7b36b63c6b5bfc837e4e39c8/AndroidManifest.xml:20:5-44
 MERGED from [androidx.fragment:fragment:1.0.0] /home/julian/.gradle/caches/transforms-2/files-2.1/ff2542c2f1149ac51f5547b59340baf3/AndroidManifest.xml:20:5-44
 MERGED from [androidx.fragment:fragment:1.0.0] /home/julian/.gradle/caches/transforms-2/files-2.1/ff2542c2f1149ac51f5547b59340baf3/AndroidManifest.xml:20:5-44
 MERGED from [androidx.vectordrawable:vectordrawable-animated:1.0.0] /home/julian/.gradle/caches/transforms-2/files-2.1/efd16e2c7f223bc2b99fe3f818f60f60/AndroidManifest.xml:20:5-44
