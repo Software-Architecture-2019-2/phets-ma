@@ -5,7 +5,7 @@ import { Button, Input} from 'react-native-elements';
 
 const {height, width} = Dimensions.get('window');
 
-class SignInScreen extends Component{
+class SignUpScreen extends Component{
   constructor(props){
     super(props);
     this.state = {
@@ -87,4 +87,4 @@ const styles = StyleSheet.create({
 
 })
 
-export default SignInScreen;
+export default SignUpScreen;

@@ -1,9 +1,9 @@
 import { createAppContainer } from "react-navigation";
 import { createStackNavigator } from 'react-navigation-stack';
 
-//Componentes
+// Components
 import LogInComponent from "../UI/LogIn/LogInComponent";
-import SignInComponent from "../UI/SignIn/SignInComponent";
+import SignUpComponent from "../UI/SignUp/SignUpComponent";
 
 //Stacks
 import MainStack from "./MainStack"
@@ -16,8 +16,8 @@ const InitStack = createStackNavigator(
         header: null, //Para no poner la barra superior
       }
     },
-    SignInView: {
-      screen: SignInComponent,
+    SignUpView: {
+      screen: SignUpComponent,
       navigationOptions: {
         header: null, //Para no poner la barra superior
       }

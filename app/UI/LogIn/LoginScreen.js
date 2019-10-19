@@ -38,7 +38,7 @@ class LogInScreen extends Component{
             </View>
             <View>
               <Button
-              onPress={() => this.props.chageToSignIn()}
+              onPress={() => this.props.changeToSignUp()}
                 buttonStyle={{marginTop: 20}}
                 titleStyle={{color: '#CD0B25'}}
                 title="Registrarse"

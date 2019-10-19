@@ -14,15 +14,15 @@ class LogInComponent extends Component{
     this.props.navigation.navigate("MainStack");
   }
 
-  chageToSignIn(){
-    this.props.navigation.navigate("SignInView");
+  changeToSignUp(){
+    this.props.navigation.navigate("SignUpView");
   }
 
   render(){
     return(
       <LogInScreen 
        changeToLobby = {() => this.changeToLobby()}
-       chageToSignIn = {() => this.chageToSignIn()}
+       changeToSignUp = {() => this.changeToSignUp()}
       />
     )
   }

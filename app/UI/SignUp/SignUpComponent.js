@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 
-import SignInScreen from "./SignInScreen"
+import SignUpScreen from "./SignUpScreen"
 
-class SignInComponent extends Component{
+class SignUpComponent extends Component{
   constructor(props){
     super(props);
     this.state={
@@ -20,7 +20,7 @@ class SignInComponent extends Component{
 
   render(){
     return(
-      <SignInScreen 
+      <SignUpScreen 
         changeToLobby = {() => this.changeToLobby()}
         chageToLogIn = {() => this.chageToLogIn()}
       />
@@ -28,4 +28,4 @@ class SignInComponent extends Component{
   }
 }
 
-export default SignInComponent;
+export default SignUpComponent;
