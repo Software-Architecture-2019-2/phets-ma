@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/home/julian/Documentos/Arquitectura/phets-ma/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-ms/values-ms.xml",
+            "outputFile": "/home/cristian/Desktop/UNAL/2019-II/Arquitectura/Project/phets-ma/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-ms/values-ms.xml",
             "map": [
                 {
-                    "source": "/home/julian/.gradle/caches/transforms-2/files-2.1/2c56c3a5ef7277b413028cdd5677e626/res/values-ms/values-ms.xml",
+                    "source": "/home/cristian/.gradle/caches/transforms-2/files-2.1/ae2352767abece5b26e4db6cf96ded64/res/values-ms/values-ms.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -21,7 +21,7 @@
                     }
                 },
                 {
-                    "source": "/home/julian/.gradle/caches/transforms-2/files-2.1/0916863f33392e37494c7fd7fdd2e886/res/values-ms/values-ms.xml",
+                    "source": "/home/cristian/.gradle/caches/transforms-2/files-2.1/11d0512e0f786a104c6f4673b5c7c4fb/res/values-ms/values-ms.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",

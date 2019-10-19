@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/home/julian/Documentos/Arquitectura/phets-ma/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-hdpi-v4/values-hdpi-v4.xml",
+            "outputFile": "/home/cristian/Desktop/UNAL/2019-II/Arquitectura/Project/phets-ma/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-hdpi-v4/values-hdpi-v4.xml",
             "map": [
                 {
-                    "source": "/home/julian/.gradle/caches/transforms-2/files-2.1/0916863f33392e37494c7fd7fdd2e886/res/values-hdpi-v4/values-hdpi-v4.xml",
+                    "source": "/home/cristian/.gradle/caches/transforms-2/files-2.1/11d0512e0f786a104c6f4673b5c7c4fb/res/values-hdpi-v4/values-hdpi-v4.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
