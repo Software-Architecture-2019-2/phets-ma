@@ -1,220 +1,223 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /Users/nicolasviveros/Projects/Arqui_Ma/phets-ma/android/app/src/main/AndroidManifest.xml:1:1-26:12
-INJECTED from /Users/nicolasviveros/Projects/Arqui_Ma/phets-ma/android/app/src/main/AndroidManifest.xml:1:1-26:12
-INJECTED from /Users/nicolasviveros/Projects/Arqui_Ma/phets-ma/android/app/src/main/AndroidManifest.xml:1:1-26:12
-INJECTED from /Users/nicolasviveros/Projects/Arqui_Ma/phets-ma/android/app/src/main/AndroidManifest.xml:1:1-26:12
-MERGED from /Users/nicolasviveros/Projects/Arqui_Ma/phets-ma/android/app/src/main/AndroidManifest.xml:1:1-26:12
-MERGED from [:react-native-gesture-handler] /Users/nicolasviveros/Projects/Arqui_Ma/phets-ma/node_modules/react-native-gesture-handler/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-11:12
-MERGED from [:react-native-reanimated] /Users/nicolasviveros/Projects/Arqui_Ma/phets-ma/node_modules/react-native-reanimated/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-11:12
-MERGED from [:react-native-screens] /Users/nicolasviveros/Projects/Arqui_Ma/phets-ma/node_modules/react-native-screens/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-11:12
-MERGED from [:react-native-vector-icons] /Users/nicolasviveros/Projects/Arqui_Ma/phets-ma/node_modules/react-native-vector-icons/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-11:12
-MERGED from [com.facebook.react:react-native:0.61.2] /Users/nicolasviveros/.gradle/caches/transforms-2/files-2.1/09da7cac340b60851dfef49073926ace/AndroidManifest.xml:2:1-13:12
-MERGED from [androidx.appcompat:appcompat:1.1.0-rc01] /Users/nicolasviveros/.gradle/caches/transforms-2/files-2.1/01a282c4f3651a9b0834f9490e091432/AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.1.0-alpha02] /Users/nicolasviveros/.gradle/caches/transforms-2/files-2.1/6fd5757a56c2d800cd8b14fbcd42555a/AndroidManifest.xml:17:1-24:12
-MERGED from [org.webkit:android-jsc:r245459] /Users/nicolasviveros/.gradle/caches/transforms-2/files-2.1/46ee5e2d0fcfe57915b0f1c4f6210d0d/AndroidManifest.xml:2:1-11:12
-MERGED from [com.facebook.fresco:fresco:2.0.0] /Users/nicolasviveros/.gradle/caches/transforms-2/files-2.1/7129db5f9ac9dfe5132ddae8fe498270/AndroidManifest.xml:2:1-9:12
-MERGED from [com.facebook.fresco:imagepipeline-okhttp3:2.0.0] /Users/nicolasviveros/.gradle/caches/transforms-2/files-2.1/9af5d4bdde401c7bc60e5971279e4f79/AndroidManifest.xml:2:1-9:12
-MERGED from [com.facebook.fresco:drawee:2.0.0] /Users/nicolasviveros/.gradle/caches/transforms-2/files-2.1/68168ffb0b3f44e5f63978b5c3180a7c/AndroidManifest.xml:2:1-9:12
-MERGED from [com.facebook.fresco:nativeimagefilters:2.0.0] /Users/nicolasviveros/.gradle/caches/transforms-2/files-2.1/5d7445803e4d9cfd6f408c05855e505e/AndroidManifest.xml:2:1-9:12
-MERGED from [com.facebook.fresco:imagepipeline:2.0.0] /Users/nicolasviveros/.gradle/caches/transforms-2/files-2.1/7ab5285f82c7fa8de248a4617a313256/AndroidManifest.xml:2:1-9:12
-MERGED from [com.facebook.fresco:nativeimagetranscoder:2.0.0] /Users/nicolasviveros/.gradle/caches/transforms-2/files-2.1/4eb775597f4107e31e2e09546b8b5e0e/AndroidManifest.xml:2:1-9:12
-MERGED from [com.facebook.fresco:imagepipeline-base:2.0.0] /Users/nicolasviveros/.gradle/caches/transforms-2/files-2.1/311449bded65e71721c0f7bba6e4dd44/AndroidManifest.xml:2:1-9:12
-MERGED from [com.facebook.soloader:soloader:0.6.0] /Users/nicolasviveros/.gradle/caches/transforms-2/files-2.1/e76cd06e18ea52f78f1b0262bac263dc/AndroidManifest.xml:2:1-13:12
-MERGED from [androidx.fragment:fragment:1.1.0-rc01] /Users/nicolasviveros/.gradle/caches/transforms-2/files-2.1/5ae3ef82dd8af53ade88968ce1c8a6e3/AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.appcompat:appcompat-resources:1.1.0-rc01] /Users/nicolasviveros/.gradle/caches/transforms-2/files-2.1/9f72478d29b5bd0a15e674196da6aaeb/AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] /Users/nicolasviveros/.gradle/caches/transforms-2/files-2.1/855114abbfb2a487ca1c2594b1ddbadd/AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.transition:transition:1.1.0] /Users/nicolasviveros/.gradle/caches/transforms-2/files-2.1/5903c8bd8653d637cab7544a599daf63/AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/nicolasviveros/.gradle/caches/transforms-2/files-2.1/94b28e4d66a975738930f01c4249ad2b/AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.loader:loader:1.0.0] /Users/nicolasviveros/.gradle/caches/transforms-2/files-2.1/a3de3878a87002b5617192d4e9f375d6/AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.activity:activity:1.0.0-rc01] /Users/nicolasviveros/.gradle/caches/transforms-2/files-2.1/2b5ba21aed15d77dcc7d4aab205c06be/AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0-rc01] /Users/nicolasviveros/.gradle/caches/transforms-2/files-2.1/889968c4b6cfa36f0cdb3468f665893e/AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.vectordrawable:vectordrawable:1.1.0-rc01] /Users/nicolasviveros/.gradle/caches/transforms-2/files-2.1/29951463f0f069baff5fecfa4cc8877a/AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.customview:customview:1.0.0] /Users/nicolasviveros/.gradle/caches/transforms-2/files-2.1/8d36ba91cf334ccea6130872589106b7/AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.core:core:1.1.0-rc01] /Users/nicolasviveros/.gradle/caches/transforms-2/files-2.1/b787748be88bbefe7b298080e63d1f08/AndroidManifest.xml:17:1-26:12
-MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /Users/nicolasviveros/.gradle/caches/transforms-2/files-2.1/fa8f7a5a0b78e6c492c4c037fed8327e/AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/nicolasviveros/.gradle/caches/transforms-2/files-2.1/36c26faf7ee5203feec205a003cfc394/AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0-rc01] /Users/nicolasviveros/.gradle/caches/transforms-2/files-2.1/b7cf755bcda01bf0266884fc4c2e7abe/AndroidManifest.xml:17:1-27:12
-MERGED from [androidx.lifecycle:lifecycle-runtime:2.1.0-rc01] /Users/nicolasviveros/.gradle/caches/transforms-2/files-2.1/80bd48232152513c3f4c2732b648f690/AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.1.0-rc01] /Users/nicolasviveros/.gradle/caches/transforms-2/files-2.1/b78cbab6ae9e25e9d7d432c2fec76723/AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.savedstate:savedstate:1.0.0-rc01] /Users/nicolasviveros/.gradle/caches/transforms-2/files-2.1/e30713ff47b9556f19936edcd225a487/AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] /Users/nicolasviveros/.gradle/caches/transforms-2/files-2.1/5ba11b0b863de6ab3382f9cc9002ba35/AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] /Users/nicolasviveros/.gradle/caches/transforms-2/files-2.1/077e15e6c4e2cd5a039ecae04d7c0c60/AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.arch.core:core-runtime:2.0.0] /Users/nicolasviveros/.gradle/caches/transforms-2/files-2.1/cd6b907b882658c4266b23194f35f3e1/AndroidManifest.xml:17:1-22:12
-MERGED from [com.facebook.fresco:fbcore:2.0.0] /Users/nicolasviveros/.gradle/caches/transforms-2/files-2.1/d2fa39e6b4414e0ba0f1df8efca4154c/AndroidManifest.xml:2:1-9:12
-INJECTED from /Users/nicolasviveros/Projects/Arqui_Ma/phets-ma/android/app/src/debug/AndroidManifest.xml:2:1-8:12
-INJECTED from /Users/nicolasviveros/Projects/Arqui_Ma/phets-ma/android/app/src/debug/AndroidManifest.xml:2:1-8:12
-INJECTED from /Users/nicolasviveros/Projects/Arqui_Ma/phets-ma/android/app/src/debug/AndroidManifest.xml:2:1-8:12
+ADDED from /home/cristian/Desktop/UNAL/2019-II/Arquitectura/Project/phets-ma/android/app/src/main/AndroidManifest.xml:1:1-26:12
+INJECTED from /home/cristian/Desktop/UNAL/2019-II/Arquitectura/Project/phets-ma/android/app/src/main/AndroidManifest.xml:1:1-26:12
+INJECTED from /home/cristian/Desktop/UNAL/2019-II/Arquitectura/Project/phets-ma/android/app/src/main/AndroidManifest.xml:1:1-26:12
+INJECTED from /home/cristian/Desktop/UNAL/2019-II/Arquitectura/Project/phets-ma/android/app/src/main/AndroidManifest.xml:1:1-26:12
+MERGED from /home/cristian/Desktop/UNAL/2019-II/Arquitectura/Project/phets-ma/android/app/src/main/AndroidManifest.xml:1:1-26:12
+MERGED from [:react-native-gesture-handler] /home/cristian/Desktop/UNAL/2019-II/Arquitectura/Project/phets-ma/node_modules/react-native-gesture-handler/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-11:12
+MERGED from [:react-native-reanimated] /home/cristian/Desktop/UNAL/2019-II/Arquitectura/Project/phets-ma/node_modules/react-native-reanimated/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-11:12
+MERGED from [:react-native-screens] /home/cristian/Desktop/UNAL/2019-II/Arquitectura/Project/phets-ma/node_modules/react-native-screens/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-11:12
+MERGED from [:react-native-svg] /home/cristian/Desktop/UNAL/2019-II/Arquitectura/Project/phets-ma/node_modules/react-native-svg/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-9:12
+MERGED from [:react-native-vector-icons] /home/cristian/Desktop/UNAL/2019-II/Arquitectura/Project/phets-ma/node_modules/react-native-vector-icons/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-11:12
+MERGED from [com.facebook.react:react-native:0.61.2] /home/cristian/.gradle/caches/transforms-2/files-2.1/0ecabc50f7b77311d3a253ec7ceb9e2b/AndroidManifest.xml:2:1-13:12
+MERGED from [androidx.appcompat:appcompat:1.1.0-rc01] /home/cristian/.gradle/caches/transforms-2/files-2.1/11d0512e0f786a104c6f4673b5c7c4fb/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.1.0-alpha02] /home/cristian/.gradle/caches/transforms-2/files-2.1/8e34603bded5063170cb1d124b9a2339/AndroidManifest.xml:17:1-24:12
+MERGED from [org.webkit:android-jsc:r245459] /home/cristian/.gradle/caches/transforms-2/files-2.1/bafcaf651b3936f177cc62ec08ca5314/AndroidManifest.xml:2:1-11:12
+MERGED from [com.facebook.fresco:fresco:2.0.0] /home/cristian/.gradle/caches/transforms-2/files-2.1/169e02bda8a0111cc04d1eb0cb2f5495/AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:imagepipeline-okhttp3:2.0.0] /home/cristian/.gradle/caches/transforms-2/files-2.1/614872cc0ad1c5629dd4359d33e0b672/AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:drawee:2.0.0] /home/cristian/.gradle/caches/transforms-2/files-2.1/66a83f531e9e1e82f4532edd20c1f8f8/AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:nativeimagefilters:2.0.0] /home/cristian/.gradle/caches/transforms-2/files-2.1/41ae93d577b4df703989c0fed99b9324/AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:imagepipeline:2.0.0] /home/cristian/.gradle/caches/transforms-2/files-2.1/a3150f8a9363ba5793370e99fce4741e/AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:nativeimagetranscoder:2.0.0] /home/cristian/.gradle/caches/transforms-2/files-2.1/fece05ad4da8fe65c2e4f09455c3ba89/AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:imagepipeline-base:2.0.0] /home/cristian/.gradle/caches/transforms-2/files-2.1/acaddb1fc3c00b64e71d03acb85d6a38/AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.soloader:soloader:0.6.0] /home/cristian/.gradle/caches/transforms-2/files-2.1/e093fae683a6543fba08ffa1e6422fc1/AndroidManifest.xml:2:1-13:12
+MERGED from [androidx.fragment:fragment:1.1.0-rc01] /home/cristian/.gradle/caches/transforms-2/files-2.1/c415fd22385f86d63ca0466f6a636a09/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.appcompat:appcompat-resources:1.1.0-rc01] /home/cristian/.gradle/caches/transforms-2/files-2.1/2ca8e0becec95ce28fccdbeed47cb3bf/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] /home/cristian/.gradle/caches/transforms-2/files-2.1/1e33810d7c7784715f1f673626a867ca/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.transition:transition:1.1.0] /home/cristian/.gradle/caches/transforms-2/files-2.1/b6ed549664f1dc90dcb0f238c1bb8cba/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.viewpager:viewpager:1.0.0] /home/cristian/.gradle/caches/transforms-2/files-2.1/64f27ee3be5bdc6a2df4e85d729f45a1/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.loader:loader:1.0.0] /home/cristian/.gradle/caches/transforms-2/files-2.1/befe2d7c50bacc36baedce66c246c5d6/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.activity:activity:1.0.0-rc01] /home/cristian/.gradle/caches/transforms-2/files-2.1/276c49f80d121fd60e64d00601173261/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0-rc01] /home/cristian/.gradle/caches/transforms-2/files-2.1/1df8c2dabe239f5a967904fb50b06451/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0-rc01] /home/cristian/.gradle/caches/transforms-2/files-2.1/d99bc240ae31de6ce41b7a5d9f7f9b12/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.customview:customview:1.0.0] /home/cristian/.gradle/caches/transforms-2/files-2.1/85286c295aa3c2004808e585ee9fb8ee/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.core:core:1.1.0-rc01] /home/cristian/.gradle/caches/transforms-2/files-2.1/ae2352767abece5b26e4db6cf96ded64/AndroidManifest.xml:17:1-26:12
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /home/cristian/.gradle/caches/transforms-2/files-2.1/26de9f04eed577453abfb013fb93de0c/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.interpolator:interpolator:1.0.0] /home/cristian/.gradle/caches/transforms-2/files-2.1/7afb317703b1b6291191af0be2c932fa/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0-rc01] /home/cristian/.gradle/caches/transforms-2/files-2.1/d2858d55765ab961ceb709e4aa7ca10c/AndroidManifest.xml:17:1-27:12
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.1.0-rc01] /home/cristian/.gradle/caches/transforms-2/files-2.1/186aac1c40d433e038c229323f17de00/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.1.0-rc01] /home/cristian/.gradle/caches/transforms-2/files-2.1/3abd5774570641bfc0a7fcf9e25f97cf/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.savedstate:savedstate:1.0.0-rc01] /home/cristian/.gradle/caches/transforms-2/files-2.1/c0cf8a64310b8a28775145a1e4fb31ad/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] /home/cristian/.gradle/caches/transforms-2/files-2.1/0974561f2576e69140c745035231100c/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] /home/cristian/.gradle/caches/transforms-2/files-2.1/d952f089c9c8abdca1d9b54365cd050d/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.arch.core:core-runtime:2.0.0] /home/cristian/.gradle/caches/transforms-2/files-2.1/7cc9e59a3b62b5cbe8645d5ff512d412/AndroidManifest.xml:17:1-22:12
+MERGED from [com.facebook.fresco:fbcore:2.0.0] /home/cristian/.gradle/caches/transforms-2/files-2.1/29240ebeb8bffbf4d4039f5a7147042a/AndroidManifest.xml:2:1-9:12
+INJECTED from /home/cristian/Desktop/UNAL/2019-II/Arquitectura/Project/phets-ma/android/app/src/debug/AndroidManifest.xml:2:1-8:12
+INJECTED from /home/cristian/Desktop/UNAL/2019-II/Arquitectura/Project/phets-ma/android/app/src/debug/AndroidManifest.xml:2:1-8:12
+INJECTED from /home/cristian/Desktop/UNAL/2019-II/Arquitectura/Project/phets-ma/android/app/src/debug/AndroidManifest.xml:2:1-8:12
 	package
-		ADDED from /Users/nicolasviveros/Projects/Arqui_Ma/phets-ma/android/app/src/main/AndroidManifest.xml:2:3-22
-		INJECTED from /Users/nicolasviveros/Projects/Arqui_Ma/phets-ma/android/app/src/main/AndroidManifest.xml
-		ADDED from /Users/nicolasviveros/Projects/Arqui_Ma/phets-ma/android/app/src/main/AndroidManifest.xml:2:3-22
-		INJECTED from /Users/nicolasviveros/Projects/Arqui_Ma/phets-ma/android/app/src/debug/AndroidManifest.xml
+		ADDED from /home/cristian/Desktop/UNAL/2019-II/Arquitectura/Project/phets-ma/android/app/src/main/AndroidManifest.xml:2:3-22
+		INJECTED from /home/cristian/Desktop/UNAL/2019-II/Arquitectura/Project/phets-ma/android/app/src/main/AndroidManifest.xml
+		ADDED from /home/cristian/Desktop/UNAL/2019-II/Arquitectura/Project/phets-ma/android/app/src/main/AndroidManifest.xml:2:3-22
+		INJECTED from /home/cristian/Desktop/UNAL/2019-II/Arquitectura/Project/phets-ma/android/app/src/debug/AndroidManifest.xml
 	android:versionName
-		INJECTED from /Users/nicolasviveros/Projects/Arqui_Ma/phets-ma/android/app/src/main/AndroidManifest.xml
-		ADDED from /Users/nicolasviveros/Projects/Arqui_Ma/phets-ma/android/app/src/main/AndroidManifest.xml:1:1-26:12
-		INJECTED from /Users/nicolasviveros/Projects/Arqui_Ma/phets-ma/android/app/src/debug/AndroidManifest.xml
+		INJECTED from /home/cristian/Desktop/UNAL/2019-II/Arquitectura/Project/phets-ma/android/app/src/main/AndroidManifest.xml
+		ADDED from /home/cristian/Desktop/UNAL/2019-II/Arquitectura/Project/phets-ma/android/app/src/main/AndroidManifest.xml:1:1-26:12
+		INJECTED from /home/cristian/Desktop/UNAL/2019-II/Arquitectura/Project/phets-ma/android/app/src/debug/AndroidManifest.xml
 	xmlns:tools
-		ADDED from /Users/nicolasviveros/Projects/Arqui_Ma/phets-ma/android/app/src/debug/AndroidManifest.xml:3:5-51
+		ADDED from /home/cristian/Desktop/UNAL/2019-II/Arquitectura/Project/phets-ma/android/app/src/debug/AndroidManifest.xml:3:5-51
 	android:versionCode
-		INJECTED from /Users/nicolasviveros/Projects/Arqui_Ma/phets-ma/android/app/src/main/AndroidManifest.xml
-		ADDED from /Users/nicolasviveros/Projects/Arqui_Ma/phets-ma/android/app/src/main/AndroidManifest.xml:1:1-26:12
-		INJECTED from /Users/nicolasviveros/Projects/Arqui_Ma/phets-ma/android/app/src/debug/AndroidManifest.xml
+		INJECTED from /home/cristian/Desktop/UNAL/2019-II/Arquitectura/Project/phets-ma/android/app/src/main/AndroidManifest.xml
+		ADDED from /home/cristian/Desktop/UNAL/2019-II/Arquitectura/Project/phets-ma/android/app/src/main/AndroidManifest.xml:1:1-26:12
+		INJECTED from /home/cristian/Desktop/UNAL/2019-II/Arquitectura/Project/phets-ma/android/app/src/debug/AndroidManifest.xml
 	xmlns:android
-		ADDED from /Users/nicolasviveros/Projects/Arqui_Ma/phets-ma/android/app/src/main/AndroidManifest.xml:1:11-69
+		ADDED from /home/cristian/Desktop/UNAL/2019-II/Arquitectura/Project/phets-ma/android/app/src/main/AndroidManifest.xml:1:11-69
 uses-permission#android.permission.INTERNET
-ADDED from /Users/nicolasviveros/Projects/Arqui_Ma/phets-ma/android/app/src/main/AndroidManifest.xml:4:5-67
+ADDED from /home/cristian/Desktop/UNAL/2019-II/Arquitectura/Project/phets-ma/android/app/src/main/AndroidManifest.xml:4:5-67
 	android:name
-		ADDED from /Users/nicolasviveros/Projects/Arqui_Ma/phets-ma/android/app/src/main/AndroidManifest.xml:4:22-64
+		ADDED from /home/cristian/Desktop/UNAL/2019-II/Arquitectura/Project/phets-ma/android/app/src/main/AndroidManifest.xml:4:22-64
 application
-ADDED from /Users/nicolasviveros/Projects/Arqui_Ma/phets-ma/android/app/src/main/AndroidManifest.xml:6:5-24:19
-MERGED from /Users/nicolasviveros/Projects/Arqui_Ma/phets-ma/android/app/src/main/AndroidManifest.xml:6:5-24:19
-MERGED from /Users/nicolasviveros/Projects/Arqui_Ma/phets-ma/android/app/src/main/AndroidManifest.xml:6:5-24:19
-MERGED from [com.facebook.react:react-native:0.61.2] /Users/nicolasviveros/.gradle/caches/transforms-2/files-2.1/09da7cac340b60851dfef49073926ace/AndroidManifest.xml:11:5-20
-MERGED from [com.facebook.react:react-native:0.61.2] /Users/nicolasviveros/.gradle/caches/transforms-2/files-2.1/09da7cac340b60851dfef49073926ace/AndroidManifest.xml:11:5-20
-MERGED from [com.facebook.soloader:soloader:0.6.0] /Users/nicolasviveros/.gradle/caches/transforms-2/files-2.1/e76cd06e18ea52f78f1b0262bac263dc/AndroidManifest.xml:11:5-20
-MERGED from [com.facebook.soloader:soloader:0.6.0] /Users/nicolasviveros/.gradle/caches/transforms-2/files-2.1/e76cd06e18ea52f78f1b0262bac263dc/AndroidManifest.xml:11:5-20
-MERGED from [androidx.core:core:1.1.0-rc01] /Users/nicolasviveros/.gradle/caches/transforms-2/files-2.1/b787748be88bbefe7b298080e63d1f08/AndroidManifest.xml:24:5-89
-MERGED from [androidx.core:core:1.1.0-rc01] /Users/nicolasviveros/.gradle/caches/transforms-2/files-2.1/b787748be88bbefe7b298080e63d1f08/AndroidManifest.xml:24:5-89
-MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0-rc01] /Users/nicolasviveros/.gradle/caches/transforms-2/files-2.1/b7cf755bcda01bf0266884fc4c2e7abe/AndroidManifest.xml:24:5-25:19
-MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0-rc01] /Users/nicolasviveros/.gradle/caches/transforms-2/files-2.1/b7cf755bcda01bf0266884fc4c2e7abe/AndroidManifest.xml:24:5-25:19
+ADDED from /home/cristian/Desktop/UNAL/2019-II/Arquitectura/Project/phets-ma/android/app/src/main/AndroidManifest.xml:6:5-24:19
+MERGED from /home/cristian/Desktop/UNAL/2019-II/Arquitectura/Project/phets-ma/android/app/src/main/AndroidManifest.xml:6:5-24:19
+MERGED from /home/cristian/Desktop/UNAL/2019-II/Arquitectura/Project/phets-ma/android/app/src/main/AndroidManifest.xml:6:5-24:19
+MERGED from [com.facebook.react:react-native:0.61.2] /home/cristian/.gradle/caches/transforms-2/files-2.1/0ecabc50f7b77311d3a253ec7ceb9e2b/AndroidManifest.xml:11:5-20
+MERGED from [com.facebook.react:react-native:0.61.2] /home/cristian/.gradle/caches/transforms-2/files-2.1/0ecabc50f7b77311d3a253ec7ceb9e2b/AndroidManifest.xml:11:5-20
+MERGED from [com.facebook.soloader:soloader:0.6.0] /home/cristian/.gradle/caches/transforms-2/files-2.1/e093fae683a6543fba08ffa1e6422fc1/AndroidManifest.xml:11:5-20
+MERGED from [com.facebook.soloader:soloader:0.6.0] /home/cristian/.gradle/caches/transforms-2/files-2.1/e093fae683a6543fba08ffa1e6422fc1/AndroidManifest.xml:11:5-20
+MERGED from [androidx.core:core:1.1.0-rc01] /home/cristian/.gradle/caches/transforms-2/files-2.1/ae2352767abece5b26e4db6cf96ded64/AndroidManifest.xml:24:5-89
+MERGED from [androidx.core:core:1.1.0-rc01] /home/cristian/.gradle/caches/transforms-2/files-2.1/ae2352767abece5b26e4db6cf96ded64/AndroidManifest.xml:24:5-89
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0-rc01] /home/cristian/.gradle/caches/transforms-2/files-2.1/d2858d55765ab961ceb709e4aa7ca10c/AndroidManifest.xml:24:5-25:19
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0-rc01] /home/cristian/.gradle/caches/transforms-2/files-2.1/d2858d55765ab961ceb709e4aa7ca10c/AndroidManifest.xml:24:5-25:19
 	android:appComponentFactory
-		ADDED from [androidx.core:core:1.1.0-rc01] /Users/nicolasviveros/.gradle/caches/transforms-2/files-2.1/b787748be88bbefe7b298080e63d1f08/AndroidManifest.xml:24:18-86
+		ADDED from [androidx.core:core:1.1.0-rc01] /home/cristian/.gradle/caches/transforms-2/files-2.1/ae2352767abece5b26e4db6cf96ded64/AndroidManifest.xml:24:18-86
 	android:label
-		ADDED from /Users/nicolasviveros/Projects/Arqui_Ma/phets-ma/android/app/src/main/AndroidManifest.xml:8:7-39
-		ADDED from /Users/nicolasviveros/Projects/Arqui_Ma/phets-ma/android/app/src/main/AndroidManifest.xml:8:7-39
+		ADDED from /home/cristian/Desktop/UNAL/2019-II/Arquitectura/Project/phets-ma/android/app/src/main/AndroidManifest.xml:8:7-39
+		ADDED from /home/cristian/Desktop/UNAL/2019-II/Arquitectura/Project/phets-ma/android/app/src/main/AndroidManifest.xml:8:7-39
 	tools:ignore
-		ADDED from /Users/nicolasviveros/Projects/Arqui_Ma/phets-ma/android/app/src/debug/AndroidManifest.xml:7:75-114
+		ADDED from /home/cristian/Desktop/UNAL/2019-II/Arquitectura/Project/phets-ma/android/app/src/debug/AndroidManifest.xml:7:75-114
 	android:roundIcon
-		ADDED from /Users/nicolasviveros/Projects/Arqui_Ma/phets-ma/android/app/src/main/AndroidManifest.xml:10:7-52
-		ADDED from /Users/nicolasviveros/Projects/Arqui_Ma/phets-ma/android/app/src/main/AndroidManifest.xml:10:7-52
+		ADDED from /home/cristian/Desktop/UNAL/2019-II/Arquitectura/Project/phets-ma/android/app/src/main/AndroidManifest.xml:10:7-52
+		ADDED from /home/cristian/Desktop/UNAL/2019-II/Arquitectura/Project/phets-ma/android/app/src/main/AndroidManifest.xml:10:7-52
 	tools:targetApi
-		ADDED from /Users/nicolasviveros/Projects/Arqui_Ma/phets-ma/android/app/src/debug/AndroidManifest.xml:7:54-74
+		ADDED from /home/cristian/Desktop/UNAL/2019-II/Arquitectura/Project/phets-ma/android/app/src/debug/AndroidManifest.xml:7:54-74
 	android:icon
-		ADDED from /Users/nicolasviveros/Projects/Arqui_Ma/phets-ma/android/app/src/main/AndroidManifest.xml:9:7-41
-		ADDED from /Users/nicolasviveros/Projects/Arqui_Ma/phets-ma/android/app/src/main/AndroidManifest.xml:9:7-41
+		ADDED from /home/cristian/Desktop/UNAL/2019-II/Arquitectura/Project/phets-ma/android/app/src/main/AndroidManifest.xml:9:7-41
+		ADDED from /home/cristian/Desktop/UNAL/2019-II/Arquitectura/Project/phets-ma/android/app/src/main/AndroidManifest.xml:9:7-41
 	android:allowBackup
-		ADDED from /Users/nicolasviveros/Projects/Arqui_Ma/phets-ma/android/app/src/main/AndroidManifest.xml:11:7-34
-		ADDED from /Users/nicolasviveros/Projects/Arqui_Ma/phets-ma/android/app/src/main/AndroidManifest.xml:11:7-34
+		ADDED from /home/cristian/Desktop/UNAL/2019-II/Arquitectura/Project/phets-ma/android/app/src/main/AndroidManifest.xml:11:7-34
+		ADDED from /home/cristian/Desktop/UNAL/2019-II/Arquitectura/Project/phets-ma/android/app/src/main/AndroidManifest.xml:11:7-34
 	android:theme
-		ADDED from /Users/nicolasviveros/Projects/Arqui_Ma/phets-ma/android/app/src/main/AndroidManifest.xml:12:7-38
-		ADDED from /Users/nicolasviveros/Projects/Arqui_Ma/phets-ma/android/app/src/main/AndroidManifest.xml:12:7-38
+		ADDED from /home/cristian/Desktop/UNAL/2019-II/Arquitectura/Project/phets-ma/android/app/src/main/AndroidManifest.xml:12:7-38
+		ADDED from /home/cristian/Desktop/UNAL/2019-II/Arquitectura/Project/phets-ma/android/app/src/main/AndroidManifest.xml:12:7-38
 	android:usesCleartextTraffic
-		ADDED from /Users/nicolasviveros/Projects/Arqui_Ma/phets-ma/android/app/src/debug/AndroidManifest.xml:7:18-53
+		ADDED from /home/cristian/Desktop/UNAL/2019-II/Arquitectura/Project/phets-ma/android/app/src/debug/AndroidManifest.xml:7:18-53
 	android:name
-		ADDED from /Users/nicolasviveros/Projects/Arqui_Ma/phets-ma/android/app/src/main/AndroidManifest.xml:7:7-38
-		ADDED from /Users/nicolasviveros/Projects/Arqui_Ma/phets-ma/android/app/src/main/AndroidManifest.xml:7:7-38
+		ADDED from /home/cristian/Desktop/UNAL/2019-II/Arquitectura/Project/phets-ma/android/app/src/main/AndroidManifest.xml:7:7-38
+		ADDED from /home/cristian/Desktop/UNAL/2019-II/Arquitectura/Project/phets-ma/android/app/src/main/AndroidManifest.xml:7:7-38
 activity#com.phets.MainActivity
-ADDED from /Users/nicolasviveros/Projects/Arqui_Ma/phets-ma/android/app/src/main/AndroidManifest.xml:13:7-22:18
+ADDED from /home/cristian/Desktop/UNAL/2019-II/Arquitectura/Project/phets-ma/android/app/src/main/AndroidManifest.xml:13:7-22:18
 	android:label
-		ADDED from /Users/nicolasviveros/Projects/Arqui_Ma/phets-ma/android/app/src/main/AndroidManifest.xml:15:9-41
+		ADDED from /home/cristian/Desktop/UNAL/2019-II/Arquitectura/Project/phets-ma/android/app/src/main/AndroidManifest.xml:15:9-41
 	android:windowSoftInputMode
-		ADDED from /Users/nicolasviveros/Projects/Arqui_Ma/phets-ma/android/app/src/main/AndroidManifest.xml:17:9-51
+		ADDED from /home/cristian/Desktop/UNAL/2019-II/Arquitectura/Project/phets-ma/android/app/src/main/AndroidManifest.xml:17:9-51
 	android:configChanges
-		ADDED from /Users/nicolasviveros/Projects/Arqui_Ma/phets-ma/android/app/src/main/AndroidManifest.xml:16:9-79
+		ADDED from /home/cristian/Desktop/UNAL/2019-II/Arquitectura/Project/phets-ma/android/app/src/main/AndroidManifest.xml:16:9-79
 	android:name
-		ADDED from /Users/nicolasviveros/Projects/Arqui_Ma/phets-ma/android/app/src/main/AndroidManifest.xml:14:9-37
+		ADDED from /home/cristian/Desktop/UNAL/2019-II/Arquitectura/Project/phets-ma/android/app/src/main/AndroidManifest.xml:14:9-37
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from /Users/nicolasviveros/Projects/Arqui_Ma/phets-ma/android/app/src/main/AndroidManifest.xml:18:9-21:25
+ADDED from /home/cristian/Desktop/UNAL/2019-II/Arquitectura/Project/phets-ma/android/app/src/main/AndroidManifest.xml:18:9-21:25
 action#android.intent.action.MAIN
-ADDED from /Users/nicolasviveros/Projects/Arqui_Ma/phets-ma/android/app/src/main/AndroidManifest.xml:19:13-65
+ADDED from /home/cristian/Desktop/UNAL/2019-II/Arquitectura/Project/phets-ma/android/app/src/main/AndroidManifest.xml:19:13-65
 	android:name
-		ADDED from /Users/nicolasviveros/Projects/Arqui_Ma/phets-ma/android/app/src/main/AndroidManifest.xml:19:21-62
+		ADDED from /home/cristian/Desktop/UNAL/2019-II/Arquitectura/Project/phets-ma/android/app/src/main/AndroidManifest.xml:19:21-62
 category#android.intent.category.LAUNCHER
-ADDED from /Users/nicolasviveros/Projects/Arqui_Ma/phets-ma/android/app/src/main/AndroidManifest.xml:20:13-73
+ADDED from /home/cristian/Desktop/UNAL/2019-II/Arquitectura/Project/phets-ma/android/app/src/main/AndroidManifest.xml:20:13-73
 	android:name
-		ADDED from /Users/nicolasviveros/Projects/Arqui_Ma/phets-ma/android/app/src/main/AndroidManifest.xml:20:23-70
+		ADDED from /home/cristian/Desktop/UNAL/2019-II/Arquitectura/Project/phets-ma/android/app/src/main/AndroidManifest.xml:20:23-70
 activity#com.facebook.react.devsupport.DevSettingsActivity
-ADDED from /Users/nicolasviveros/Projects/Arqui_Ma/phets-ma/android/app/src/main/AndroidManifest.xml:23:7-84
+ADDED from /home/cristian/Desktop/UNAL/2019-II/Arquitectura/Project/phets-ma/android/app/src/main/AndroidManifest.xml:23:7-84
 	android:name
-		ADDED from /Users/nicolasviveros/Projects/Arqui_Ma/phets-ma/android/app/src/main/AndroidManifest.xml:23:17-81
+		ADDED from /home/cristian/Desktop/UNAL/2019-II/Arquitectura/Project/phets-ma/android/app/src/main/AndroidManifest.xml:23:17-81
 uses-sdk
-INJECTED from /Users/nicolasviveros/Projects/Arqui_Ma/phets-ma/android/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
-INJECTED from /Users/nicolasviveros/Projects/Arqui_Ma/phets-ma/android/app/src/main/AndroidManifest.xml
-INJECTED from /Users/nicolasviveros/Projects/Arqui_Ma/phets-ma/android/app/src/main/AndroidManifest.xml
-MERGED from [:react-native-gesture-handler] /Users/nicolasviveros/Projects/Arqui_Ma/phets-ma/node_modules/react-native-gesture-handler/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
-MERGED from [:react-native-gesture-handler] /Users/nicolasviveros/Projects/Arqui_Ma/phets-ma/node_modules/react-native-gesture-handler/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
-MERGED from [:react-native-reanimated] /Users/nicolasviveros/Projects/Arqui_Ma/phets-ma/node_modules/react-native-reanimated/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
-MERGED from [:react-native-reanimated] /Users/nicolasviveros/Projects/Arqui_Ma/phets-ma/node_modules/react-native-reanimated/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
-MERGED from [:react-native-screens] /Users/nicolasviveros/Projects/Arqui_Ma/phets-ma/node_modules/react-native-screens/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
-MERGED from [:react-native-screens] /Users/nicolasviveros/Projects/Arqui_Ma/phets-ma/node_modules/react-native-screens/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
-MERGED from [:react-native-vector-icons] /Users/nicolasviveros/Projects/Arqui_Ma/phets-ma/node_modules/react-native-vector-icons/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
-MERGED from [:react-native-vector-icons] /Users/nicolasviveros/Projects/Arqui_Ma/phets-ma/node_modules/react-native-vector-icons/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
-MERGED from [com.facebook.react:react-native:0.61.2] /Users/nicolasviveros/.gradle/caches/transforms-2/files-2.1/09da7cac340b60851dfef49073926ace/AndroidManifest.xml:7:5-9:41
-MERGED from [com.facebook.react:react-native:0.61.2] /Users/nicolasviveros/.gradle/caches/transforms-2/files-2.1/09da7cac340b60851dfef49073926ace/AndroidManifest.xml:7:5-9:41
-MERGED from [androidx.appcompat:appcompat:1.1.0-rc01] /Users/nicolasviveros/.gradle/caches/transforms-2/files-2.1/01a282c4f3651a9b0834f9490e091432/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.appcompat:appcompat:1.1.0-rc01] /Users/nicolasviveros/.gradle/caches/transforms-2/files-2.1/01a282c4f3651a9b0834f9490e091432/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.1.0-alpha02] /Users/nicolasviveros/.gradle/caches/transforms-2/files-2.1/6fd5757a56c2d800cd8b14fbcd42555a/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.1.0-alpha02] /Users/nicolasviveros/.gradle/caches/transforms-2/files-2.1/6fd5757a56c2d800cd8b14fbcd42555a/AndroidManifest.xml:20:5-22:41
-MERGED from [org.webkit:android-jsc:r245459] /Users/nicolasviveros/.gradle/caches/transforms-2/files-2.1/46ee5e2d0fcfe57915b0f1c4f6210d0d/AndroidManifest.xml:7:5-9:41
-MERGED from [org.webkit:android-jsc:r245459] /Users/nicolasviveros/.gradle/caches/transforms-2/files-2.1/46ee5e2d0fcfe57915b0f1c4f6210d0d/AndroidManifest.xml:7:5-9:41
-MERGED from [com.facebook.fresco:fresco:2.0.0] /Users/nicolasviveros/.gradle/caches/transforms-2/files-2.1/7129db5f9ac9dfe5132ddae8fe498270/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:fresco:2.0.0] /Users/nicolasviveros/.gradle/caches/transforms-2/files-2.1/7129db5f9ac9dfe5132ddae8fe498270/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:imagepipeline-okhttp3:2.0.0] /Users/nicolasviveros/.gradle/caches/transforms-2/files-2.1/9af5d4bdde401c7bc60e5971279e4f79/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:imagepipeline-okhttp3:2.0.0] /Users/nicolasviveros/.gradle/caches/transforms-2/files-2.1/9af5d4bdde401c7bc60e5971279e4f79/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:drawee:2.0.0] /Users/nicolasviveros/.gradle/caches/transforms-2/files-2.1/68168ffb0b3f44e5f63978b5c3180a7c/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:drawee:2.0.0] /Users/nicolasviveros/.gradle/caches/transforms-2/files-2.1/68168ffb0b3f44e5f63978b5c3180a7c/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:nativeimagefilters:2.0.0] /Users/nicolasviveros/.gradle/caches/transforms-2/files-2.1/5d7445803e4d9cfd6f408c05855e505e/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:nativeimagefilters:2.0.0] /Users/nicolasviveros/.gradle/caches/transforms-2/files-2.1/5d7445803e4d9cfd6f408c05855e505e/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:imagepipeline:2.0.0] /Users/nicolasviveros/.gradle/caches/transforms-2/files-2.1/7ab5285f82c7fa8de248a4617a313256/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:imagepipeline:2.0.0] /Users/nicolasviveros/.gradle/caches/transforms-2/files-2.1/7ab5285f82c7fa8de248a4617a313256/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:nativeimagetranscoder:2.0.0] /Users/nicolasviveros/.gradle/caches/transforms-2/files-2.1/4eb775597f4107e31e2e09546b8b5e0e/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:nativeimagetranscoder:2.0.0] /Users/nicolasviveros/.gradle/caches/transforms-2/files-2.1/4eb775597f4107e31e2e09546b8b5e0e/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:imagepipeline-base:2.0.0] /Users/nicolasviveros/.gradle/caches/transforms-2/files-2.1/311449bded65e71721c0f7bba6e4dd44/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:imagepipeline-base:2.0.0] /Users/nicolasviveros/.gradle/caches/transforms-2/files-2.1/311449bded65e71721c0f7bba6e4dd44/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.soloader:soloader:0.6.0] /Users/nicolasviveros/.gradle/caches/transforms-2/files-2.1/e76cd06e18ea52f78f1b0262bac263dc/AndroidManifest.xml:7:5-9:41
-MERGED from [com.facebook.soloader:soloader:0.6.0] /Users/nicolasviveros/.gradle/caches/transforms-2/files-2.1/e76cd06e18ea52f78f1b0262bac263dc/AndroidManifest.xml:7:5-9:41
-MERGED from [androidx.fragment:fragment:1.1.0-rc01] /Users/nicolasviveros/.gradle/caches/transforms-2/files-2.1/5ae3ef82dd8af53ade88968ce1c8a6e3/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.fragment:fragment:1.1.0-rc01] /Users/nicolasviveros/.gradle/caches/transforms-2/files-2.1/5ae3ef82dd8af53ade88968ce1c8a6e3/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.appcompat:appcompat-resources:1.1.0-rc01] /Users/nicolasviveros/.gradle/caches/transforms-2/files-2.1/9f72478d29b5bd0a15e674196da6aaeb/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.appcompat:appcompat-resources:1.1.0-rc01] /Users/nicolasviveros/.gradle/caches/transforms-2/files-2.1/9f72478d29b5bd0a15e674196da6aaeb/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] /Users/nicolasviveros/.gradle/caches/transforms-2/files-2.1/855114abbfb2a487ca1c2594b1ddbadd/AndroidManifest.xml:20:5-44
-MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] /Users/nicolasviveros/.gradle/caches/transforms-2/files-2.1/855114abbfb2a487ca1c2594b1ddbadd/AndroidManifest.xml:20:5-44
-MERGED from [androidx.transition:transition:1.1.0] /Users/nicolasviveros/.gradle/caches/transforms-2/files-2.1/5903c8bd8653d637cab7544a599daf63/AndroidManifest.xml:20:5-44
-MERGED from [androidx.transition:transition:1.1.0] /Users/nicolasviveros/.gradle/caches/transforms-2/files-2.1/5903c8bd8653d637cab7544a599daf63/AndroidManifest.xml:20:5-44
-MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/nicolasviveros/.gradle/caches/transforms-2/files-2.1/94b28e4d66a975738930f01c4249ad2b/AndroidManifest.xml:20:5-44
-MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/nicolasviveros/.gradle/caches/transforms-2/files-2.1/94b28e4d66a975738930f01c4249ad2b/AndroidManifest.xml:20:5-44
-MERGED from [androidx.loader:loader:1.0.0] /Users/nicolasviveros/.gradle/caches/transforms-2/files-2.1/a3de3878a87002b5617192d4e9f375d6/AndroidManifest.xml:20:5-44
-MERGED from [androidx.loader:loader:1.0.0] /Users/nicolasviveros/.gradle/caches/transforms-2/files-2.1/a3de3878a87002b5617192d4e9f375d6/AndroidManifest.xml:20:5-44
-MERGED from [androidx.activity:activity:1.0.0-rc01] /Users/nicolasviveros/.gradle/caches/transforms-2/files-2.1/2b5ba21aed15d77dcc7d4aab205c06be/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.activity:activity:1.0.0-rc01] /Users/nicolasviveros/.gradle/caches/transforms-2/files-2.1/2b5ba21aed15d77dcc7d4aab205c06be/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0-rc01] /Users/nicolasviveros/.gradle/caches/transforms-2/files-2.1/889968c4b6cfa36f0cdb3468f665893e/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0-rc01] /Users/nicolasviveros/.gradle/caches/transforms-2/files-2.1/889968c4b6cfa36f0cdb3468f665893e/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.vectordrawable:vectordrawable:1.1.0-rc01] /Users/nicolasviveros/.gradle/caches/transforms-2/files-2.1/29951463f0f069baff5fecfa4cc8877a/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.vectordrawable:vectordrawable:1.1.0-rc01] /Users/nicolasviveros/.gradle/caches/transforms-2/files-2.1/29951463f0f069baff5fecfa4cc8877a/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.customview:customview:1.0.0] /Users/nicolasviveros/.gradle/caches/transforms-2/files-2.1/8d36ba91cf334ccea6130872589106b7/AndroidManifest.xml:20:5-44
-MERGED from [androidx.customview:customview:1.0.0] /Users/nicolasviveros/.gradle/caches/transforms-2/files-2.1/8d36ba91cf334ccea6130872589106b7/AndroidManifest.xml:20:5-44
-MERGED from [androidx.core:core:1.1.0-rc01] /Users/nicolasviveros/.gradle/caches/transforms-2/files-2.1/b787748be88bbefe7b298080e63d1f08/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.core:core:1.1.0-rc01] /Users/nicolasviveros/.gradle/caches/transforms-2/files-2.1/b787748be88bbefe7b298080e63d1f08/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /Users/nicolasviveros/.gradle/caches/transforms-2/files-2.1/fa8f7a5a0b78e6c492c4c037fed8327e/AndroidManifest.xml:20:5-44
-MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /Users/nicolasviveros/.gradle/caches/transforms-2/files-2.1/fa8f7a5a0b78e6c492c4c037fed8327e/AndroidManifest.xml:20:5-44
-MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/nicolasviveros/.gradle/caches/transforms-2/files-2.1/36c26faf7ee5203feec205a003cfc394/AndroidManifest.xml:20:5-44
-MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/nicolasviveros/.gradle/caches/transforms-2/files-2.1/36c26faf7ee5203feec205a003cfc394/AndroidManifest.xml:20:5-44
-MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0-rc01] /Users/nicolasviveros/.gradle/caches/transforms-2/files-2.1/b7cf755bcda01bf0266884fc4c2e7abe/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0-rc01] /Users/nicolasviveros/.gradle/caches/transforms-2/files-2.1/b7cf755bcda01bf0266884fc4c2e7abe/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.lifecycle:lifecycle-runtime:2.1.0-rc01] /Users/nicolasviveros/.gradle/caches/transforms-2/files-2.1/80bd48232152513c3f4c2732b648f690/AndroidManifest.xml:20:5-44
-MERGED from [androidx.lifecycle:lifecycle-runtime:2.1.0-rc01] /Users/nicolasviveros/.gradle/caches/transforms-2/files-2.1/80bd48232152513c3f4c2732b648f690/AndroidManifest.xml:20:5-44
-MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.1.0-rc01] /Users/nicolasviveros/.gradle/caches/transforms-2/files-2.1/b78cbab6ae9e25e9d7d432c2fec76723/AndroidManifest.xml:20:5-44
-MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.1.0-rc01] /Users/nicolasviveros/.gradle/caches/transforms-2/files-2.1/b78cbab6ae9e25e9d7d432c2fec76723/AndroidManifest.xml:20:5-44
-MERGED from [androidx.savedstate:savedstate:1.0.0-rc01] /Users/nicolasviveros/.gradle/caches/transforms-2/files-2.1/e30713ff47b9556f19936edcd225a487/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.savedstate:savedstate:1.0.0-rc01] /Users/nicolasviveros/.gradle/caches/transforms-2/files-2.1/e30713ff47b9556f19936edcd225a487/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] /Users/nicolasviveros/.gradle/caches/transforms-2/files-2.1/5ba11b0b863de6ab3382f9cc9002ba35/AndroidManifest.xml:20:5-44
-MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] /Users/nicolasviveros/.gradle/caches/transforms-2/files-2.1/5ba11b0b863de6ab3382f9cc9002ba35/AndroidManifest.xml:20:5-44
-MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] /Users/nicolasviveros/.gradle/caches/transforms-2/files-2.1/077e15e6c4e2cd5a039ecae04d7c0c60/AndroidManifest.xml:20:5-44
-MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] /Users/nicolasviveros/.gradle/caches/transforms-2/files-2.1/077e15e6c4e2cd5a039ecae04d7c0c60/AndroidManifest.xml:20:5-44
-MERGED from [androidx.arch.core:core-runtime:2.0.0] /Users/nicolasviveros/.gradle/caches/transforms-2/files-2.1/cd6b907b882658c4266b23194f35f3e1/AndroidManifest.xml:20:5-44
-MERGED from [androidx.arch.core:core-runtime:2.0.0] /Users/nicolasviveros/.gradle/caches/transforms-2/files-2.1/cd6b907b882658c4266b23194f35f3e1/AndroidManifest.xml:20:5-44
-MERGED from [com.facebook.fresco:fbcore:2.0.0] /Users/nicolasviveros/.gradle/caches/transforms-2/files-2.1/d2fa39e6b4414e0ba0f1df8efca4154c/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:fbcore:2.0.0] /Users/nicolasviveros/.gradle/caches/transforms-2/files-2.1/d2fa39e6b4414e0ba0f1df8efca4154c/AndroidManifest.xml:5:5-7:41
-INJECTED from /Users/nicolasviveros/Projects/Arqui_Ma/phets-ma/android/app/src/debug/AndroidManifest.xml
-INJECTED from /Users/nicolasviveros/Projects/Arqui_Ma/phets-ma/android/app/src/debug/AndroidManifest.xml
+INJECTED from /home/cristian/Desktop/UNAL/2019-II/Arquitectura/Project/phets-ma/android/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /home/cristian/Desktop/UNAL/2019-II/Arquitectura/Project/phets-ma/android/app/src/main/AndroidManifest.xml
+INJECTED from /home/cristian/Desktop/UNAL/2019-II/Arquitectura/Project/phets-ma/android/app/src/main/AndroidManifest.xml
+MERGED from [:react-native-gesture-handler] /home/cristian/Desktop/UNAL/2019-II/Arquitectura/Project/phets-ma/node_modules/react-native-gesture-handler/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-gesture-handler] /home/cristian/Desktop/UNAL/2019-II/Arquitectura/Project/phets-ma/node_modules/react-native-gesture-handler/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-reanimated] /home/cristian/Desktop/UNAL/2019-II/Arquitectura/Project/phets-ma/node_modules/react-native-reanimated/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-reanimated] /home/cristian/Desktop/UNAL/2019-II/Arquitectura/Project/phets-ma/node_modules/react-native-reanimated/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-screens] /home/cristian/Desktop/UNAL/2019-II/Arquitectura/Project/phets-ma/node_modules/react-native-screens/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-screens] /home/cristian/Desktop/UNAL/2019-II/Arquitectura/Project/phets-ma/node_modules/react-native-screens/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-svg] /home/cristian/Desktop/UNAL/2019-II/Arquitectura/Project/phets-ma/node_modules/react-native-svg/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:react-native-svg] /home/cristian/Desktop/UNAL/2019-II/Arquitectura/Project/phets-ma/node_modules/react-native-svg/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:react-native-vector-icons] /home/cristian/Desktop/UNAL/2019-II/Arquitectura/Project/phets-ma/node_modules/react-native-vector-icons/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-vector-icons] /home/cristian/Desktop/UNAL/2019-II/Arquitectura/Project/phets-ma/node_modules/react-native-vector-icons/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
+MERGED from [com.facebook.react:react-native:0.61.2] /home/cristian/.gradle/caches/transforms-2/files-2.1/0ecabc50f7b77311d3a253ec7ceb9e2b/AndroidManifest.xml:7:5-9:41
+MERGED from [com.facebook.react:react-native:0.61.2] /home/cristian/.gradle/caches/transforms-2/files-2.1/0ecabc50f7b77311d3a253ec7ceb9e2b/AndroidManifest.xml:7:5-9:41
+MERGED from [androidx.appcompat:appcompat:1.1.0-rc01] /home/cristian/.gradle/caches/transforms-2/files-2.1/11d0512e0f786a104c6f4673b5c7c4fb/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.appcompat:appcompat:1.1.0-rc01] /home/cristian/.gradle/caches/transforms-2/files-2.1/11d0512e0f786a104c6f4673b5c7c4fb/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.1.0-alpha02] /home/cristian/.gradle/caches/transforms-2/files-2.1/8e34603bded5063170cb1d124b9a2339/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.1.0-alpha02] /home/cristian/.gradle/caches/transforms-2/files-2.1/8e34603bded5063170cb1d124b9a2339/AndroidManifest.xml:20:5-22:41
+MERGED from [org.webkit:android-jsc:r245459] /home/cristian/.gradle/caches/transforms-2/files-2.1/bafcaf651b3936f177cc62ec08ca5314/AndroidManifest.xml:7:5-9:41
+MERGED from [org.webkit:android-jsc:r245459] /home/cristian/.gradle/caches/transforms-2/files-2.1/bafcaf651b3936f177cc62ec08ca5314/AndroidManifest.xml:7:5-9:41
+MERGED from [com.facebook.fresco:fresco:2.0.0] /home/cristian/.gradle/caches/transforms-2/files-2.1/169e02bda8a0111cc04d1eb0cb2f5495/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:fresco:2.0.0] /home/cristian/.gradle/caches/transforms-2/files-2.1/169e02bda8a0111cc04d1eb0cb2f5495/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline-okhttp3:2.0.0] /home/cristian/.gradle/caches/transforms-2/files-2.1/614872cc0ad1c5629dd4359d33e0b672/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline-okhttp3:2.0.0] /home/cristian/.gradle/caches/transforms-2/files-2.1/614872cc0ad1c5629dd4359d33e0b672/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:drawee:2.0.0] /home/cristian/.gradle/caches/transforms-2/files-2.1/66a83f531e9e1e82f4532edd20c1f8f8/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:drawee:2.0.0] /home/cristian/.gradle/caches/transforms-2/files-2.1/66a83f531e9e1e82f4532edd20c1f8f8/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:nativeimagefilters:2.0.0] /home/cristian/.gradle/caches/transforms-2/files-2.1/41ae93d577b4df703989c0fed99b9324/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:nativeimagefilters:2.0.0] /home/cristian/.gradle/caches/transforms-2/files-2.1/41ae93d577b4df703989c0fed99b9324/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline:2.0.0] /home/cristian/.gradle/caches/transforms-2/files-2.1/a3150f8a9363ba5793370e99fce4741e/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline:2.0.0] /home/cristian/.gradle/caches/transforms-2/files-2.1/a3150f8a9363ba5793370e99fce4741e/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:nativeimagetranscoder:2.0.0] /home/cristian/.gradle/caches/transforms-2/files-2.1/fece05ad4da8fe65c2e4f09455c3ba89/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:nativeimagetranscoder:2.0.0] /home/cristian/.gradle/caches/transforms-2/files-2.1/fece05ad4da8fe65c2e4f09455c3ba89/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline-base:2.0.0] /home/cristian/.gradle/caches/transforms-2/files-2.1/acaddb1fc3c00b64e71d03acb85d6a38/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline-base:2.0.0] /home/cristian/.gradle/caches/transforms-2/files-2.1/acaddb1fc3c00b64e71d03acb85d6a38/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.soloader:soloader:0.6.0] /home/cristian/.gradle/caches/transforms-2/files-2.1/e093fae683a6543fba08ffa1e6422fc1/AndroidManifest.xml:7:5-9:41
+MERGED from [com.facebook.soloader:soloader:0.6.0] /home/cristian/.gradle/caches/transforms-2/files-2.1/e093fae683a6543fba08ffa1e6422fc1/AndroidManifest.xml:7:5-9:41
+MERGED from [androidx.fragment:fragment:1.1.0-rc01] /home/cristian/.gradle/caches/transforms-2/files-2.1/c415fd22385f86d63ca0466f6a636a09/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.fragment:fragment:1.1.0-rc01] /home/cristian/.gradle/caches/transforms-2/files-2.1/c415fd22385f86d63ca0466f6a636a09/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.appcompat:appcompat-resources:1.1.0-rc01] /home/cristian/.gradle/caches/transforms-2/files-2.1/2ca8e0becec95ce28fccdbeed47cb3bf/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.appcompat:appcompat-resources:1.1.0-rc01] /home/cristian/.gradle/caches/transforms-2/files-2.1/2ca8e0becec95ce28fccdbeed47cb3bf/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] /home/cristian/.gradle/caches/transforms-2/files-2.1/1e33810d7c7784715f1f673626a867ca/AndroidManifest.xml:20:5-44
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] /home/cristian/.gradle/caches/transforms-2/files-2.1/1e33810d7c7784715f1f673626a867ca/AndroidManifest.xml:20:5-44
+MERGED from [androidx.transition:transition:1.1.0] /home/cristian/.gradle/caches/transforms-2/files-2.1/b6ed549664f1dc90dcb0f238c1bb8cba/AndroidManifest.xml:20:5-44
+MERGED from [androidx.transition:transition:1.1.0] /home/cristian/.gradle/caches/transforms-2/files-2.1/b6ed549664f1dc90dcb0f238c1bb8cba/AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] /home/cristian/.gradle/caches/transforms-2/files-2.1/64f27ee3be5bdc6a2df4e85d729f45a1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] /home/cristian/.gradle/caches/transforms-2/files-2.1/64f27ee3be5bdc6a2df4e85d729f45a1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] /home/cristian/.gradle/caches/transforms-2/files-2.1/befe2d7c50bacc36baedce66c246c5d6/AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] /home/cristian/.gradle/caches/transforms-2/files-2.1/befe2d7c50bacc36baedce66c246c5d6/AndroidManifest.xml:20:5-44
+MERGED from [androidx.activity:activity:1.0.0-rc01] /home/cristian/.gradle/caches/transforms-2/files-2.1/276c49f80d121fd60e64d00601173261/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.activity:activity:1.0.0-rc01] /home/cristian/.gradle/caches/transforms-2/files-2.1/276c49f80d121fd60e64d00601173261/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0-rc01] /home/cristian/.gradle/caches/transforms-2/files-2.1/1df8c2dabe239f5a967904fb50b06451/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0-rc01] /home/cristian/.gradle/caches/transforms-2/files-2.1/1df8c2dabe239f5a967904fb50b06451/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0-rc01] /home/cristian/.gradle/caches/transforms-2/files-2.1/d99bc240ae31de6ce41b7a5d9f7f9b12/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0-rc01] /home/cristian/.gradle/caches/transforms-2/files-2.1/d99bc240ae31de6ce41b7a5d9f7f9b12/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.customview:customview:1.0.0] /home/cristian/.gradle/caches/transforms-2/files-2.1/85286c295aa3c2004808e585ee9fb8ee/AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview:1.0.0] /home/cristian/.gradle/caches/transforms-2/files-2.1/85286c295aa3c2004808e585ee9fb8ee/AndroidManifest.xml:20:5-44
+MERGED from [androidx.core:core:1.1.0-rc01] /home/cristian/.gradle/caches/transforms-2/files-2.1/ae2352767abece5b26e4db6cf96ded64/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.core:core:1.1.0-rc01] /home/cristian/.gradle/caches/transforms-2/files-2.1/ae2352767abece5b26e4db6cf96ded64/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /home/cristian/.gradle/caches/transforms-2/files-2.1/26de9f04eed577453abfb013fb93de0c/AndroidManifest.xml:20:5-44
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /home/cristian/.gradle/caches/transforms-2/files-2.1/26de9f04eed577453abfb013fb93de0c/AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] /home/cristian/.gradle/caches/transforms-2/files-2.1/7afb317703b1b6291191af0be2c932fa/AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] /home/cristian/.gradle/caches/transforms-2/files-2.1/7afb317703b1b6291191af0be2c932fa/AndroidManifest.xml:20:5-44
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0-rc01] /home/cristian/.gradle/caches/transforms-2/files-2.1/d2858d55765ab961ceb709e4aa7ca10c/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0-rc01] /home/cristian/.gradle/caches/transforms-2/files-2.1/d2858d55765ab961ceb709e4aa7ca10c/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.1.0-rc01] /home/cristian/.gradle/caches/transforms-2/files-2.1/186aac1c40d433e038c229323f17de00/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.1.0-rc01] /home/cristian/.gradle/caches/transforms-2/files-2.1/186aac1c40d433e038c229323f17de00/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.1.0-rc01] /home/cristian/.gradle/caches/transforms-2/files-2.1/3abd5774570641bfc0a7fcf9e25f97cf/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.1.0-rc01] /home/cristian/.gradle/caches/transforms-2/files-2.1/3abd5774570641bfc0a7fcf9e25f97cf/AndroidManifest.xml:20:5-44
+MERGED from [androidx.savedstate:savedstate:1.0.0-rc01] /home/cristian/.gradle/caches/transforms-2/files-2.1/c0cf8a64310b8a28775145a1e4fb31ad/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.savedstate:savedstate:1.0.0-rc01] /home/cristian/.gradle/caches/transforms-2/files-2.1/c0cf8a64310b8a28775145a1e4fb31ad/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] /home/cristian/.gradle/caches/transforms-2/files-2.1/0974561f2576e69140c745035231100c/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] /home/cristian/.gradle/caches/transforms-2/files-2.1/0974561f2576e69140c745035231100c/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] /home/cristian/.gradle/caches/transforms-2/files-2.1/d952f089c9c8abdca1d9b54365cd050d/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] /home/cristian/.gradle/caches/transforms-2/files-2.1/d952f089c9c8abdca1d9b54365cd050d/AndroidManifest.xml:20:5-44
+MERGED from [androidx.arch.core:core-runtime:2.0.0] /home/cristian/.gradle/caches/transforms-2/files-2.1/7cc9e59a3b62b5cbe8645d5ff512d412/AndroidManifest.xml:20:5-44
+MERGED from [androidx.arch.core:core-runtime:2.0.0] /home/cristian/.gradle/caches/transforms-2/files-2.1/7cc9e59a3b62b5cbe8645d5ff512d412/AndroidManifest.xml:20:5-44
+MERGED from [com.facebook.fresco:fbcore:2.0.0] /home/cristian/.gradle/caches/transforms-2/files-2.1/29240ebeb8bffbf4d4039f5a7147042a/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:fbcore:2.0.0] /home/cristian/.gradle/caches/transforms-2/files-2.1/29240ebeb8bffbf4d4039f5a7147042a/AndroidManifest.xml:5:5-7:41
+INJECTED from /home/cristian/Desktop/UNAL/2019-II/Arquitectura/Project/phets-ma/android/app/src/debug/AndroidManifest.xml
+INJECTED from /home/cristian/Desktop/UNAL/2019-II/Arquitectura/Project/phets-ma/android/app/src/debug/AndroidManifest.xml
 	android:targetSdkVersion
-		INJECTED from /Users/nicolasviveros/Projects/Arqui_Ma/phets-ma/android/app/src/main/AndroidManifest.xml
-		INJECTED from /Users/nicolasviveros/Projects/Arqui_Ma/phets-ma/android/app/src/debug/AndroidManifest.xml
+		INJECTED from /home/cristian/Desktop/UNAL/2019-II/Arquitectura/Project/phets-ma/android/app/src/main/AndroidManifest.xml
+		INJECTED from /home/cristian/Desktop/UNAL/2019-II/Arquitectura/Project/phets-ma/android/app/src/debug/AndroidManifest.xml
 	android:minSdkVersion
-		INJECTED from /Users/nicolasviveros/Projects/Arqui_Ma/phets-ma/android/app/src/main/AndroidManifest.xml
-		INJECTED from /Users/nicolasviveros/Projects/Arqui_Ma/phets-ma/android/app/src/debug/AndroidManifest.xml
+		INJECTED from /home/cristian/Desktop/UNAL/2019-II/Arquitectura/Project/phets-ma/android/app/src/main/AndroidManifest.xml
+		INJECTED from /home/cristian/Desktop/UNAL/2019-II/Arquitectura/Project/phets-ma/android/app/src/debug/AndroidManifest.xml
 uses-permission#android.permission.SYSTEM_ALERT_WINDOW
-ADDED from /Users/nicolasviveros/Projects/Arqui_Ma/phets-ma/android/app/src/debug/AndroidManifest.xml:5:5-77
+ADDED from /home/cristian/Desktop/UNAL/2019-II/Arquitectura/Project/phets-ma/android/app/src/debug/AndroidManifest.xml:5:5-77
 	android:name
-		ADDED from /Users/nicolasviveros/Projects/Arqui_Ma/phets-ma/android/app/src/debug/AndroidManifest.xml:5:22-75
+		ADDED from /home/cristian/Desktop/UNAL/2019-II/Arquitectura/Project/phets-ma/android/app/src/debug/AndroidManifest.xml:5:22-75

@@ -2,19 +2,19 @@ import { createAppContainer } from "react-navigation";
 import { createStackNavigator } from 'react-navigation-stack';
 
 // Components
-import LogInComponent from "../UI/LogIn/LogInComponent";
+import UserProfileComponent from "../UI/UserProfile/UserProfileComponent";
 
 const ProfileStack = createStackNavigator(
   {
-    AdoptionView: {
-      screen: LogInComponent,
+    Profile: {
+      screen: UserProfileComponent,
       navigationOptions: {
-        header: null, //Para no poner la barra superior
+        header: null,
       }
     },
   },
   {
-    initialRouteName: "AdoptionView"
+    initialRouteName: "Profile"
   }
 );
 
