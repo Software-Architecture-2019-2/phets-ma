@@ -3,7 +3,8 @@ import LocalizedStrings from 'localized-strings';
 let strings = new LocalizedStrings({
   en:{
     register_title:"Register",
-    name: "Name",
+    first_name: "First Name",
+    last_name: "Last Name",
     username: "Username",
     email:"Email",
     login: "Login",
@@ -11,11 +12,13 @@ let strings = new LocalizedStrings({
     confirm_password: "Confirm password",
     register:"Register",
     country: "Country",
-    city: "City"
+    city: "City",
+    passwords_dont_match: "Passwords don't match"
   },
   es: {
     register_title:"Registrarse",
-    name: "Nombre",
+    first_name: "Nombre",
+    last_name: "Apellido",
     username: "Nombre de usuario",
     email:"Email",
     login: "Iniciar Sesión",
@@ -23,7 +26,8 @@ let strings = new LocalizedStrings({
     confirm_password: "Confirmar contraseña",
     register:"Registrarse",
     country: "País",
-    city: "Ciudad"
+    city: "Ciudad",
+    passwords_dont_match: "Las contraseñas no coinciden"
   }},
 );
 

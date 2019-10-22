@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 
-import SignUpScreen from "./SignUpScreen"
+import SignUpScreen from "./SignUpScreen";
+import { registerService } from "../../services/UserServices";
 
 class SignUpComponent extends Component{
   constructor(props){
@@ -18,10 +19,14 @@ class SignUpComponent extends Component{
     this.props.navigation.navigate("LogInView");
   }
 
+  async tryRegister(user){
+    var response = await registerService(user);
+  }
+
   render(){
     return(
       <SignUpScreen 
-        changeToLobby = {() => this.changeToLobby()}
+        tryRegister = {(user) => this.tryRegister(user)}
         chageToLogIn = {() => this.chageToLogIn()}
       />
     )

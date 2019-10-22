@@ -1,27 +1,44 @@
 import { login_address, countries } from "./address";
+import { request } from 'graphql-request';
 
 function loginService(user) {
 
-    console.log(user.username);
-    console.log(user.password);
-    const b = `
-    mutation{
+    const b = `mutation {
         login(credentials: {username: "${user.username}", password: "${user.password}"}){
             token
         }
-    }`;
+      }`;
 
-    const requestOptions = {
-      method: "POST",
-      body: b
-    };
-  
-    return fetch(login_address, requestOptions)
-        .then(handleResponse)
-        .then(response => {
-            console.log(response);
-            return response;
-         });
+    return request(login_address, b)
+    .then(data => {
+      return data.login.token;
+    })
+    .catch(error => {
+      console.log("error");
+      return null;
+    });
+}
+
+function registerService(user) {
+
+  const b = `
+  mutation {
+    register(user: {firstName: "${user.firstName}", lastName: "${user.lastName}", username: "${user.username}", email: "${user.email}", password: "${user.password}"}){
+      firstName,
+      lastName,
+      username,
+      email
+    }
+  }`;
+
+  return request(login_address, b)
+  .then(data => {
+    return data;
+  })
+  .catch(error => {
+    console.log(error);
+    return null;
+  });
 }
 
 function handleResponse(response) {
@@ -37,4 +54,4 @@ function handleResponse(response) {
     });
   }
 
-export { loginService };
+export { loginService, registerService };
