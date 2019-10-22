@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 
+import { loginService } from "../../services/UserServices";
 import LogInScreen from "./LoginScreen"
+import login from "../../services/UserServices";
 
 class LogInComponent extends Component{
   constructor(props){
@@ -18,10 +20,15 @@ class LogInComponent extends Component{
     this.props.navigation.navigate("SignUpView");
   }
 
+  async tryLogin(user){
+    var response = await loginService(user);
+    console.log(response);
+  }
+
   render(){
     return(
       <LogInScreen 
-       changeToLobby = {() => this.changeToLobby()}
+       tryLogin = {(user) => this.tryLogin(user)}
        changeToSignUp = {() => this.changeToSignUp()}
       />
     )

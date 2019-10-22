@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { View, StyleSheet, ScrollView, Text, Dimensions} from "react-native";
 
 import { Button, Input} from 'react-native-elements';
+import {strings} from './strings';
 
 const {height, width} = Dimensions.get('window');
 
@@ -18,39 +19,51 @@ class SignUpScreen extends Component{
       <View style={styles.Background}>
         <ScrollView>
           <View style={styles.Superior}>
-            <Text style={styles.Titles}>Registrarse</Text>
+            <Text style={styles.Titles}>{strings.register_title}</Text>
           </View>
           <View style={styles.Body}>
             <Input
-              placeholder='Name'
+              placeholder= {strings.name}
             />
             <Input
               inputStyle={{marginTop: 20}}
-              placeholder='Email'
+              placeholder= {strings.username}
             />
             <Input
               inputStyle={{marginTop: 20}}
-              placeholder='Password'
+              placeholder= {strings.email}
+            />
+            <Input
+              inputStyle={{marginTop: 20}}
+              placeholder= {strings.password}
               secureTextEntry={true}
             />
             <Input
               inputStyle={{marginTop: 20}}
-              placeholder='Confirm password'
+              placeholder= {strings.confirm_password}
               secureTextEntry={true}
+            />
+            <Input
+              inputStyle={{marginTop: 20}}
+              placeholder= {strings.country}
+            />
+            <Input
+              inputStyle={{marginTop: 20}}
+              placeholder= {strings.city}
             />
             <View style={{paddingLeft: 75, paddingRight: 75, marginTop:20}}>
               <Button
                 onPress={() => this.props.changeToLobby()}
-                buttonStyle={{marginTop: 20, backgroundColor: '#CD0B25'}}
-                title="Registrarse"
+                buttonStyle={{marginTop: 20, backgroundColor: '#77A6F7'}}
+                title= {strings.register_title}
               />
             </View>
             <View>
               <Button
               onPress={() => this.props.chageToLogIn()}
                 buttonStyle={{marginTop: 20}}
-                titleStyle={{color: '#CD0B25'}}
-                title="Iniciar Sesión"
+                titleStyle={{color: '#77A6F7'}}
+                title= {strings.login}
                 type="clear"
               />
             </View>
@@ -64,10 +77,10 @@ class SignUpScreen extends Component{
 const styles = StyleSheet.create({
   Background: {
     flex: 1,
-    backgroundColor: "#CD0B25"
+    backgroundColor: "#77A6F7"
   },
   Superior: {
-    height: height*0.3,
+    height: height*0.15,
     justifyContent: 'center',
     alignItems: "center",
   },

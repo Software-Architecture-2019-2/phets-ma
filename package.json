@@ -11,6 +11,7 @@
     "postinstall": "jetifier -r"
   },
   "dependencies": {
+    "localized-strings": "^0.2.3",
     "react": "16.9.0",
     "react-native": "0.61.2",
     "react-native-elements": "^1.2.6",

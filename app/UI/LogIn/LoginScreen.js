@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { View, StyleSheet, ScrollView, Text, Dimensions} from "react-native";
 
 import { Button, Input} from 'react-native-elements';
+import {strings} from './strings';
 
 const {height, width} = Dimensions.get('window');
 
@@ -9,8 +10,30 @@ class LogInScreen extends Component{
   constructor(props){
     super(props);
     this.state = {
-
+      username: "",
+      password: "",
+      submitted: false,
+      correct: false
     }
+  }
+
+  handleSubmit(){
+
+    var user = {
+      username: this.state.username,
+      password: this.state.password
+    };
+
+    this.setState({
+      submitted: true,
+      correct: user.username.length != 0 && user.password.length != 0
+    });
+
+    if(this.state.submitted && !this.state.correct){
+      return;
+    }
+
+    this.props.tryLogin(user);
   }
 
   render(){
@@ -18,30 +41,38 @@ class LogInScreen extends Component{
       <View style={styles.Background}>
         <ScrollView>
           <View style={styles.Superior}>
-            <Text style={styles.Titles}>Iniciar Sesión</Text>
+            <Text style={styles.Titles}>{strings.login_title}</Text>
           </View>
           <View style={styles.Body}>
            <Input
-              placeholder='Email'
+              name="username"
+              placeholder={strings.username}
+              onChangeText={(username) => this.setState({username})}
+              value={this.state.username}
             />
             <Input
+              name="password"
               inputStyle={{marginTop: 20}}
-              placeholder='Password'
+              placeholder= {strings.password}
               secureTextEntry={true}
+              onChangeText={(password) => this.setState({password})}
+              value={this.state.password}
             />
+            {this.state.submitted && !this.state.correct &&
+            <Text style={{paddingLeft: 5, paddingRight: 5, marginTop:20, color:"red"}}>{strings.fill_all}</Text>}
             <View style={{paddingLeft: 75, paddingRight: 75, marginTop:20}}>
               <Button
-                onPress={() => this.props.changeToLobby()}
-                buttonStyle={{marginTop: 20, backgroundColor: '#CD0B25'}}
-                title="Ingresar"
+                onPress={() => this.handleSubmit()}
+                buttonStyle={{marginTop: 20, backgroundColor: '#77A6F7'}}
+                title= {strings.login}
               />
             </View>
             <View>
               <Button
               onPress={() => this.props.changeToSignUp()}
                 buttonStyle={{marginTop: 20}}
-                titleStyle={{color: '#CD0B25'}}
-                title="Registrarse"
+                titleStyle={{color: '#77A6F7'}}
+                title= {strings.register}
                 type="clear"
               />
             </View>
@@ -55,7 +86,7 @@ class LogInScreen extends Component{
 const styles = StyleSheet.create({
   Background: {
     flex: 1,
-    backgroundColor: "#CD0B25"
+    backgroundColor: "#77A6F7"
   },
   Superior: {
     height: height*0.3,
