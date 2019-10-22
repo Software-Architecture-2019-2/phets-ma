@@ -13,7 +13,7 @@ import MessagesTab from "./MessagesStack";
 import AdoptionTab from "./AdoptionStack";
 
 TinderTab.navigationOptions = {
-  tabBarLabel: 'Tinder',
+  tabBarLabel: 'Phets',
 };
 
 ProfileTab.navigationOptions = {
@@ -42,7 +42,7 @@ const MainStack = createBottomTabNavigator(
     defaultNavigationOptions: ({ navigation }) => ({
       tabBarIcon: ({ focused, horizontal, tintColor }) => {
         const { routeName } = navigation.state;
-        if (routeName === 'Tinder') {
+        if (routeName === 'Phets') {
           return (
             <FontAwesomeIcon icon={faClone} size={20} color={"black"} />
           );
