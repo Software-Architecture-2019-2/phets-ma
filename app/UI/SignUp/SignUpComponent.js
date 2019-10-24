@@ -21,6 +21,14 @@ class SignUpComponent extends Component{
 
   async tryRegister(user){
     var response = await registerService(user);
+    console.log(response);
+    if(response != null){
+      var credentials = {username: user.username, password: user.password};
+      var token = await loginService(credentials);
+      if(token != null){
+        this.changeToLobby();
+      }
+    }
   }
 
   render(){

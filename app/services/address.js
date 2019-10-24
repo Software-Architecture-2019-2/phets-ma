@@ -1,4 +1,4 @@
-const ip = "10.203.181.222";
+const ip = "192.168.0.8";
 const port = "4000";
 
 export const login_address = `http://${ip}:${port}/graphql`;

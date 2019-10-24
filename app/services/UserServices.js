@@ -14,7 +14,7 @@ function loginService(user) {
       return data.login.token;
     })
     .catch(error => {
-      console.log("error");
+      console.log("Error: " + error);
       return null;
     });
 }
@@ -36,7 +36,7 @@ function registerService(user) {
     return data;
   })
   .catch(error => {
-    console.log(error);
+    console.log("Error: " + error);
     return null;
   });
 }

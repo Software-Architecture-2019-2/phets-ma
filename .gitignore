@@ -40,18 +40,27 @@ buck-out
 .watchmanconfig
 
 # Android
+build/
 .idea
 .gradle
 local.properties
 *.iml
-/android/
+*.apk
 
 # Node
 node_modules
+npm-debug.log
+yarn-error.log
 *.log
 .nvm
 /bots/node_modules/
 package-lock.json
+
+# BUCK
+buck-out/
+\.buckd/
+*.keystore
+!debug.keystore
 
 # OS X
 .DS_Store
