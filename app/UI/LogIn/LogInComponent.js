@@ -1,8 +1,9 @@
 import React, { Component } from "react";
-
 import { loginService } from "../../services/UserServices";
 import LogInScreen from "./LoginScreen"
-import login from "../../services/UserServices";
+// import login from "../../services/UserServices";
+import { connect } from "react-redux";
+import { userActions } from "../../redux/actions/UserActions";
 
 class LogInComponent extends Component{
   constructor(props){
@@ -21,11 +22,15 @@ class LogInComponent extends Component{
   }
 
   async tryLogin(user){
-    var response = await loginService(user);
-    console.log(response);
-    if(response != null){
-      this.changeToLobby();
-    }
+    const { dispatch } = this.props;
+    dispatch(userActions.login(user.username, user.password));
+
+    // var response = await loginService(user);
+    // console.log(response);
+    // if(response != null){
+    //   this.changeToLobby();
+      
+    // }
   }
 
   render(){
@@ -38,4 +43,11 @@ class LogInComponent extends Component{
   }
 }
 
-export default LogInComponent;
+function mapStateToProps(state) {
+  const user = state.user;
+  return {
+    user
+  };
+}
+const connectedLoginComponent = connect(mapStateToProps)(LogInComponent);
+export default connectedLoginComponent;
