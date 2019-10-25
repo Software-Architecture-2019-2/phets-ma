@@ -10,6 +10,11 @@ class PhetsInitialComponent extends Component{
     }
   }
 
+  onSwiped(type){
+    console.log(`on swiped ${type}`)
+    
+  }
+
   changeToBack(){
     this.props.navigation.popToTop();
   }
@@ -18,6 +23,7 @@ class PhetsInitialComponent extends Component{
     return(
       <PhetsInitialScreen 
        changeToBack = {() => this.changeToBack()}
+       onSwiped = {type => this.onSwiped(type)}
       />
     )
   }

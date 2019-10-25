@@ -42,7 +42,7 @@ const MainStack = createBottomTabNavigator(
     defaultNavigationOptions: ({ navigation }) => ({
       tabBarIcon: ({ focused, horizontal, tintColor }) => {
         const { routeName } = navigation.state;
-        if (routeName === 'Phets') {
+        if (routeName === 'Tinder') {
           return (
             <FontAwesomeIcon icon={faClone} size={20} color={"black"} />
           );
