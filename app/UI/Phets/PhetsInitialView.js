@@ -12,7 +12,7 @@ class PhetsInitialScreen extends Component{
   constructor(props){
     super(props);
     this.state = {
-      modalVisible: false,
+
     }
   }
     
@@ -27,7 +27,7 @@ class PhetsInitialScreen extends Component{
           onSwipedRight={() => this.props.onSwiped('right')}
           ref={swiper => (this.swiper = swiper)}
         >
-          {Demo.map((item, index) => (
+          {this.props.getAnimals().map((item, index) => (
             <View style={styles.containerCardItem}>
               <Image source={item.image} style={styles.imageStyle} />
               <Text style={styles.nameStyle}>{item.name}</Text>
@@ -43,19 +43,6 @@ class PhetsInitialScreen extends Component{
             </View>
           ))}
         </CardStack>
-        <Modal
-          transparent={false}
-          visible={this.state.modalVisible}>
-          <View style={ styles.initialLike }>
-            <Text style={this.setState.modalVisible ? styles.Like : styles.initialLike }>hola</Text>
-            <View style={{alignItems: 'center', marginTop: height*0.1}}>
-              <FontAwesomeIcon icon={ faHeart } size = { width*0.35 } color = {'red'} onPress={() => onPressRight()}/>
-            </View>
-            <View style={{alignItems: 'center', marginTop: height*0.01}}>
-              <Text style={{fontSize: 50}}>LIKE</Text>
-            </View>
-          </View>
-        </Modal>
       </View>
     );
   }
