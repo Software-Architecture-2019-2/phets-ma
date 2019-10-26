@@ -1,26 +1,43 @@
-import { handleResponse, API_GATEWAY_URI } from './utils';
+import { request } from 'graphql-request';
+import { API_GATEWAY_URI } from './utils'
 
 function loginService(user) {
 
-  console.log(user.username);
-  console.log(user.password);
-  const b = `
-    mutation{
+  const b = `mutation {
         login(credentials: {username: "${user.username}", password: "${user.password}"}){
             token
         }
-    }`;
+      }`;
 
-  const requestOptions = {
-    method: "POST",
-    body: b
-  };
+  return request(API_GATEWAY_URI, b)
+    .then(data => {
+      return data.login.token;
+    })
+    .catch(error => {
+      console.log("Error: " + error);
+      return null;
+    });
+}
 
-  return fetch(API_GATEWAY_URI, requestOptions)
-    .then(handleResponse)
-    .then(response => {
-      console.log(response);
-      return response;
+function registerService(user) {
+
+  const b = `
+  mutation {
+    register(user: {firstName: "${user.firstName}", lastName: "${user.lastName}", username: "${user.username}", email: "${user.email}", password: "${user.password}"}){
+      firstName,
+      lastName,
+      username,
+      email
+    }
+  }`;
+
+  return request(API_GATEWAY_URI, b)
+    .then(data => {
+      return data;
+    })
+    .catch(error => {
+      console.log("Error: " + error);
+      return null;
     });
 }
 
@@ -159,4 +176,4 @@ function sendRequest(request) {
     });
 }
 
-export { loginService };
+export { loginService, registerService };

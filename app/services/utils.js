@@ -1,8 +1,8 @@
 const ip = "192.168.1.55";
-const port = "4000";
+const API_GATEWAY_PORT = "4000";
 const FILE_MS_PORT = '4007';
 
-export const API_GATEWAY_URI = `http://${ip}:${port}/graphql`;
+export const API_GATEWAY_URI = `http://${ip}:${API_GATEWAY_PORT}/graphql`;
 export const FILES_MS_URI = `http://${ip}:${FILE_MS_PORT}/file`;
 
 export function handleResponse(response) {

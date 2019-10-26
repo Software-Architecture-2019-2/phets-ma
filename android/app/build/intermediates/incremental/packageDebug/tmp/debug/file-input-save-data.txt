@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Mon Oct 21 22:41:22 COT 2019
+#Sat Oct 26 15:57:52 COT 2019
 56.path=lib/x86/libnative-filters.so
 5.base=/home/cristian/Desktop/UNAL/2019-II/Arquitectura/Project/phets-ma/android/app/build/intermediates/transforms/mergeJniLibs/debug/0
 42.base=/home/cristian/Desktop/UNAL/2019-II/Arquitectura/Project/phets-ma/android/app/build/intermediates/transforms/mergeJniLibs/debug/0

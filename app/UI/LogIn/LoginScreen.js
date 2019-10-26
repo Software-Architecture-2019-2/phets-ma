@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { View, StyleSheet, ScrollView, Text, Dimensions} from "react-native";
 
 import { Button, Input} from 'react-native-elements';
-import {strings} from './strings';
+import {strings} from './LoginStrings';
 
 const {height, width} = Dimensions.get('window');
 

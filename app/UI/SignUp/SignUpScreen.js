@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { View, StyleSheet, ScrollView, Text, Dimensions} from "react-native";
 
 import { Button, Input} from 'react-native-elements';
-import {strings} from './strings';
+import {strings} from './SignUpStrings';
 
 const {height, width} = Dimensions.get('window');
 
@@ -10,8 +10,37 @@ class SignUpScreen extends Component{
   constructor(props){
     super(props);
     this.state = {
-
+      firstName: "",
+      lastName: "",
+      email: "",
+      username: "",
+      password: "",
+      confirmPassword: "",
+      submitted: false,
+      correct: false
     }
+  }
+
+  handleSubmit(){
+
+    this.setState({
+      submitted: true,
+      correct: this.state.password != "" && (this.state.password == this.state.confirmPassword)
+    });
+
+    var user = {
+      firstName: this.state.firstName,
+      lastName: this.state.lastName,
+      username: this.state.username,
+      password: this.state.password,
+      email: this.state.email
+    };
+
+    if(this.state.submitted && !this.state.correct){
+      return;
+    }
+
+    this.props.tryRegister(user);
   }
 
   render(){
@@ -23,37 +52,47 @@ class SignUpScreen extends Component{
           </View>
           <View style={styles.Body}>
             <Input
-              placeholder= {strings.name}
+              placeholder= {strings.first_name}
+              onChangeText={(firstName) => this.setState({firstName})}
+              value={this.state.firstName}
+            />
+            <Input
+              inputStyle={{marginTop: 20}}
+              placeholder= {strings.last_name}
+              onChangeText={(lastName) => this.setState({lastName})}
+              value={this.state.lastName}
             />
             <Input
               inputStyle={{marginTop: 20}}
               placeholder= {strings.username}
+              onChangeText={(username) => this.setState({username})}
+              value={this.state.username}
             />
             <Input
               inputStyle={{marginTop: 20}}
               placeholder= {strings.email}
+              onChangeText={(email) => this.setState({email})}
+              value={this.state.email}
             />
             <Input
               inputStyle={{marginTop: 20}}
               placeholder= {strings.password}
               secureTextEntry={true}
+              onChangeText={(password) => this.setState({password})}
+              value={this.state.password}
             />
             <Input
               inputStyle={{marginTop: 20}}
               placeholder= {strings.confirm_password}
               secureTextEntry={true}
+              onChangeText={(confirmPassword) => this.setState({confirmPassword})}
+              value={this.state.confirmPassword}
             />
-            <Input
-              inputStyle={{marginTop: 20}}
-              placeholder= {strings.country}
-            />
-            <Input
-              inputStyle={{marginTop: 20}}
-              placeholder= {strings.city}
-            />
+            {this.state.submitted && !this.state.correct &&
+            <Text style={{paddingLeft: 5, paddingRight: 5, marginTop:20, color:"red"}}>{strings.passwords_dont_match}</Text>}
             <View style={{paddingLeft: 75, paddingRight: 75, marginTop:20}}>
               <Button
-                onPress={() => this.props.changeToLobby()}
+                onPress={() => this.handleSubmit()}
                 buttonStyle={{marginTop: 20, backgroundColor: '#77A6F7'}}
                 title= {strings.register_title}
               />
@@ -80,7 +119,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#77A6F7"
   },
   Superior: {
-    height: height*0.15,
+    height: height*0.2,
     justifyContent: 'center',
     alignItems: "center",
   },

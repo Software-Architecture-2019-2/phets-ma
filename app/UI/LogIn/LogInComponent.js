@@ -23,6 +23,9 @@ class LogInComponent extends Component{
   async tryLogin(user){
     var response = await loginService(user);
     console.log(response);
+    if(response != null){
+      this.changeToLobby();
+    }
   }
 
   render(){
