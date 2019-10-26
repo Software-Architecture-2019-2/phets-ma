@@ -23,14 +23,22 @@ class LogInComponent extends Component{
 
   async tryLogin(user){
     const { dispatch } = this.props;
-    dispatch(userActions.login(user.username, user.password));
+    dispatch(userActions.login_request(user));
 
-    // var response = await loginService(user);
-    // console.log(response);
-    // if(response != null){
-    //   this.changeToLobby();
-      
-    // }
+    loginService(user).then(
+      response => {
+          console.log(response);
+          const user = {
+              token: response
+          };
+          dispatch(userActions.login(true, user, null));
+          this.changeToLobby();
+      },
+      error => {
+          console.log("ERROR: " + error);
+          dispatch(userActions.login(false, null, null));
+      }
+    );
   }
 
   render(){

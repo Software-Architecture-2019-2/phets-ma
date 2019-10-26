@@ -2,6 +2,9 @@ import React, { Component } from "react";
 
 import SignUpScreen from "./SignUpScreen";
 import { registerService } from "../../services/UserServices";
+import { connect } from "react-redux";
+import { userActions } from "../../redux/actions/UserActions";
+import { loginService } from "../../services/UserServices";
 
 class SignUpComponent extends Component{
   constructor(props){
@@ -20,15 +23,21 @@ class SignUpComponent extends Component{
   }
 
   async tryRegister(user){
-    var response = await registerService(user);
-    console.log(response);
-    if(response != null){
-      var credentials = {username: user.username, password: user.password};
-      var token = await loginService(credentials);
-      if(token != null){
-        this.changeToLobby();
+    const { dispatch } = this.props;
+    dispatch(userActions.register_request(user));
+
+    registerService(user).then(
+      response => {
+          console.log(response);
+          const user = response.register;
+          dispatch(userActions.register(true, user, null));
+          this.chageToLogIn();
+      },
+      error => {
+          console.log("ERROR: " + error);
+          dispatch(userActions.register(false, null, null));
       }
-    }
+    );
   }
 
   render(){
@@ -41,4 +50,12 @@ class SignUpComponent extends Component{
   }
 }
 
-export default SignUpComponent;
+function mapStateToProps(state) {
+  const user = state.user;
+  return {
+    user
+  };
+}
+
+const connectedSignUpComponent = connect(mapStateToProps)(SignUpComponent);
+export default connectedSignUpComponent;

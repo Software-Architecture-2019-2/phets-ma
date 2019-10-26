@@ -26,7 +26,8 @@ function registerService(user) {
       firstName,
       lastName,
       username,
-      email
+      email,
+      id
     }
   }`;
 
