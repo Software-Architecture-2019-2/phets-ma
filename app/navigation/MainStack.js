@@ -4,7 +4,7 @@ import { createBottomTabNavigator } from 'react-navigation-tabs';
 
 //Importacion de Iconos
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
-import {faClone, faUser, faComments , faHome }from '@fortawesome/free-solid-svg-icons';
+import { faClone, faUser, faComments, faHome } from '@fortawesome/free-solid-svg-icons';
 
 //Componentes
 import TinderTab from "./TinderStack";
@@ -31,13 +31,13 @@ AdoptionTab.navigationOptions = {
 
 const MainStack = createBottomTabNavigator(
   {//RouteConfigs
-    Tinder: TinderTab ,
+    Tinder: TinderTab,
     Profile: ProfileTab,
     Messages: MessagesTab,
     Adoption: AdoptionTab
   },
   {
-    initialRouteName:"Tinder",
+    initialRouteName: "Profile",
     //BottomTabNavigatorConfig
     defaultNavigationOptions: ({ navigation }) => ({
       tabBarIcon: ({ focused, horizontal, tintColor }) => {
@@ -46,11 +46,11 @@ const MainStack = createBottomTabNavigator(
           return (
             <FontAwesomeIcon icon={faClone} size={20} color={"black"} />
           );
-        } else if (routeName === 'Profile'){
+        } else if (routeName === 'Profile') {
           return (
             <FontAwesomeIcon icon={faUser} size={20} color={"black"} />
           );
-        } else if (routeName === 'Messages'){
+        } else if (routeName === 'Messages') {
           return (
             <FontAwesomeIcon icon={faComments} size={20} color={"black"} />
           );
