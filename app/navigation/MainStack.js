@@ -37,7 +37,7 @@ const MainStack = createBottomTabNavigator(
     Adoption: AdoptionTab
   },
   {
-    initialRouteName:"Tinder",
+    initialRouteName: "Messages",
     //BottomTabNavigatorConfig
     defaultNavigationOptions: ({ navigation }) => ({
       tabBarIcon: ({ focused, horizontal, tintColor }) => {
