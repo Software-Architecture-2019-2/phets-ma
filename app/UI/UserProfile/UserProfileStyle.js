@@ -30,7 +30,10 @@ export const ProfileStyles = StyleSheet.create({
         fontSize: 15,
         fontFamily: 'Aller',
     },
-    TextBold: {
+    Bold: {
         fontWeight: 'bold'
+    },
+    Italic: {
+        fontStyle: 'italic'
     }
 });

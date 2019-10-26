@@ -9,6 +9,8 @@ export let UserEditionStrings = new LocalizedStrings({
     country: "Country",
     city: "City",
     save: "Save",
+    pickerDefault: "Choose a country",
+    choosePhotoButton: "Change profile photo"
   },
   es: {
     editProfile: "Editar perfil",
@@ -18,5 +20,7 @@ export let UserEditionStrings = new LocalizedStrings({
     country: "País",
     city: "Ciudad",
     save: "Guardar",
+    pickerDefault: "Elegir país",
+    choosePhotoButton: "Cambiar foto de perfil"
   }
 });

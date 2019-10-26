@@ -10,11 +10,10 @@ export const UserEditionStyles = StyleSheet.create({
     ProfileImage: {
         width: 150,
         height: 150,
-        borderRadius: 150/ 2
+        borderRadius: 150 / 2
     },
     Body: {
         minHeight: height * 0.7,
-        // backgroundColor: '#fff',
         borderTopLeftRadius: 20,
         borderTopRightRadius: 20,
         padding: 20,

@@ -312,6 +312,10 @@
         "source": "/home/cristian/.gradle/caches/transforms-2/files-2.1/ae2352767abece5b26e4db6cf96ded64/res/layout-v21/notification_template_icon_group.xml"
     },
     {
+        "merged": "/home/cristian/Desktop/UNAL/2019-II/Arquitectura/Project/phets-ma/android/app/build/intermediates/res/merged/debug/layout_list_item.xml.flat",
+        "source": "/home/cristian/Desktop/UNAL/2019-II/Arquitectura/Project/phets-ma/node_modules/react-native-image-picker/android/build/intermediates/packaged_res/debug/layout/list_item.xml"
+    },
+    {
         "merged": "/home/cristian/Desktop/UNAL/2019-II/Arquitectura/Project/phets-ma/android/app/build/intermediates/res/merged/debug/drawable_abc_seekbar_track_material.xml.flat",
         "source": "/home/cristian/.gradle/caches/transforms-2/files-2.1/11d0512e0f786a104c6f4673b5c7c4fb/res/drawable/abc_seekbar_track_material.xml"
     },
@@ -1014,6 +1018,10 @@
     {
         "merged": "/home/cristian/Desktop/UNAL/2019-II/Arquitectura/Project/phets-ma/android/app/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4_abc_ic_menu_cut_mtrl_alpha.png.flat",
         "source": "/home/cristian/.gradle/caches/transforms-2/files-2.1/11d0512e0f786a104c6f4673b5c7c4fb/res/drawable-xxxhdpi-v4/abc_ic_menu_cut_mtrl_alpha.png"
+    },
+    {
+        "merged": "/home/cristian/Desktop/UNAL/2019-II/Arquitectura/Project/phets-ma/android/app/build/intermediates/res/merged/debug/xml_provider_paths.xml.flat",
+        "source": "/home/cristian/Desktop/UNAL/2019-II/Arquitectura/Project/phets-ma/node_modules/react-native-image-picker/android/build/intermediates/packaged_res/debug/xml/provider_paths.xml"
     },
     {
         "merged": "/home/cristian/Desktop/UNAL/2019-II/Arquitectura/Project/phets-ma/android/app/build/intermediates/res/merged/debug/drawable-ldrtl-hdpi-v17_abc_ic_menu_cut_mtrl_alpha.png.flat",

@@ -2,33 +2,49 @@ import React, { Component } from "react";
 import { View, ScrollView, Text, Dimensions, ActivityIndicator } from "react-native";
 import { ProfileStyles } from './UserProfileStyle';
 import { Button, Image } from 'react-native-elements';
-import Icon from 'react-native-vector-icons/FontAwesome';
+
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
+import { faPlusCircle } from '@fortawesome/free-solid-svg-icons';
 
 import { PetTabsComponent } from './PetTabsComponent'
-import { UserProfileStrings } from './UserProfileString';
+import { UserProfileStrings } from './UserProfileStrings';
+import { GeneralStyles } from "../../styles/GeneralStyle";
 
 const { height, width } = Dimensions.get('window');
 
-const list = [
-  {
-    name: 'Chris Jackson',
-    avatar_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg',
-    subtitle: 'Vice Chairman'
-  },
-  {
-    name: 'Amy Farha',
-    avatar_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
-    subtitle: 'Vice President'
-  },
-  {
-    name: 'Chris Jackson',
-    avatar_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg',
-    subtitle: 'Vice Chairman'
-  },
-]
 class UserProfileScreen extends Component {
   constructor(props) {
     super(props);
+    this._user = this.props.user;
+  }
+
+  _renderDescription() {
+    if (this._user.description) {
+      return (<Text style={ProfileStyles.Text} h1>{this._user.description}</Text>);
+    } else return null;
+  }
+
+  _renderLocation() {
+    if (this._user.city || this._user.country) {
+      const city = this._user.city;
+      const country = this._user.country;
+      let location = city || '';
+      if (country)
+        location += city ? `, ${country.name}` : country.name;
+      return (
+        <Text
+          style={[ProfileStyles.Text, ProfileStyles.Bold, ProfileStyles.Italic, { fontFamily: 'monospace' }]} h1>
+          {location}
+        </Text>);
+    } else return null;
+  }
+
+  _renderImage() {
+    return <Image
+      source={{ uri: this.props.photoUri() }}
+      style={ProfileStyles.ProfileImage}
+      PlaceholderContent={<ActivityIndicator />}
+    />
   }
 
   render() {
@@ -37,17 +53,13 @@ class UserProfileScreen extends Component {
         <ScrollView>
           <View style={[ProfileStyles.Body, { flex: 1, justifyContent: 'space-between' }]}>
             <View style={{ flexDirection: 'row', minHeight: height / 4, }}>
-              <View style={[{ flexDirection: 'column', justifyContent: 'space-between', maxWidth: width / 2, paddingBottom: 20 }]}>
-                <Text style={[ProfileStyles.Text, ProfileStyles.TextBold]} h1> Pepito perez</Text>
-                <Text style={ProfileStyles.Text}>Soy un apasionado por los animales.Bendecido y afortunado.</Text>
-                <Text style={ProfileStyles.Text}> Bogota - Colombia</Text>
+              <View style={[{ flexDirection: 'column', justifyContent: 'space-between', width: width / 2, paddingBottom: 20 }]}>
+                <Text style={[ProfileStyles.Text, ProfileStyles.Bold, { fontSize: 20 }]} h1>{this._user.firstName} {this._user.lastName}</Text>
+                {this._renderDescription()}
+                {this._renderLocation()}
               </View>
               <View style={{ maxWidth: width / 2 }}>
-                <Image
-                  // source={{ uri: image }}
-                  style={ProfileStyles.ProfileImage}
-                  PlaceholderContent={<ActivityIndicator />}
-                />
+                {this._renderImage()}
               </View>
             </View>
             <View style={{ paddingBottom: 5 }}>
@@ -55,19 +67,18 @@ class UserProfileScreen extends Component {
                 onPress={() => this.props.changeToUserEdition()}
                 type="solid"
                 title={UserProfileStrings.editProfileButton}
+                buttonStyle={GeneralStyles.BlueColor}
               />
             </View>
-            <PetTabsComponent phetsList={list} adoptionList={list} />
-            <View style={{ paddingTop: 0 }}>
-              <Button
+            <PetTabsComponent phetsList={this.props.phets} adoptionList={this.props.adoption} />
+            <View style={{ paddingTop: 10 }}>
+              <Button buttonStyle={[{
+                width: 50, justifyContent: 'center',
+                alignItems: 'center'
+              }, GeneralStyles.BlueColors]}
                 icon={
-                  <Icon
-                    name="arrow-right"
-                    size={15}
-                    color="white"
-                  />
+                  <FontAwesomeIcon icon={faPlusCircle} size={40} color={"white"} />
                 }
-                title={UserProfileStrings.addPetButton}
               />
             </View>
           </View>
