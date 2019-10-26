@@ -13,12 +13,7 @@ const ProfileStack = createStackNavigator(
         header: null,
       }
     },
-    UserEdition: {
-      screen: UserEditionComponent,
-      navigationOptions: {
-        header: null,
-      }
-    },
+    UserEdition: UserEditionComponent,
   },
   {
     initialRouteName: "Profile"

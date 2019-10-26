@@ -4,7 +4,7 @@ import { ProfileStyles } from './UserProfileStyle';
 import { Button, Image } from 'react-native-elements';
 
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
-import { faPlusCircle } from '@fortawesome/free-solid-svg-icons';
+import { faPlus } from '@fortawesome/free-solid-svg-icons';
 
 import { PetTabsComponent } from './PetTabsComponent'
 import { UserProfileStrings } from './UserProfileStrings';
@@ -20,7 +20,7 @@ class UserProfileScreen extends Component {
 
   _renderDescription() {
     if (this._user.description) {
-      return (<Text style={ProfileStyles.Text} h1>{this._user.description}</Text>);
+      return (<Text style={GeneralStyles.Text} h1>{this._user.description}</Text>);
     } else return null;
   }
 
@@ -33,7 +33,7 @@ class UserProfileScreen extends Component {
         location += city ? `, ${country.name}` : country.name;
       return (
         <Text
-          style={[ProfileStyles.Text, ProfileStyles.Bold, ProfileStyles.Italic, { fontFamily: 'monospace' }]} h1>
+          style={[GeneralStyles.Text, GeneralStyles.Bold, GeneralStyles.Italic, { fontFamily: 'monospace' }]} h1>
           {location}
         </Text>);
     } else return null;
@@ -49,12 +49,12 @@ class UserProfileScreen extends Component {
 
   render() {
     return (
-      <View>
+      <View>        
         <ScrollView>
-          <View style={[ProfileStyles.Body, { flex: 1, justifyContent: 'space-between' }]}>
+          <View style={[GeneralStyles.Body, { flex: 1, justifyContent: 'space-between' }]}>
             <View style={{ flexDirection: 'row', minHeight: height / 4, }}>
               <View style={[{ flexDirection: 'column', justifyContent: 'space-between', width: width / 2, paddingBottom: 20 }]}>
-                <Text style={[ProfileStyles.Text, ProfileStyles.Bold, { fontSize: 20 }]} h1>{this._user.firstName} {this._user.lastName}</Text>
+                <Text style={[GeneralStyles.Text, GeneralStyles.Bold, { fontSize: 20 }]} h1>{this._user.firstName} {this._user.lastName}</Text>
                 {this._renderDescription()}
                 {this._renderLocation()}
               </View>
@@ -71,14 +71,15 @@ class UserProfileScreen extends Component {
               />
             </View>
             <PetTabsComponent phetsList={this.props.phets} adoptionList={this.props.adoption} />
-            <View style={{ paddingTop: 10 }}>
-              <Button buttonStyle={[{
-                width: 50, justifyContent: 'center',
-                alignItems: 'center'
-              }, GeneralStyles.BlueColors]}
+            <View style={{
+              justifyContent: 'center',
+              alignItems: 'center',
+            }}>
+              <Button buttonStyle={{ width: 40 }}
                 icon={
-                  <FontAwesomeIcon icon={faPlusCircle} size={40} color={"white"} />
+                  <FontAwesomeIcon icon={faPlus} size={40} color={"#77A6F7"} />
                 }
+                type="clear"
               />
             </View>
           </View>

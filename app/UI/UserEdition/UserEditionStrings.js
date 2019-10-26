@@ -10,7 +10,14 @@ export let UserEditionStrings = new LocalizedStrings({
     city: "City",
     save: "Save",
     pickerDefault: "Choose a country",
-    choosePhotoButton: "Change profile photo"
+    choosePhotoButton: "Change profile photo",
+    loadingLabel: "Loading...",
+    savingLabel: "Saving...",
+    editProfile: "Edit profile",
+    deleteAccount: "Delete account",
+    deleteAccountMessage: "Are you sure you want to delete your account?",
+    cancelDelete: "Cancel",
+    confirmDelete: "Yes, delete",
   },
   es: {
     editProfile: "Editar perfil",
@@ -21,6 +28,13 @@ export let UserEditionStrings = new LocalizedStrings({
     city: "Ciudad",
     save: "Guardar",
     pickerDefault: "Elegir país",
-    choosePhotoButton: "Cambiar foto de perfil"
+    choosePhotoButton: "Cambiar foto de perfil",
+    loadingLabel: "Cargando...",
+    savingLabel: "Guardando...",
+    editProfile: "Editar perfil",
+    deleteAccount: "Eliminar cuenta",
+    deleteAccountMessage: "Estas seguro de borrar tu cuenta?",
+    cancelDelete: "Cancelar",
+    confirmDelete: "Si, borrar",
   }
 });

@@ -1,10 +1,20 @@
 import React, { Component } from "react";
-import { Text, View } from 'react-native';
+
+import { Alert } from 'react-native'
+import { Button } from 'react-native-elements';
+import Spinner from 'react-native-loading-spinner-overlay';
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
+import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 
 import UserEditionScreen from "./UserEditionScreen";
-import { getUserByUsernameService, getAllCountriesService, updateUserService } from '../../services/UserServices'
+import {
+  getUserByUsernameService,
+  getAllCountriesService,
+  updateUserService
+} from '../../services/UserServices'
 import { uploadFile } from '../../services/FileServices'
 import { FILES_MS_URI } from '../../services/utils'
+import { UserEditionStrings } from "./UserEditionStrings";
 
 export default class UserEditionComponent extends Component {
   constructor(props) {
@@ -12,8 +22,35 @@ export default class UserEditionComponent extends Component {
     this.state = {
       user: null,
       countries: null,
-      uploadedPhoto: ''
+      uploadedPhoto: '',
     }
+  }
+
+  static navigationOptions = {
+    title: UserEditionStrings.editProfile,
+    headerRight: <Button buttonStyle={{ width: 30 }}
+      icon={
+        <FontAwesomeIcon icon={faTrashAlt} size={30} color={"#77A6F7"} />
+      }
+      type="clear"
+      onPress={() => this.handleOnDelete()}
+    />
+  }
+
+  static handleOnDelete = () => {
+    Alert.alert(
+      UserEditionStrings.deleteAccount,
+      UserEditionStrings.deleteAccountMessage,
+      [
+        {
+          text: UserEditionStrings.cancelDelete,
+          onPress: () => console.log('Cancel Pressed'),
+          style: 'cancel',
+        },
+        { text: UserEditionStrings.confirmDelete, onPress: () => console.log('Account deleted') },
+      ],
+      { cancelable: false },
+    );
   }
 
   componentDidMount() {
@@ -66,10 +103,11 @@ export default class UserEditionComponent extends Component {
         />
       )
     } else {
-      return (
-        <View>
-          <Text>Loading...</Text>
-        </View>)
+      return <Spinner
+        visible={true}
+        textContent={UserEditionStrings.loadingLabel}
+        animation='slide'
+      />
     }
   }
 }

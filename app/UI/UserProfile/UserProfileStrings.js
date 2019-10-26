@@ -5,10 +5,12 @@ export let UserProfileStrings = new LocalizedStrings({
     editProfileButton: "Edit profile",
     addPetButton: "Add pet",
     adoptionLabel: "Adoption",
+    loadingLabel: "Loading...",
   },
   es: {
     editProfileButton: "Editar perfil",
     addPetButton: "Agregar mascota",
     adoptionLabel: "Adopción",
+    loadingLabel: "Cargando...",
   }
 });

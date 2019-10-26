@@ -3,6 +3,7 @@ import { View, Dimensions, ActivityIndicator, Picker, ScrollView } from "react-n
 import { Input, Image, Button } from "react-native-elements";
 
 import ImagePicker from 'react-native-image-picker'
+import Spinner from 'react-native-loading-spinner-overlay';
 
 import { UserEditionStyles } from './UserEditionStyle';
 import { UserEditionStrings } from './UserEditionStrings';
@@ -21,8 +22,8 @@ class UserEditionScreen extends Component {
       city: this._user.city,
       photoUri: this.props.photoUri,
       selectedPhoto: undefined,
+      submitting: false,
     }
-    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChoosePhoto = () => {
@@ -70,7 +71,8 @@ class UserEditionScreen extends Component {
     )
   }
 
-  async handleSubmit() {
+  handleSubmit = async () => {
+    this.setState({ submitting: true })
     const userToUpdate = {
       firstName: this.state.firstName,
       lastName: this.state.lastName,
@@ -79,6 +81,7 @@ class UserEditionScreen extends Component {
       password: this._user.password,
       description: this.state.description,
       city: this.state.city,
+      media: this._user.media
     };
 
     userToUpdate.country = this.state.selectedCountryValue !== "-1" ? {
@@ -95,12 +98,16 @@ class UserEditionScreen extends Component {
   render() {
     return (
       <View>
+        <Spinner
+          visible={this.state.submitting}
+          textContent={UserEditionStrings.savingLabel}
+        />
         <ScrollView>
-          <View style={[UserEditionStyles.Body, { flex: 1, justifyContent: 'space-around' }]}>
+          <View style={[GeneralStyles.Body, { flex: 1, justifyContent: 'space-around' }]}>
             <View style={{ maxWidth: Dimensions.get('window').width, alignItems: 'center' }}>
               {this._renderImage()}
               <Button
-                buttonStyle={[GeneralStyles.BlueColor, ]}
+                buttonStyle={[GeneralStyles.BlueColor]}
                 title={UserEditionStrings.choosePhotoButton}
                 onPress={this.handleChoosePhoto}
               />
@@ -133,12 +140,14 @@ class UserEditionScreen extends Component {
                 <Input
                   placeholder={UserEditionStrings.city}
                   label={UserEditionStrings.city}
-                  containerStyle={{ height: 100, width: Dimensions.get('window').width / 2 - 50 }}
+                  containerStyle={{ height: 80, width: Dimensions.get('window').width / 2 - 50 }}
                   onChangeText={(city) => this.setState({ city })}
-                />
+                >
+                  {this.state.city}
+                </Input>
               </View>
             </View>
-            <View style={{ height: 60, paddingTop: 20 }}>
+            <View style={{}}>
               <Button
                 title={UserEditionStrings.save}
                 onPress={this.handleSubmit}

@@ -1,9 +1,10 @@
 import React, { Component } from "react";
+import Spinner from 'react-native-loading-spinner-overlay';
 
-import { Text, View } from 'react-native'
 import UserProfileScreen from "./UserProfileScreen"
 import { getUserByUsernameService, getUserAnimals } from '../../services/UserServices';
 import { FILES_MS_URI } from '../../services/utils';
+import { UserProfileStrings } from "./UserProfileStrings";
 
 export default class UserComponent extends Component {
   constructor(props) {
@@ -12,12 +13,11 @@ export default class UserComponent extends Component {
       user: null,
       animals: null
     }
-    this.getPhotoUri = this.getPhotoUri.bind(this);
   }
 
   componentDidMount() {
-    this.getUser();
-    this.getUserAnimals();
+    this._loadAsyncData();
+    this._registerDidFocusListener()
   }
 
   changeToUserEdition() {
@@ -26,6 +26,19 @@ export default class UserComponent extends Component {
 
   changeToBack() {
     this.props.navigation.popToTop();
+  }
+
+  _registerDidFocusListener() {
+    this.props.navigation.addListener(
+      'didFocus',
+      () => this._loadAsyncData()
+    );
+  }
+
+  _loadAsyncData() {
+    this.setState({ user: null, animals: null });
+    this.getUser();
+    this.getUserAnimals();
   }
 
   getUser() {
@@ -42,7 +55,7 @@ export default class UserComponent extends Component {
     });
   }
 
-  getPhotoUri() {
+  getPhotoUri = () => {
     const defaultImage = 'https://reactnativecode.com/wp-content/uploads/2018/02/Default_Image_Thumbnail.png';
     return this.state.user.media ? `${FILES_MS_URI}/${this.state.user.media}` : defaultImage;
   }
@@ -60,10 +73,10 @@ export default class UserComponent extends Component {
         />
       )
     } else {
-      return (
-        <View>
-          <Text>Loading...</Text>
-        </View>)
+      return <Spinner
+        visible={true}
+        textContent={UserProfileStrings.loadingLabel}
+      />
     }
   }
 }
