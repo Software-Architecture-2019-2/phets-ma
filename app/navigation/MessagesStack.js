@@ -2,19 +2,26 @@ import { createAppContainer } from "react-navigation";
 import { createStackNavigator } from 'react-navigation-stack';
 
 // Components
-import LogInComponent from "../UI/SignUp/SignUpComponent";
+import ChatInitialComponent from "../UI/Chat/ChatInitialComponent";
+import ChatComponent from "../UI/Chat/ChatComponent"
 
 const MessagesStack = createStackNavigator(
   {
-    AdoptionView: {
-      screen: LogInComponent,
+    ChatInitialView: {
+      screen: ChatInitialComponent,
+      navigationOptions: {
+        header: null, //Para no poner la barra superior
+      }
+    },
+    ChatView: {
+      screen: ChatComponent,
       navigationOptions: {
         header: null, //Para no poner la barra superior
       }
     },
   },
   {
-    initialRouteName: "AdoptionView"
+    initialRouteName: "ChatView"
   }
 );
 

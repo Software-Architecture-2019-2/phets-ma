@@ -30,7 +30,7 @@ const InitStack = createStackNavigator(
     }
   },
   {
-    initialRouteName: "LogInView"
+    initialRouteName: "MainStack"
   }
 );
 
