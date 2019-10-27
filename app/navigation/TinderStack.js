@@ -2,12 +2,12 @@ import { createAppContainer } from "react-navigation";
 import { createStackNavigator } from 'react-navigation-stack';
 
 // Components
-import LogInComponent from "../UI/SignUp/SignUpComponent";
+import PhetsInitialComponent from "../UI/Phets/PhetsInitialComponent";
 
 const TinderStack = createStackNavigator(
   {
     AdoptionView: {
-      screen: LogInComponent,
+      screen: PhetsInitialComponent,
       navigationOptions: {
         header: null, //Para no poner la barra superior
       }

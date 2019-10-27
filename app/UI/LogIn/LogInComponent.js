@@ -32,6 +32,7 @@ class LogInComponent extends Component{
               token: response
           };
           dispatch(userActions.login(true, user, null));
+          console.log(this.props.user);
           this.changeToLobby();
       },
       error => {
