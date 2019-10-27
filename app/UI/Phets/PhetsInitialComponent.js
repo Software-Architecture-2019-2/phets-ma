@@ -19,8 +19,7 @@ class PhetsInitialComponent extends Component{
   onSwiped(type){
     /* Se indica para donde se fue la tarjeta si left or right */
     /* Recuperando el like o dislike */
-    console.log(`on swiped ${type}`)
-    console.log(this.state.animals)
+    
     
   }
 

@@ -21,7 +21,7 @@ const MessagesStack = createStackNavigator(
     },
   },
   {
-    initialRouteName: "ChatView"
+    initialRouteName: "ChatInitialView"
   }
 );
 
