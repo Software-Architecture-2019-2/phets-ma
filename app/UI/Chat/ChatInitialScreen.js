@@ -2,10 +2,12 @@ import React, { Component } from "react";
 import { View, StyleSheet, ScrollView, Text, Dimensions} from "react-native";
 
 import { Button, Input,  Avatar } from 'react-native-elements';
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
+import {faSearch }from '@fortawesome/free-solid-svg-icons';
 
 const {height, width} = Dimensions.get('window');
 
-class LobbyScreen extends Component{
+class ChatInitialScreen extends Component{
   constructor(props){
     super(props);
     this.state = {
@@ -18,13 +20,18 @@ class LobbyScreen extends Component{
       <View style={styles.Background}>
         <View style={styles.head}>
           <View styles={styles.Container}>
-            <Text style={styles.Titles}>Contactos</Text>
+            <View>
+              <Text style={styles.Titles}>Phets</Text>
+            </View>
+            <View>
+              {/*<FontAwesomeIcon icon={faSearch} size={20} color={"black"} />*/}
+            </View>
           </View>
           <ScrollView horizontal={true} style={styles.scrollH}>
             <View style={styles.MarginRight}>
               <Avatar
                 rounded
-                size={width*0.2}
+                size={width*0.17}
                 source={{
                   uri:
                     'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
@@ -34,7 +41,7 @@ class LobbyScreen extends Component{
             <View style={styles.MarginRight}>
               <Avatar
                 rounded
-                size={width*0.2}
+                size={width*0.17}
                 source={{
                   uri:
                     'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg',
@@ -44,7 +51,7 @@ class LobbyScreen extends Component{
             <View style={styles.MarginRight}>
               <Avatar
                 rounded
-                size={width*0.2}
+                size={width*0.17}
                 source={{
                   uri:
                     'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
@@ -54,7 +61,7 @@ class LobbyScreen extends Component{
             <View style={styles.MarginRight}>
               <Avatar
                 rounded
-                size={width*0.2}
+                size={width*0.17}
                 source={{
                   uri:
                     'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg',
@@ -64,7 +71,7 @@ class LobbyScreen extends Component{
             <View style={styles.MarginRight}>
               <Avatar
                 rounded
-                size={width*0.2}
+                size={width*0.17}
                 source={{
                   uri:
                     'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
@@ -74,7 +81,7 @@ class LobbyScreen extends Component{
             <View style={styles.MarginRight}>
               <Avatar
                 rounded
-                size={width*0.2}
+                size={width*0.17}
                 source={
                   require('../../Images/08.jpg')
                 }
@@ -87,7 +94,7 @@ class LobbyScreen extends Component{
             <View style={styles.Chat}>
               <Avatar
                 rounded
-                size={width*0.2}
+                size={width*0.15}
                 source={{
                   uri:
                     'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
@@ -96,14 +103,14 @@ class LobbyScreen extends Component{
               <View style= {styles.Data}>
                 <View style={styles.BorderBottom}>
                   <Text style={styles.NameChat}>Lady Yurani</Text>
-                  <Text style={styles.TextChat}>Donde vamoas armar la murga mi perro.</Text>
+                  <Text style={styles.TextChat}>Donde vamoas armar la murga mi pe...</Text>
                 </View>
               </View>
             </View>
             <View style={styles.Chat}>
               <Avatar
                 rounded
-                size={width*0.18}
+                size={width*0.15}
                 source={{
                   uri:
                     'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg',
@@ -119,7 +126,7 @@ class LobbyScreen extends Component{
             <View style={styles.Chat}>
               <Avatar
                 rounded
-                size={width*0.18}
+                size={width*0.15}
                 source={{
                   uri:
                     'https://66.media.tumblr.com/0dcc9f67fe31f5bae734f15fa1ad9f59/tumblr_n9mwvn1Zwn1qi5069o1_400.png',
@@ -135,7 +142,7 @@ class LobbyScreen extends Component{
             <View style={styles.Chat}>
               <Avatar
                 rounded
-                size={width*0.2}
+                size={width*0.15}
                 source={{
                   uri:
                     'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
@@ -144,14 +151,14 @@ class LobbyScreen extends Component{
               <View style= {styles.Data}>
                 <View style={styles.BorderBottom}>
                   <Text style={styles.NameChat}>Lady Yurani</Text>
-                  <Text style={styles.TextChat}>Donde vamoas armar la murga mi perro.</Text>
+                  <Text style={styles.TextChat}>Donde vamoas armar la murga mi pe...</Text>
                 </View>
               </View>
             </View>
             <View style={styles.Chat}>
               <Avatar
                 rounded
-                size={width*0.18}
+                size={width*0.15}
                 source={{
                   uri:
                     'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg',
@@ -167,7 +174,7 @@ class LobbyScreen extends Component{
             <View style={styles.Chat}>
               <Avatar
                 rounded
-                size={width*0.18}
+                size={width*0.15}
                 source={{
                   uri:
                     'https://66.media.tumblr.com/0dcc9f67fe31f5bae734f15fa1ad9f59/tumblr_n9mwvn1Zwn1qi5069o1_400.png',
@@ -193,8 +200,9 @@ const styles = StyleSheet.create({
     backgroundColor: "#FFCCBC",
   },
   Container: {
-    paddingLeft: 15,
-    paddingTop: 15,
+    padding: 15,
+    paddingBottom: 0,
+    flexDirection: "row",
   },
   Superior: {
     height: height*0.3,
@@ -229,18 +237,19 @@ const styles = StyleSheet.create({
   },
   scrollH: {
     paddingLeft: 20,
-    paddingTop: width*0.05/2
+    paddingTop: width*0.16/2
   },
   Chat: {
     flexDirection: "row", 
-    marginTop: 30
+    marginTop: 15
   },
   Data: {
     paddingLeft: 25,
   },
   NameChat: {
-    fontSize: width*0.05,
-    marginTop: 10
+    fontSize: width*0.04,
+    fontWeight:"bold",
+    marginTop: 5
   },
   TextChat: {
     color: "gray",
@@ -255,4 +264,4 @@ const styles = StyleSheet.create({
 
 })
 
-export default LobbyScreen;
+export default ChatInitialScreen;

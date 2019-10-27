@@ -37,7 +37,7 @@ const MainStack = createBottomTabNavigator(
     Adoption: AdoptionTab
   },
   {
-    initialRouteName: "Messages",
+    initialRouteName: "Adoption",
     //BottomTabNavigatorConfig
     defaultNavigationOptions: ({ navigation }) => ({
       tabBarIcon: ({ focused, horizontal, tintColor }) => {
