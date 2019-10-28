@@ -84,6 +84,7 @@ export function getUserAnimals(username, callbackService) {
       adoption,
       birthdate,
       animal_type{
+        id,
         value
       },
       media

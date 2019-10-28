@@ -1,5 +1,11 @@
 import React, { Component } from "react";
-import { View, ScrollView, Text, Dimensions, ActivityIndicator } from "react-native";
+import {
+  View,
+  ScrollView,
+  Text,
+  Dimensions,
+  ActivityIndicator
+} from "react-native";
 import { ProfileStyles } from './UserProfileStyle';
 import { Button, Image } from 'react-native-elements';
 
@@ -49,7 +55,7 @@ class UserProfileScreen extends Component {
 
   render() {
     return (
-      <View>        
+      <View>
         <ScrollView>
           <View style={[GeneralStyles.Body, { flex: 1, justifyContent: 'space-between' }]}>
             <View style={{ flexDirection: 'row', minHeight: height / 4, }}>
@@ -70,16 +76,21 @@ class UserProfileScreen extends Component {
                 buttonStyle={GeneralStyles.BlueColor}
               />
             </View>
-            <PetTabsComponent phetsList={this.props.phets} adoptionList={this.props.adoption} />
+            <PetTabsComponent
+              phetsList={this.props.phets}
+              adoptionList={this.props.adoption}
+              navigateToEditAnimal={(data) => this.props.navigateToAnimalForm(data)}
+            />
             <View style={{
               justifyContent: 'center',
               alignItems: 'center',
             }}>
-              <Button buttonStyle={{ width: 40 }}
+              <Button buttonStyle={{ width: 35, paddingTop:5 }}
                 icon={
-                  <FontAwesomeIcon icon={faPlus} size={40} color={"#77A6F7"} />
+                  <FontAwesomeIcon icon={faPlus} size={35} color={"#77A6F7"} />
                 }
                 type="clear"
+                onPress={() => this.props.navigateToAnimalForm({ animal: {}, editionForm: false })}
               />
             </View>
           </View>
