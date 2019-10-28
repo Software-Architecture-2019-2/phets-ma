@@ -1,9 +1,13 @@
 import React, { Component } from "react";
-import { View, ScrollView, Dimensions } from "react-native";
+import { View, ScrollView, Dimensions, TouchableOpacity } from "react-native";
 import { ListItem } from 'react-native-elements';
 import { TabView, SceneMap, TabBar } from 'react-native-tab-view';
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
+import { faChevronRight } from '@fortawesome/free-solid-svg-icons';
 
 import { UserProfileStrings } from './UserProfileStrings';
+import { FILES_MS_URI } from "../../services/utils";
+
 
 export class PetTabsComponent extends Component {
   constructor(props) {
@@ -16,23 +20,37 @@ export class PetTabsComponent extends Component {
       ],
     };
   }
+
+  handleOnPressItem = (animal) => {
+    this.props.navigateToEditAnimal({ animal, editionForm: true });
+  }
+
+  getImageUri(imageId) {
+    return `${FILES_MS_URI}\\${imageId}`;
+  }
+
+  getAnimalItemsList(animals) {
+    return animals.map((animal, index) => {
+      const defaultImage = 'https://reactnativecode.com/wp-content/uploads/2018/02/Default_Image_Thumbnail.png';
+      const photo = animal.media.length ? this.getImageUri(animal.media[0]) : defaultImage;
+
+      return <TouchableOpacity key={animal.id} onPress={() => this.handleOnPressItem(animal)}>
+        <ListItem
+          key={index}
+          leftAvatar={{ source: { uri: photo } }}
+          title={animal.name}
+          subtitle={`${animal.animal_type.value} - ${animal.breed}`}
+          bottomDivider
+          chevron={<FontAwesomeIcon icon={faChevronRight} size={20} color={"#77A6F7"} />}
+        />
+      </TouchableOpacity>
+    })
+  }
+
   phetsRoute = () => (
     <ScrollView>
       <View style={{ flex: 1 }}>
-        {
-          this.props.phetsList.map((phet, index) => {
-            const defaultImage = 'https://reactnativecode.com/wp-content/uploads/2018/02/Default_Image_Thumbnail.png';
-            const photo = phet.media.length ? phet.media[0] : defaultImage;
-            return <ListItem
-              key={index}
-              leftAvatar={{ source: { uri: photo } }}
-              title={phet.name}
-              subtitle={`${phet.animal_type.value} - ${phet.breed}`}
-              bottomDivider
-              chevron
-            />
-          })
-        }
+        {this.getAnimalItemsList(this.props.phetsList)}
       </View>
     </ScrollView>
   );
@@ -40,20 +58,7 @@ export class PetTabsComponent extends Component {
   adoptionRoute = () => (
     <ScrollView>
       <View style={{ flex: 1 }}>
-        {
-          this.props.adoptionList.map((adoption, index) => {
-            const defaultImage = 'https://reactnativecode.com/wp-content/uploads/2018/02/Default_Image_Thumbnail.png';
-            const photo = adoption.media.length ? adoption.media[0] : defaultImage;
-            return <ListItem
-              key={index}
-              leftAvatar={{ source: { uri: photo } }}
-              title={adoption.name}
-              subtitle={`${adoption.animal_type.value} - ${adoption.breed}`}
-              bottomDivider
-              chevron
-            />
-          })
-        }
+        {this.getAnimalItemsList(this.props.adoptionList)}
       </View>
     </ScrollView>
   );

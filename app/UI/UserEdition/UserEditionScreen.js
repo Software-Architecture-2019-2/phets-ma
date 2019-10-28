@@ -28,13 +28,13 @@ class UserEditionScreen extends Component {
 
   handleChoosePhoto = () => {
     const options = {
-      title: 'Select Avatar',
+      title: UserEditionStrings.profilePhotoMsg,
       storageOptions: {
         skipBackup: true,
         path: 'images',
       },
     };
-    ImagePicker.launchImageLibrary(options, response => {
+    ImagePicker.showImagePicker(options, response => {
       if (response.uri) {
         this.setState({ photoUri: response.uri, selectedPhoto: response })
       }

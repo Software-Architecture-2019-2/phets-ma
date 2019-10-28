@@ -28,6 +28,10 @@ export default class UserComponent extends Component {
     this.props.navigation.popToTop();
   }
 
+  changeToAnimalForm = (params) => {
+    this.props.navigation.navigate("CreateAnimal", params);
+  }
+
   _registerDidFocusListener() {
     this.props.navigation.addListener(
       'didFocus',
@@ -47,10 +51,22 @@ export default class UserComponent extends Component {
     });
   }
 
+  _sortAnimalList = (a, b) => {
+    if (a.name > b.name) {
+      return 1;
+    }
+    if (a.name < b.name) {
+      return -1;
+    }
+    return 0;
+  }
+
   getUserAnimals() {
     getUserAnimals("crdgonzalezca", (animals) => {
       const phets = animals ? animals.filter(animal => { return !animal.adoption }) : [];
+      phets.sort(this._sortAnimalList);
       const adoption = animals ? animals.filter(animal => { return animal.adoption }) : [];
+      adoption.sort(this._sortAnimalList);
       this.setState({ animals: { phets, adoption } });
     });
   }
@@ -66,6 +82,7 @@ export default class UserComponent extends Component {
         <UserProfileScreen
           changeToBack={() => this.changeToBack()}
           changeToUserEdition={() => this.changeToUserEdition()}
+          navigateToAnimalForm={this.changeToAnimalForm}
           user={this.state.user}
           photoUri={this.getPhotoUri}
           phets={this.state.animals.phets}
