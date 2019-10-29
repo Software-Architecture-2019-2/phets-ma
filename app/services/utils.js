@@ -1,4 +1,4 @@
-const ip = "192.168.1.55";
+const ip = "34.69.178.13";
 const API_GATEWAY_PORT = "4000";
 const FILE_MS_PORT = '4007';
 

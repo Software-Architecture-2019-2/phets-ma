@@ -5,8 +5,9 @@ import UserProfileScreen from "./UserProfileScreen"
 import { getUserByUsernameService, getUserAnimals } from '../../services/UserServices';
 import { FILES_MS_URI } from '../../services/utils';
 import { UserProfileStrings } from "./UserProfileStrings";
+import { connect } from "react-redux";
 
-export default class UserComponent extends Component {
+class UserComponent extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -42,13 +43,15 @@ export default class UserComponent extends Component {
   }
 
   getUser() {
-    getUserByUsernameService("crdgonzalezca", (data) => {
+    getUserByUsernameService(this.props.user.username, (data) => {
       this.setState({ user: data });
     });
   }
 
   getUserAnimals() {
-    getUserAnimals("crdgonzalezca", (animals) => {
+    console.log("USER IS");
+    console.log(this.props.user.username);
+    getUserAnimals(this.props.user.username, (animals) => {
       const phets = animals ? animals.filter(animal => { return !animal.adoption }) : [];
       const adoption = animals ? animals.filter(animal => { return animal.adoption }) : [];
       this.setState({ animals: { phets, adoption } });
@@ -80,3 +83,12 @@ export default class UserComponent extends Component {
     }
   }
 }
+
+function mapStateToProps(state) {
+  const user = state.login.user;
+  return {
+    user
+  };
+}
+const connectedUserComponent = connect(mapStateToProps)(UserComponent);
+export default connectedUserComponent;
