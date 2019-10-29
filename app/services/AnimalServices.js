@@ -66,6 +66,40 @@ export function updateAnimalService(id, animal, callbackService) {
   }
 }
 
+export function getAnimalsService(callbackService) {
+  const query = `query{
+    allAnimals{
+      id
+      user
+      name
+      breed
+      gender
+      adoption
+      birthdate
+      animal_type{
+        id
+        value
+      }
+      media
+      
+    }
+  }`;
+
+  const body = {
+    query
+  }
+  const request = {
+    method: "POST",
+    body: JSON.stringify(body),
+    callback: (data) => callbackService(data.data.allAnimals)
+  };
+  try {
+    sendRequest(request);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
 
 export function getAllAnimalTypesService(callbackService) {
   const query = `query{

@@ -2,6 +2,8 @@ import React, { Component } from "react";
 
 import PhetsInitialScreen from "./PhetsInitialView"
 import Demo from "./Demo";
+import { getAnimalsService } from "../../services/AnimalServices";
+import { uploadFile } from '../../services/FileServices'
 
 class PhetsInitialComponent extends Component{
   constructor(props){
@@ -9,10 +11,11 @@ class PhetsInitialComponent extends Component{
     this.state = {
       /* Se guarda el listado de todos los animales con sus caracteristicas. JSON */
       animals: Demo,
+      animalsData: null,
     }
   }
 
-  getAnimals(){
+  getDataAnimals(){
     return this.state.animals
   }
 
@@ -23,6 +26,16 @@ class PhetsInitialComponent extends Component{
     
   }
 
+  getAllAnimals() {
+    getAnimalsService((data) => {
+      data.map((data) =>{
+        console.log(data.name)
+      })
+      return data
+    });
+  }
+
+
   changeToBack(){
     this.props.navigation.popToTop();
   }
@@ -32,7 +45,8 @@ class PhetsInitialComponent extends Component{
       <PhetsInitialScreen 
        changeToBack = {() => this.changeToBack()}
        onSwiped = {type => this.onSwiped(type)}
-       getAnimals = {() => this.getAnimals()}
+       getAllAnimals = {() => this.getAllAnimals()}
+       getDataAnimals = {() => this.getDataAnimals()}
       />
     )
   }
