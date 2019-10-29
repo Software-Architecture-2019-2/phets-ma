@@ -37,7 +37,7 @@ const MainStack = createBottomTabNavigator(
     Messages: MessagesTab,
   },
   {
-    initialRouteName: "Phets",
+    initialRouteName: "Adoption",
     //BottomTabNavigatorConfig
     defaultNavigationOptions: ({ navigation }) => ({
       tabBarIcon: ({ focused, horizontal, tintColor }) => {

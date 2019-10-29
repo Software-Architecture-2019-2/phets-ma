@@ -66,7 +66,6 @@ export function updateAnimalService(id, animal, callbackService) {
   }
 }
 
-
 export function getAllAnimalTypesService(callbackService) {
   const query = `query{
     allAnimalTypes{
@@ -114,6 +113,73 @@ export function deleteAnimalService(id, callbackService) {
     method: "POST",
     body: JSON.stringify(body),
     callback: (data) => callbackService(data.data.updateAnimal)
+  };
+  try {
+    sendRequest(request);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+export function getAllAnimalsService(callbackService) {
+  const query = `query{
+    allAnimals{
+      id,
+      name,
+      user,
+      breed,
+      gender,
+      adoption,
+      birthdate,
+      animal_type{
+        id,
+        value
+      },
+      media,
+    }
+  }`;
+
+  const body = {
+    query,
+  }
+  const request = {
+    method: "POST",
+    body: JSON.stringify(body),
+    callback: (data) => callbackService(data.data.allAnimals)
+  };
+  try {
+    sendRequest(request);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+export function getAnimalByIDService(id, callbackService) {
+  const query = `query AnimalById($id: Int!){
+    animalById(id: $id){
+      id,
+      name,
+      user,
+      breed,
+      gender,
+      adoption,
+      birthdate,
+      animal_type{
+        id,
+        value
+      },
+      media,      
+    }
+  }`;
+
+  const body = {
+    query,
+    variables: { id }
+  }
+  const request = {
+    method: "POST",
+    body: JSON.stringify(body),
+    callback: (data) => callbackService(data.data.animalById)
   };
   try {
     sendRequest(request);

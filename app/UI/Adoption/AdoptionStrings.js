@@ -1,0 +1,42 @@
+import LocalizedStrings from 'localized-strings';
+
+export let AdoptionStrings = new LocalizedStrings({
+  en: {
+    name: "Name",
+    breed: "Breed",
+    gender: "Gender",
+    adoption: "Adoption",
+    age: "Edad",
+    animalType: "Animal type",
+    pickerDefault: "Choose an animal type",
+    loadingLabel: "Loading...",    
+    title: "Adopt a pet",
+    adopt: "Adopt",
+    male: "Male",
+    female: "Female",
+    years: "Years",
+    months: "Months",
+    days: "days",
+    unknown: "unknown",
+    contact: "Contact",
+  },
+  es: {
+    name: "Name",
+    breed: "Breed",
+    gender: "Gender",
+    adoption: "Adoption",
+    age: "Edad",
+    animalType: "Animal type",
+    pickerDefault: "Choose an animal type",
+    loadingLabel: "Loading...",    
+    title: "Adoptar mascota",
+    adopt: "Adoptar",
+    male: "Male",
+    female: "Female",
+    years: "Años",
+    months: "Meses",
+    days: "Dias",
+    unknown: "Desconocido",
+    contact: "Contactar",
+  }
+});
