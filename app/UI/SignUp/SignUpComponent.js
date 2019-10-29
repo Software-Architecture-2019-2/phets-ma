@@ -31,6 +31,9 @@ class SignUpComponent extends Component{
           console.log(response);
           const user = response.register;
           dispatch(userActions.register(true, user, null));
+          this.setState({
+            user: {}
+          });
           this.chageToLogIn();
       },
       error => {
