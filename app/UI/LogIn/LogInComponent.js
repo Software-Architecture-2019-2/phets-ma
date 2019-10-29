@@ -21,15 +21,16 @@ class LogInComponent extends Component{
     this.props.navigation.navigate("SignUpView");
   }
 
-  async tryLogin(user){
+  async tryLogin(usr){
     const { dispatch } = this.props;
-    dispatch(userActions.login_request(user));
+    dispatch(userActions.login_request(usr));
 
-    loginService(user).then(
+    loginService(usr).then(
       response => {
           console.log(response);
           const user = {
-              token: response
+              token: response,
+              username: usr.username
           };
           dispatch(userActions.login(true, user, null));
           console.log(this.props.user);
