@@ -1,0 +1,40 @@
+import LocalizedStrings from 'localized-strings';
+
+export let AnimalStrings = new LocalizedStrings({
+  en: {
+    name: "Name",
+    breed: "Breed",
+    gender: "Gender",
+    adoption: "Adoption",
+    age: "Edad",
+    animalType: "Animal type",
+    loadingLabel: "Loading...",
+    adopt: "Adopt",
+    male: "Male",
+    female: "Female",
+    years: "Years",
+    months: "Months",
+    days: "days",
+    unknown: "unknown",
+    contact: "Contact",
+    edit: "Edit",
+  },
+  es: {
+    name: "Name",
+    breed: "Breed",
+    gender: "Gender",
+    adoption: "Adoption",
+    age: "Edad",
+    animalType: "Animal type",
+    loadingLabel: "Loading...",
+    adopt: "Adoptar",
+    male: "Male",
+    female: "Female",
+    years: "Años",
+    months: "Meses",
+    days: "Dias",
+    unknown: "Desconocido",
+    contact: "Contactar",
+    edit: "Editar",
+  }
+});

@@ -22,7 +22,7 @@ export class PetTabsComponent extends Component {
   }
 
   handleOnPressItem = (animal) => {
-    this.props.navigateToEditAnimal({ animal, editionForm: true });
+    this.props.navigateToAnimalView({ animal, showEdit: true });
   }
 
   getImageUri(imageId) {

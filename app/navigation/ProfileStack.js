@@ -4,7 +4,8 @@ import { createStackNavigator } from 'react-navigation-stack';
 // Components
 import UserProfileComponent from "../UI/UserProfile/UserProfileComponent";
 import UserEditionComponent from "../UI/UserEdition/UserEditionComponent";
-import AnimalFormComponent from "../UI/AnimalForm/AnimalFormComponent";
+import AnimalStack from "./AnimalStack";
+import AnimalFormComponent from '../UI/AnimalForm/AnimalFormComponent'
 
 const ProfileStack = createStackNavigator(
   {
@@ -15,6 +16,12 @@ const ProfileStack = createStackNavigator(
       }
     },
     UserEdition: UserEditionComponent,
+    AnimalStack: {
+      screen: AnimalStack,
+      navigationOptions: {
+        header: null,
+      }
+    },
     CreateAnimal: AnimalFormComponent,
   },
   {
