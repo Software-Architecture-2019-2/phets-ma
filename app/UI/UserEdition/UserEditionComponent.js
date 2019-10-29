@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 
+import { connect } from "react-redux";
 import { Alert } from 'react-native'
 import { Button } from 'react-native-elements';
 import Spinner from 'react-native-loading-spinner-overlay';
@@ -16,7 +17,7 @@ import { uploadFile } from '../../services/FileServices'
 import { FILES_MS_URI } from '../../services/utils'
 import { UserEditionStrings } from "./UserEditionStrings";
 
-export default class UserEditionComponent extends Component {
+class UserEditionComponent extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -59,7 +60,7 @@ export default class UserEditionComponent extends Component {
   }
 
   getUser() {
-    getUserByUsernameService("crdgonzalezca", (data) => {
+    getUserByUsernameService(this.props.user.username, (data) => {
       this.setState({ user: data });
     });
   }
@@ -111,3 +112,12 @@ export default class UserEditionComponent extends Component {
     }
   }
 }
+
+function mapStateToProps(state) {
+  const user = state.login.user;
+  return {
+    user
+  };
+}
+const connectedUserEditionComponent = connect(mapStateToProps)(UserEditionComponent);
+export default connectedUserEditionComponent;

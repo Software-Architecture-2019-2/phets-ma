@@ -1,4 +1,10 @@
+<<<<<<< HEAD
 import config from "react-native-config";
+=======
+const ip = "34.69.178.13";
+const API_GATEWAY_PORT = "4000";
+const FILE_MS_PORT = '4007';
+>>>>>>> redux
 
 const HOST = config.HOST || 'localhost'; // Variables from .env file in the project root folder
 const API_GATEWAY_PORT = config.API_GATEWAY_PORT || "4000";
