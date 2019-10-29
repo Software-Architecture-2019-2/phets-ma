@@ -7,12 +7,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faClone, faUser, faComments, faHome } from '@fortawesome/free-solid-svg-icons';
 
 //Componentes
-import TinderTab from "./TinderStack";
+import PhetsTab from "./PhetsStack";
 import ProfileTab from "./ProfileStack";
 import MessagesTab from "./MessagesStack";
 import AdoptionTab from "./AdoptionStack";
 
-TinderTab.navigationOptions = {
+PhetsTab.navigationOptions = {
   tabBarLabel: 'Phets',
 };
 
@@ -31,18 +31,18 @@ AdoptionTab.navigationOptions = {
 
 const MainStack = createBottomTabNavigator(
   {//RouteConfigs
-    Tinder: TinderTab,
+    Phets: PhetsTab,
+    Adoption: AdoptionTab,
     Profile: ProfileTab,
     Messages: MessagesTab,
-    Adoption: AdoptionTab
   },
   {
-    initialRouteName: "Adoption",
+    initialRouteName: "Phets",
     //BottomTabNavigatorConfig
     defaultNavigationOptions: ({ navigation }) => ({
       tabBarIcon: ({ focused, horizontal, tintColor }) => {
         const { routeName } = navigation.state;
-        if (routeName === 'Tinder') {
+        if (routeName === 'Phets') {
           return (
             <FontAwesomeIcon icon={faClone} size={20} color={"black"} />
           );

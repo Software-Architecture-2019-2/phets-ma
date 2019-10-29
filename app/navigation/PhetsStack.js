@@ -4,9 +4,9 @@ import { createStackNavigator } from 'react-navigation-stack';
 // Components
 import PhetsInitialComponent from "../UI/Phets/PhetsInitialComponent";
 
-const TinderStack = createStackNavigator(
+const PhetsStack = createStackNavigator(
   {
-    AdoptionView: {
+    PhetsView: {
       screen: PhetsInitialComponent,
       navigationOptions: {
         header: null, //Para no poner la barra superior
@@ -14,8 +14,8 @@ const TinderStack = createStackNavigator(
     },
   },
   {
-    initialRouteName: "AdoptionView"
+    initialRouteName: "PhetsView"
   }
 );
 
-export default createAppContainer(TinderStack)
+export default createAppContainer(PhetsStack)
