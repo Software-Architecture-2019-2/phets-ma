@@ -16,7 +16,11 @@ class PhetsInitialComponent extends Component {
     }
   }
 
+<<<<<<< HEAD
   componentDidMount() {
+=======
+  componentDidMount(){
+>>>>>>> master
     this.getAllAnimals();
   }
 
@@ -33,7 +37,11 @@ class PhetsInitialComponent extends Component {
 
   getAllAnimals() {
     getAllAnimalsService((animals) => {
+<<<<<<< HEAD
       this.setState({ animals });
+=======
+      this.setState({animals});
+>>>>>>> master
     });
   }
 
@@ -43,7 +51,11 @@ class PhetsInitialComponent extends Component {
   }
 
   render() {
+<<<<<<< HEAD
     if (this.state.animals) {
+=======
+    if(this.state.animals){
+>>>>>>> master
       return (
         <PhetsInitialScreen
           changeToBack={() => this.changeToBack()}
