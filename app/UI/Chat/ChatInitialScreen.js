@@ -54,27 +54,7 @@ class ChatInitialScreen extends Component{
                 size={width*0.17}
                 source={{
                   uri:
-                    'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
-                }}
-              />
-            </View>
-            <View style={styles.MarginRight}>
-              <Avatar
-                rounded
-                size={width*0.17}
-                source={{
-                  uri:
-                    'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg',
-                }}
-              />
-            </View>
-            <View style={styles.MarginRight}>
-              <Avatar
-                rounded
-                size={width*0.17}
-                source={{
-                  uri:
-                    'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
+                    'https://pbs.twimg.com/media/D0jV-y3X0AAcnJj.jpg',
                 }}
               />
             </View>
@@ -102,8 +82,8 @@ class ChatInitialScreen extends Component{
               />
               <View style= {styles.Data}>
                 <View style={styles.BorderBottom}>
-                  <Text style={styles.NameChat}>Lady Yurani</Text>
-                  <Text style={styles.TextChat}>Donde vamoas armar la murga mi pe...</Text>
+                  <Text style={styles.NameChat}>Lady</Text>
+                  <Text style={styles.TextChat}>Hola</Text>
                 </View>
               </View>
             </View>
@@ -113,61 +93,13 @@ class ChatInitialScreen extends Component{
                 size={width*0.15}
                 source={{
                   uri:
-                    'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg',
+                    'https://pbs.twimg.com/media/D0jV-y3X0AAcnJj.jpg',
                 }}
               />
               <View style= {styles.Data}>
                 <View style={styles.BorderBottom}>
-                  <Text style={styles.NameChat}>Maxwell Nicolas</Text>
-                  <Text style={styles.TextChat}>Todo copaz mi pez.</Text>
-                  </View>
-              </View>
-            </View>
-            <View style={styles.Chat}>
-              <Avatar
-                rounded
-                size={width*0.15}
-                source={{
-                  uri:
-                    'https://66.media.tumblr.com/0dcc9f67fe31f5bae734f15fa1ad9f59/tumblr_n9mwvn1Zwn1qi5069o1_400.png',
-                }}
-              />
-              <View style= {styles.Data}>
-                <View style={styles.BorderBottom}>
-                  <Text style={styles.NameChat}>Mateito</Text>
-                  <Text style={styles.TextChat}>Lo veo paila mi perro</Text>
-                </View>
-              </View>
-            </View>
-            <View style={styles.Chat}>
-              <Avatar
-                rounded
-                size={width*0.15}
-                source={{
-                  uri:
-                    'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
-                }}
-              />
-              <View style= {styles.Data}>
-                <View style={styles.BorderBottom}>
-                  <Text style={styles.NameChat}>Lady Yurani</Text>
-                  <Text style={styles.TextChat}>Donde vamoas armar la murga mi pe...</Text>
-                </View>
-              </View>
-            </View>
-            <View style={styles.Chat}>
-              <Avatar
-                rounded
-                size={width*0.15}
-                source={{
-                  uri:
-                    'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg',
-                }}
-              />
-              <View style= {styles.Data}>
-                <View style={styles.BorderBottom}>
-                  <Text style={styles.NameChat}>Maxwell Nicolas</Text>
-                  <Text style={styles.TextChat}>Todo copaz mi pez.</Text>
+                  <Text style={styles.NameChat}>JK Simmons</Text>
+                  <Text style={styles.TextChat}>Quiero fotos del hombre araña!</Text>
                   </View>
               </View>
             </View>

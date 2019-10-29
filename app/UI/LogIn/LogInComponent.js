@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { loginService } from "../../services/UserServices";
 import LogInScreen from "./LoginScreen"
 // import login from "../../services/UserServices";
+import { getUserByUsernameService } from '../../services/UserServices';
 import { connect } from "react-redux";
 import { userActions } from "../../redux/actions/UserActions";
 
@@ -27,14 +28,13 @@ class LogInComponent extends Component{
 
     loginService(usr).then(
       response => {
-          console.log(response);
-          const user = {
-              token: response,
-              username: usr.username
-          };
-          dispatch(userActions.login(true, user, null));
-          console.log(this.props.user);
-          this.changeToLobby();
+          getUserByUsernameService(usr.username, (data) => {
+            const user = data;
+            user.token = response;
+            dispatch(userActions.login(true, user, null));
+            this.changeToLobby();
+            console.log("Login Successful");
+          });
       },
       error => {
           console.log("ERROR: " + error);

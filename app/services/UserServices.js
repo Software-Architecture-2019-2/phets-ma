@@ -55,7 +55,8 @@ export function getUserByUsernameService(username, callbackService) {
           name,
         },
         media,
-        password
+        password,
+        id
       }
   }`;
   const body = {

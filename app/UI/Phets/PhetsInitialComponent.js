@@ -5,6 +5,8 @@ import Spinner from 'react-native-loading-spinner-overlay';
 import PhetsInitialScreen from "./PhetsInitialView"
 import Demo from "./Demo";
 import { getAllAnimalsService } from "../../services/AnimalServices";
+import { likeService } from "../../services/InteractionServices";
+import { connect } from "react-redux";
 
 class PhetsInitialComponent extends Component {
   constructor(props) {
@@ -24,11 +26,12 @@ class PhetsInitialComponent extends Component {
     return this.state.animals
   }
 
-  onSwiped(type) {
+  onSwiped(state, animal) {
+    if(!animal || !this.props.user) return;
     /* Se indica para donde se fue la tarjeta si left or right */
     /* Recuperando el like o dislike */
-
-
+    var response = likeService(this.props.user.id, animal.id, state);
+    console.log(response);
   }
 
   getAllAnimals() {
@@ -47,7 +50,7 @@ class PhetsInitialComponent extends Component {
       return (
         <PhetsInitialScreen
           changeToBack={() => this.changeToBack()}
-          onSwiped={type => this.onSwiped(type)}
+          onSwiped={(state, animal) => this.onSwiped(state, animal)}
           animals={this.state.animals}
           getDataAnimals={() => this.getDataAnimals()}
         />
@@ -62,4 +65,11 @@ class PhetsInitialComponent extends Component {
   }
 }
 
-export default PhetsInitialComponent;
+function mapStateToProps(state) {
+  const user = state.login.user;
+  return {
+    user
+  };
+}
+const connectedPhetsInitialComponent = connect(mapStateToProps)(PhetsInitialComponent);
+export default connectedPhetsInitialComponent;
