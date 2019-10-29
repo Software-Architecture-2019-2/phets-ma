@@ -13,7 +13,7 @@ class App extends Component{
     return(
       <Provider store={store}>
         <View style={{ flex:1 }}>
-          <InitStack />
+          <MainStack />
         </View>
       </Provider>
     );

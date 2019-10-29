@@ -1,56 +1,52 @@
 import React, { Component } from "react";
-import { View, StyleSheet, ScrollView, Text, Image,Dimensions,} from "react-native";
+import { View, StyleSheet, ScrollView, Text, Image, Dimensions, TouchableOpacity, } from "react-native";
 
-import { Button, Input,  Avatar } from 'react-native-elements';
+import { Button } from 'react-native-elements';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
-import {faFilter }from '@fortawesome/free-solid-svg-icons';
+import { faFilter } from '@fortawesome/free-solid-svg-icons';
 
-const {height, width} = Dimensions.get('window');
+import { FILES_MS_URI } from "../../services/utils";
+import { AdoptionStrings } from "./AdoptionStrings";
 
-class AdoptionAllScreen extends Component{
-  constructor(props){
+const { height, width } = Dimensions.get('window');
+
+class AdoptionAllScreen extends Component {
+  constructor(props) {
     super(props);
-    this.state = {
-
-    }
   }
 
-  render(){
-    return(
+  getAnimalImageUri(animal) {
+    const defaultImage = 'https://reactnativecode.com/wp-content/uploads/2018/02/Default_Image_Thumbnail.png';
+    return animal.media && animal.media.length ? `${FILES_MS_URI}\\${animal.media[0]}` : defaultImage;
+  }
+
+  _renderAnimals() {
+    return this.props.animals.map((animal, index) => {
+      return <View style={styles.containerCardItem} key={index}>
+        <TouchableOpacity onPress={() => this.props.selectAnimalView(animal.id)}>
+          <View style={styles.cardItem}>
+            <Image source={{ uri: this.getAnimalImageUri(animal) }} style={styles.imageStyle} />
+            <Text style={styles.nameStyle}>{animal.name}</Text>
+            <Text style={styles.descriptionCardItem}>{animal.breed}</Text>
+          </View>
+        </TouchableOpacity>
+      </View>
+    });
+  }
+
+  render() {
+    return (
       <View style={styles.Background}>
         <View style={styles.head}>
           <Text style={styles.titlePhets}>PHETS</Text>
           <View style={styles.contentHead}>
-            <Text style={styles.titleAdopta}>Adopta una mascota</Text>
+            <Text style={styles.titleAdopta}>{AdoptionStrings.title}</Text>
             <FontAwesomeIcon icon={faFilter} size={20} color={"#FFF"} />
           </View>
-          <ScrollView horizontal={true}>
-            <Text style={styles.itemMenu}>Gatos</Text>
-            <Text style={styles.itemMenu}>Perros</Text>
-            <Text style={styles.itemMenu}>Osos</Text>
-            <Text style={styles.itemMenu}>Delfines</Text>
-            <Text style={styles.itemMenu}>Leones</Text>
-            <Text style={styles.itemMenu}>Loros</Text>
-            <Text style={styles.itemMenu}>Canarios</Text>
-          </ScrollView>
         </View>
         <ScrollView style={styles.Body}>
           <View style={styles.Cards}>
-            {this.props.getAninals().map((item, index) => (
-              <View style={styles.containerCardItem}>
-                <View style={styles.cardItem}>
-                  <Image source={item.image} style={styles.imageStyle} />
-                  <Text style={styles.nameStyle}>{item.name}</Text>
-                  <Text style={styles.descriptionCardItem}>{item.city}</Text>
-                  <Button
-                    onPress={() => this.props.selectAnimalView(item.id)}
-                    buttonStyle={styles.button}
-                    titleStyle={{color: '#FFF'}}
-                    title= {"Adoptar"}
-                  />
-                </View>
-              </View>
-            ))}
+            {this._renderAnimals()}
           </View>
         </ScrollView>
       </View>
@@ -64,20 +60,20 @@ const styles = StyleSheet.create({
     backgroundColor: "#77A6F7",
   },
 
-  head:{
+  head: {
     paddingRight: 10,
-    height: height*0.15,
+    height: height * 0.15,
     paddingLeft: 15,
     paddingRight: 15,
   },
   Body: {
-    height: height*0.85,
+    height: height * 0.85,
     backgroundColor: '#EAEDED',
     paddingBottom: 60,
     borderTopLeftRadius: 25,
     borderTopRightRadius: 25,
   },
-  titlePhets:{
+  titlePhets: {
     fontSize: 30,
     fontWeight: 'bold',
     marginTop: 10,
@@ -108,8 +104,8 @@ const styles = StyleSheet.create({
     padding: 10,
     paddingLeft: 15,
     paddingRight: 15,
-    width: width*0.5,
-    minHeight: width*0.5
+    width: width * 0.5,
+    minHeight: width * 0.5
   },
   cardItem: {
     borderRadius: 6,
@@ -117,26 +113,26 @@ const styles = StyleSheet.create({
     alignContent: "center",
     backgroundColor: "#FFF"
   },
-  imageStyle:{
-    width: width*0.5-30,
-    height: width*0.4,
+  imageStyle: {
+    width: width * 0.5 - 30,
+    height: width * 0.4,
     borderTopLeftRadius: 5,
     borderTopRightRadius: 5,
   },
-  nameStyle:{
+  nameStyle: {
     fontWeight: "bold",
     textAlign: "center",
     marginTop: 10,
-    fontSize: width*0.03
+    fontSize: width * 0.03
   },
   descriptionCardItem: {
     textAlign: "center",
-    fontSize: width*0.02
+    fontSize: width * 0.02
   },
   button: {
     marginTop: 10,
-    width: width*0.3,
-    marginLeft: width*0.1-16,
+    width: width * 0.3,
+    marginLeft: width * 0.1 - 16,
     height: 25,
   }
 })

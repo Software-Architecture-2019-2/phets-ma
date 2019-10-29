@@ -25,7 +25,6 @@ class AnimalFormComponent extends Component {
     this.state = {
       animalTypes: null,
     }
-    const _this = this;
   }
 
   static navigationOptions = ({ navigation }) => {

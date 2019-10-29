@@ -1,43 +1,56 @@
 import React, { Component } from "react";
 
-import AdoptionAllScreen from "./AdoptionAllScreen"
-import Demo from "../Phets/Demo"
+import Spinner from 'react-native-loading-spinner-overlay';
 
-class AdoptionAllComponent extends Component{
-  constructor(props){
+import AdoptionAllScreen from "./AdoptionAllScreen"
+import { getAllAnimalsService } from "../../services/AnimalServices";
+import { AdoptionStrings } from "./AdoptionStrings";
+
+class AdoptionAllComponent extends Component {
+  constructor(props) {
     super(props);
     this.state = {
-      animals: Demo,
-      idAdoption: -1,
+      animals: null,
     }
   }
 
-  changeToBack(){
+  componentDidMount() {
+    this.getAllAnimals();
+  }
+
+  changeToBack() {
     this.props.navigation.popToTop();
   }
 
-  getAninals(){
-    return this.state.animals;
+  selectAnimalView(id) {
+    this.props.navigation.navigate("AdoptionView", { id });
   }
 
-  /*Se recurea el id del cual fue seleccionado*/
-  selectAnimalView(id){
-    this.setState({
-      idAdoption: id
-    })
-    this.props.navigation.navigate("AdoptionView",{
-      id: id
-    })
+  getAllAnimals() {
+    getAllAnimalsService((animals) => {
+      const adoptionAnimals = animals.filter((animal, _) => {
+        return animal.adoption;
+      })
+      this.setState({ animals: adoptionAnimals });
+    });
   }
 
-  render(){
-    return(
-      <AdoptionAllScreen
-       changeToBack = {() => this.changeToBack()}
-       getAninals = {() => this.getAninals()}
-       selectAnimalView = {id => this.selectAnimalView(id)}
+  render() {
+    if (this.state.animals) {
+      return (
+        <AdoptionAllScreen
+          changeToBack={() => this.changeToBack()}
+          animals={this.state.animals}
+          selectAnimalView={id => this.selectAnimalView(id)}
+        />
+      )
+    } else {
+      return <Spinner
+        visible={true}
+        textContent={AdoptionStrings.loadingLabel}
+        animation='slide'
       />
-    )
+    }
   }
 }
 
