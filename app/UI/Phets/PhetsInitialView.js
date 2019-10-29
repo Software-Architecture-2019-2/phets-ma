@@ -27,7 +27,7 @@ class PhetsInitialScreen extends Component{
           onSwipedRight={() => this.props.onSwiped('right')}
           ref={swiper => (this.swiper = swiper)}
         >
-          {this.props.getAnimals().map((item, index) => (
+          {this.props.getDataAnimals().map((item, index) => (
             <View style={styles.containerCardItem}>
               <Image source={item.image} style={styles.imageStyle} />
               <Text style={styles.nameStyle}>{item.name}</Text>
