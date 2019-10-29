@@ -63,8 +63,6 @@ class UserComponent extends Component {
   }
 
   getUserAnimals() {
-    console.log("USER IS");
-    console.log(this.props.user.username);
     getUserAnimals(this.props.user.username, (animals) => {
       const phets = animals ? animals.filter(animal => { return !animal.adoption }) : [];
       phets.sort(this._sortAnimalList);

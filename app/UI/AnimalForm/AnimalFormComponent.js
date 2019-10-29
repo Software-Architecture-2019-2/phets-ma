@@ -5,6 +5,7 @@ import { Button } from 'react-native-elements';
 import Spinner from 'react-native-loading-spinner-overlay';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
+import { connect } from "react-redux";
 
 import AnimalFormScreen from "./AnimalFormScreen";
 import { AnimalFormStrings } from "./AnimalFormStrings";
@@ -16,7 +17,7 @@ import {
 } from '../../services/AnimalServices'
 import { uploadFile } from '../../services/FileServices'
 
-export default class AnimalFormComponent extends Component {
+class AnimalFormComponent extends Component {
   constructor(props) {
     super(props);
     this.isEditionForm = this.props.navigation.getParam('editionForm', false);
@@ -83,6 +84,7 @@ export default class AnimalFormComponent extends Component {
   }
 
   createAnimal = (animal) => {
+    animal.user = this.props.user.username;
     createAnimalService(animal, (_) => {
       this.navigateToProfile();
     });
@@ -128,3 +130,12 @@ export default class AnimalFormComponent extends Component {
     }
   }
 }
+
+function mapStateToProps(state) {
+  const user = state.login.user;
+  return {
+    user
+  };
+}
+const connectedAnimalFormComponent = connect(mapStateToProps)(AnimalFormComponent);
+export default connectedAnimalFormComponent;
