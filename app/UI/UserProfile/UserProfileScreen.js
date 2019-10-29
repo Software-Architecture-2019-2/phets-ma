@@ -79,7 +79,7 @@ class UserProfileScreen extends Component {
             <PetTabsComponent
               phetsList={this.props.phets}
               adoptionList={this.props.adoption}
-              navigateToEditAnimal={(data) => this.props.navigateToAnimalForm(data)}
+              navigateToAnimalView={(data) => this.props.navigateToAnimalView(data)}
             />
             <View style={{
               justifyContent: 'center',
@@ -90,7 +90,7 @@ class UserProfileScreen extends Component {
                   <FontAwesomeIcon icon={faPlus} size={35} color={"#77A6F7"} />
                 }
                 type="clear"
-                onPress={() => this.props.navigateToAnimalForm({ animal: {}, editionForm: false })}
+                onPress={() => this.props.navigateToCreateAnimal({ animal: {}, editionForm: false })}
               />
             </View>
           </View>

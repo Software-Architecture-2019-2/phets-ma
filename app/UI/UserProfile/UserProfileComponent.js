@@ -29,7 +29,11 @@ class UserComponent extends Component {
     this.props.navigation.popToTop();
   }
 
-  changeToAnimalForm = (params) => {
+  navigateToAnimalView = (params) => {
+    this.props.navigation.navigate("Animal", params);
+  }
+
+  navigateToCreateAnimal = (params) => {
     this.props.navigation.navigate("CreateAnimal", params);
   }
 
@@ -83,7 +87,8 @@ class UserComponent extends Component {
         <UserProfileScreen
           changeToBack={() => this.changeToBack()}
           changeToUserEdition={() => this.changeToUserEdition()}
-          navigateToAnimalForm={this.changeToAnimalForm}
+          navigateToAnimalView={this.navigateToAnimalView}
+          navigateToCreateAnimal={this.navigateToCreateAnimal}
           user={this.state.user}
           photoUri={this.getPhotoUri}
           phets={this.state.animals.phets}

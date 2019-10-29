@@ -3,7 +3,7 @@ import { createStackNavigator } from 'react-navigation-stack';
 
 // Components
 import AdoptionALlComponent from "../UI/Adoption/AdoptionAllComponent";
-import AdoptionViewComponent from "../UI/Adoption/AdoptionViewComponent";
+import AnimalViewComponent from "../UI/AnimalView/AnimalViewComponent";
 
 const AdoptionStack = createStackNavigator(
   {
@@ -14,7 +14,7 @@ const AdoptionStack = createStackNavigator(
       }
     },
     AdoptionView: {
-      screen: AdoptionViewComponent,
+      screen: AnimalViewComponent,
       navigationOptions: {
         header: null, //Para no poner la barra superior
       }

@@ -22,8 +22,8 @@ class AdoptionAllComponent extends Component {
     this.props.navigation.popToTop();
   }
 
-  selectAnimalView(id) {
-    this.props.navigation.navigate("AdoptionView", { id });
+  navigateToAnimalView = (data) => {
+    this.props.navigation.navigate("AdoptionView", data);
   }
 
   getAllAnimals() {
@@ -41,7 +41,7 @@ class AdoptionAllComponent extends Component {
         <AdoptionAllScreen
           changeToBack={() => this.changeToBack()}
           animals={this.state.animals}
-          selectAnimalView={id => this.selectAnimalView(id)}
+          navigateToAdoptionView={this.navigateToAnimalView}
         />
       )
     } else {

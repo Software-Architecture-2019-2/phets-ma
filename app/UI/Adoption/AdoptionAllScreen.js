@@ -23,7 +23,7 @@ class AdoptionAllScreen extends Component {
   _renderAnimals() {
     return this.props.animals.map((animal, index) => {
       return <View style={styles.containerCardItem} key={index}>
-        <TouchableOpacity onPress={() => this.props.selectAnimalView(animal.id)}>
+        <TouchableOpacity onPress={() => this.props.navigateToAdoptionView({ animal, showEdit: false })}>
           <View style={styles.cardItem}>
             <Image source={{ uri: this.getAnimalImageUri(animal) }} style={styles.imageStyle} />
             <Text style={styles.nameStyle}>{animal.name}</Text>

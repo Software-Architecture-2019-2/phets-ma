@@ -5,11 +5,12 @@ import { Button } from 'react-native-elements';
 import { SliderBox } from 'react-native-image-slider-box';
 
 import { FILES_MS_URI } from "../../services/utils";
-import { AdoptionStrings } from "./AdoptionStrings";
+import { AnimalStrings } from "./AnimalViewStrings";
+import { GeneralStyles } from "../../styles/GeneralStyle";
 
 const { height, width } = Dimensions.get('window');
 
-class AdoptionViewScreen extends Component {
+class AnimalViewScreen extends Component {
   constructor(props) {
     super(props);
     this.animal = this.props.animal;
@@ -47,11 +48,41 @@ class AdoptionViewScreen extends Component {
 
   _renderAge(birthdate) {
     const age = this._getAnimalAge(birthdate);
-    return `${age.years} ${AdoptionStrings.years}, ${age.months} ${AdoptionStrings.months}, ${age.days} ${AdoptionStrings.days}`;
+    return `${age.years} ${AnimalStrings.years}, ${age.months} ${AnimalStrings.months}, ${age.days} ${AnimalStrings.days}`;
   }
 
   _renderGender(gender) {
-    return gender ? AdoptionStrings.female : AdoptionStrings.male;
+    return gender ? AnimalStrings.female : AnimalStrings.male;
+  }
+
+  renderOptions() {
+    if (this.props.showEditButton) {
+      return <Button
+        buttonStyle={styles.button}
+        titleStyle={{ color: '#FFF' }}
+        buttonStyle={[GeneralStyles.BlueColor, { marginTop: 10 }]}
+        title={AnimalStrings.edit}
+        onPress={() => this.props.navigateToEdit()}
+      />
+    } else {
+      return <View>
+        <Text style={styles.Title}>Una mascota</Text>
+        <Text>
+          Incorpora una mascota en tu vida puede ser una decisión muy gratificante para ambos. Las mascotas son excelentes compañeros, independientes, inquietos, curiosos,
+          y ansiosos por recibir tu mimos y caricias.
+      </Text>
+        <Text style={styles.Title}>Comunicate para adoptar</Text>
+        <Text>
+          Si estas seguro de adoptar esta mascota, haz click a continuación para crear el canal de comunicación donde podras saber los paso que tienes que seguir para adptar la mascota.
+      </Text>
+        <Button
+          buttonStyle={styles.button}
+          titleStyle={{ color: '#FFF' }}
+          buttonStyle={[GeneralStyles.BlueColor, { marginTop: 10 }]}
+          title={AnimalStrings.contact}
+        />
+      </View>
+    }
   }
 
   render() {
@@ -65,31 +96,18 @@ class AdoptionViewScreen extends Component {
           <Text>{this.animal.city}</Text>
           <Text style={styles.Title}>Datos</Text>
           <View style={styles.ContentData}>
-            <Text style={styles.NameData}>{`${AdoptionStrings.age}:`}</Text>
+            <Text style={styles.NameData}>{`${AnimalStrings.age}:`}</Text>
             <Text>{this._renderAge(this.animal.birthdate)}</Text>
           </View>
           <View style={styles.ContentData}>
-            <Text style={styles.NameData}>{`${AdoptionStrings.gender}:`}</Text>
+            <Text style={styles.NameData}>{`${AnimalStrings.gender}:`}</Text>
             <Text>{this._renderGender(this.animal.gender)}</Text>
           </View>
           <View style={styles.ContentData}>
-            <Text style={styles.NameData}>{`${AdoptionStrings.breed}:`}</Text>
-            <Text>{this.animal.breed || AdoptionStrings.unknown}</Text>
+            <Text style={styles.NameData}>{`${AnimalStrings.breed}:`}</Text>
+            <Text>{this.animal.breed || AnimalStrings.unknown}</Text>
           </View>
-          <Text style={styles.Title}>Un mascota</Text>
-          <Text>
-            Incorpora una mascota en tu vida puede ser una decisión muy gratificante para ambos. Las mascotas son excelentes compañeros, independientes, inquietos, curiosos,
-            y ansiosos por recibir tu mimos y caricias.
-          </Text>
-          <Text style={styles.Title}>Comunicate para adoptar</Text>
-          <Text>
-            Si estas seguro de adoptar esta mascota, haz click a continuación para crear el canal de comunicación donde podras saber los paso que tienes que seguir para adptar la mascota.
-          </Text>
-          <Button
-            buttonStyle={styles.button}
-            titleStyle={{ color: '#FFF' }}
-            title={AdoptionStrings.contact}
-          />
+          {this.renderOptions()}
         </ScrollView>
       </View>
     )
@@ -140,4 +158,4 @@ const styles = StyleSheet.create({
   }
 })
 
-export default AdoptionViewScreen;
+export default AnimalViewScreen;
