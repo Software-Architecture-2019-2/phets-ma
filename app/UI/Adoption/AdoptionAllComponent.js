@@ -11,7 +11,6 @@ class AdoptionAllComponent extends Component {
     super(props);
     this.state = {
       animals: null,
-      idAdoption: -1,
     }
   }
 
@@ -22,20 +21,17 @@ class AdoptionAllComponent extends Component {
   changeToBack() {
     this.props.navigation.popToTop();
   }
-  
+
   selectAnimalView(id) {
-    this.setState({
-      idAdoption: id
-    })
-    this.props.navigation.navigate("AdoptionView", {
-      id: id
-    })
+    this.props.navigation.navigate("AdoptionView", { id });
   }
 
   getAllAnimals() {
     getAllAnimalsService((animals) => {
-      console.log(animals)
-      this.setState({ animals });
+      const adoptionAnimals = animals.filter((animal, _) => {
+        return animal.adoption;
+      })
+      this.setState({ animals: adoptionAnimals });
     });
   }
 

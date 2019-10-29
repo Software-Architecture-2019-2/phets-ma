@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 
+import Spinner from 'react-native-loading-spinner-overlay';
+
 import PhetsInitialScreen from "./PhetsInitialView"
 import Demo from "./Demo";
 import { getAllAnimalsService } from "../../services/AnimalServices";
@@ -9,9 +11,13 @@ class PhetsInitialComponent extends Component {
     super(props);
     this.state = {
       /* Se guarda el listado de todos los animales con sus caracteristicas. JSON */
-      animals: Demo,
+      animals: null,
       animalsData: null,
     }
+  }
+
+  componentDidMount(){
+    this.getAllAnimals();
   }
 
   getDataAnimals() {
@@ -26,11 +32,8 @@ class PhetsInitialComponent extends Component {
   }
 
   getAllAnimals() {
-    getAllAnimalsService((data) => {
-      data.map((data) => {
-        console.log(data.name)
-      })
-      return data
+    getAllAnimalsService((animals) => {
+      this.setState({animals});
     });
   }
 
@@ -40,14 +43,22 @@ class PhetsInitialComponent extends Component {
   }
 
   render() {
-    return (
-      <PhetsInitialScreen
-        changeToBack={() => this.changeToBack()}
-        onSwiped={type => this.onSwiped(type)}
-        getAllAnimals={() => this.getAllAnimals()}
-        getDataAnimals={() => this.getDataAnimals()}
+    if(this.state.animals){
+      return (
+        <PhetsInitialScreen
+          changeToBack={() => this.changeToBack()}
+          onSwiped={type => this.onSwiped(type)}
+          animals={this.state.animals}
+          getDataAnimals={() => this.getDataAnimals()}
+        />
+      )
+    } else {
+      return <Spinner
+        visible={true}
+        textContent={"Loading..."}
+        animation='slide'
       />
-    )
+    }
   }
 }
 

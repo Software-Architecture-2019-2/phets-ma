@@ -6,6 +6,7 @@ import Demo from "./Demo";
 
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faTimes, faHeart,} from '@fortawesome/free-solid-svg-icons'
+import { FILES_MS_URI } from "../../services/utils";
 const {height, width} = Dimensions.get('window');
 
 class PhetsInitialScreen extends Component{
@@ -27,11 +28,11 @@ class PhetsInitialScreen extends Component{
           onSwipedRight={() => this.props.onSwiped('right')}
           ref={swiper => (this.swiper = swiper)}
         >
-          {this.props.getDataAnimals().map((item, index) => (
+          {this.props.animals.map((animal, index) => (
             <View style={styles.containerCardItem}>
-              <Image source={item.image} style={styles.imageStyle} />
-              <Text style={styles.nameStyle}>{item.name}</Text>
-              <Text style={styles.descriptionCardItem}>{item.city}</Text>
+              <Image source={{uri: `${FILES_MS_URI}\\${animal.media[0]}`}} style={styles.imageStyle} />
+              <Text style={styles.nameStyle}>{animal.name}</Text>
+              <Text style={styles.descriptionCardItem}>{animal.breed}</Text>
               <View style={{position: "absolute", top: height*0.71, flex: 1, alignSelf: "center", flexDirection: 'row', justifyContent: 'space-around'}}>
                 <View style={[styles.button, {marginRight: 25}]}>
                   <FontAwesomeIcon icon={ faTimes } size = { 40 } color = {'gray'} onPress={() => this.swiper.swipeLeft()}/>
