@@ -24,16 +24,24 @@ class LogInScreen extends Component{
       password: this.state.password
     };
 
-    this.setState({
-      submitted: true,
-      correct: user.username.length != 0 && user.password.length != 0
-    });
-
     if(this.state.submitted && !this.state.correct){
       return;
     }
 
-    this.props.tryLogin(user);
+    this.setState({
+      username: "",
+      password: "",
+      correct: user.username.length != 0 && user.password.length != 0
+    });
+
+    const result = this.props.tryLogin(user);
+
+    if(result){
+      this.setState({
+        submitted: true,
+        correct: user.username.length != 0 && user.password.length != 0
+      });
+    }
   }
 
   render(){

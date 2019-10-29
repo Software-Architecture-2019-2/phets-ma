@@ -93,6 +93,13 @@ class UserProfileScreen extends Component {
                 onPress={() => this.props.navigateToCreateAnimal({ animal: {}, editionForm: false })}
               />
             </View>
+            <View style={{justifyContent: 'center', alignItems: 'center', paddingTop: 50}}>
+              <Button 
+                onPress={() => this.props.changeToBack() }
+                title="Cerrar sesión"
+                buttonStyle={{width:width*0.5}}
+              />
+            </View>
           </View>
         </ScrollView>
       </View>

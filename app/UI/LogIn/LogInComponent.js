@@ -26,6 +26,7 @@ class LogInComponent extends Component{
     const { dispatch } = this.props;
     dispatch(userActions.login_request(usr));
 
+
     loginService(usr).then(
       response => {
           getUserByUsernameService(usr.username, (data) => {
@@ -33,12 +34,14 @@ class LogInComponent extends Component{
             user.token = response;
             dispatch(userActions.login(true, user, null));
             this.changeToLobby();
+            return true
             console.log("Login Successful");
           });
       },
       error => {
           console.log("ERROR: " + error);
           dispatch(userActions.login(false, null, null));
+          return false
       }
     );
   }
