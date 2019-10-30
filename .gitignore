@@ -101,3 +101,4 @@ RNTester/Pods/*
 
 # Phets Configuration
 .env
+android/app/google-services.json
