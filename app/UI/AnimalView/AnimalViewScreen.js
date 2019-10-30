@@ -47,8 +47,10 @@ class AnimalViewScreen extends Component {
   }
 
   _renderAge(birthdate) {
-    const age = this._getAnimalAge(birthdate);
-    return `${age.years} ${AnimalStrings.years}, ${age.months} ${AnimalStrings.months}, ${age.days} ${AnimalStrings.days}`;
+    if (birthdate){
+      const age = this._getAnimalAge(birthdate);
+      return `${age.years} ${AnimalStrings.years}, ${age.months} ${AnimalStrings.months}, ${age.days} ${AnimalStrings.days}`;
+    } else return AnimalStrings.unknown;
   }
 
   _renderGender(gender) {
