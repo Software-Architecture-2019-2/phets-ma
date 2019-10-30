@@ -37,7 +37,6 @@ target 'Phets' do
 
 
 
-  pod 'react-native-config', :path => '../node_modules/react-native-config'
 
   target 'PhetsTests' do
     inherit! :search_paths
