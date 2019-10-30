@@ -12,7 +12,8 @@ class CreateEventComponent extends Component{
       date: "",
       animal_id: "",
       created_at: "",
-      updated_at: ""
+      updated_at: "",
+      editar: this.props.navigation.state.params.edit
     }
   }
 
@@ -20,16 +21,16 @@ class CreateEventComponent extends Component{
     this.props.navigation.popToTop();
   }
 
-  showEvent(event){
-    this.props.navigation.navigate("ShowEvent",{event: event});
-    console.log("press")
-  } 
+  getType(){
+    return this.state.editar;
+  }
 
   render(){
     return(
       <CreateEventScreen 
        changeToBack = {() => this.changeToBack()}
        showEvent = {event => this.showEvent(event)}
+       getType = {() => this.getType()}
       />
     )
   }

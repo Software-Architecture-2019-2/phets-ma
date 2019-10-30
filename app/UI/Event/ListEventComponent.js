@@ -6,7 +6,7 @@ class ListEventComponent extends Component{
   constructor(props){
     super(props);
     this.state = {
-
+      
     }
   }
 
@@ -14,13 +14,13 @@ class ListEventComponent extends Component{
     this.props.navigation.popToTop();
   }
 
-  showEvent(event){
-    this.props.navigation.navigate("ShowEvent",{event: event});
+  editEvent(){
+    this.props.navigation.navigate("CreateEvent",{edit: true});
     console.log("press")
   }
 
   createEvent(){
-    this.props.navigation.navigate("CreateEvent");
+    this.props.navigation.navigate("CreateEvent",{edit: false});
     console.log("press")
   }
 
@@ -28,7 +28,7 @@ class ListEventComponent extends Component{
     return(
       <ListEventScreen 
        changeToBack = {() => this.changeToBack()}
-       showEvent = {event => this.showEvent(event)}
+       editEvent = {() => this.editEvent()}
        createEvent ={() => this.createEvent()}
       />
     )

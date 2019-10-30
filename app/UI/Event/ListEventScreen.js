@@ -57,10 +57,11 @@ class ListEventScreen extends Component{
                   <View>
                     <Text style={styles. titleEvent}>{event.subject}</Text>
                     <Text style={styles.bodyEvent}>{event.description}</Text>
+                    <Text style={styles.bodyEvent}>{event.date}</Text>
                   </View>
                 </View>
                 <View>
-                  <FontAwesomeIcon icon={faChevronRight} size={20} color={"#77A6F7"} onPress = {() => this.props.showEvent({event})} />
+                  <FontAwesomeIcon icon={faChevronRight} size={20} color={"#77A6F7"} onPress = {() => this.props.editEvent()} />
                 </View>
               </View>
             ))}

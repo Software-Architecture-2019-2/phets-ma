@@ -18,7 +18,7 @@ class LobbyComponent extends Component{
       subject: "",
       description: "",
       showCalendar: false,
-      date: ""
+      date: "",
     }
   }
 
@@ -31,6 +31,40 @@ class LobbyComponent extends Component{
       showCalendar: false})
   }
 
+  _renderTitle() {
+    if (this.props.getType()) {
+      return <Text style={styles.titlePhets}>{EventsStrings.edit}</Text>
+    }else{
+      return <Text style={styles.titlePhets}>{EventsStrings.create}</Text>
+    }
+  }
+
+  _renderOptions() {
+    if (this.props.getType()) {
+      /* Boton para guardar cambios de eventos */
+      return <View style={styles.button}>
+      <Button
+        buttonStyle={styles.button}
+        titleStyle={{ color: '#FFF' }}
+        buttonStyle={[GeneralStyles.BlueColor, { marginTop: 10, width: width*0.5 }]}
+        title={"Save"}
+        /*onPress={}*/
+      />
+    </View>
+    }else{
+      /* Boton para crear eventos */
+      return <View style={styles.button}>
+      <Button
+        buttonStyle={styles.button}
+        titleStyle={{ color: '#FFF' }}
+        buttonStyle={[GeneralStyles.BlueColor, { marginTop: 10, width: width*0.5 }]}
+        title={"Create"}
+        /*onPress={}*/
+      />
+    </View>
+    }
+  }
+
   setDate = (_, date) => {
     if (date) {
       this.setState({ date: date.toISOString().substring(0, 10), showCalendar: false })
@@ -41,7 +75,7 @@ class LobbyComponent extends Component{
     return(
       <View style = {styles.Background}>
         <View style={styles.head}>
-          <Text style={styles.titlePhets}>{EventsStrings.create}</Text>
+        {this._renderTitle()}
         </View>
         <ScrollView style={styles.Body}>
             <View Style={{paddingLeft: 20, paddingRight: 20}}>
@@ -82,15 +116,7 @@ class LobbyComponent extends Component{
               onChange={this.setDate}
               minimumDate={new Date(1990, 0, 1)}
             />}
-            <View style={styles.button}>
-              <Button
-                buttonStyle={styles.button}
-                titleStyle={{ color: '#FFF' }}
-                buttonStyle={[GeneralStyles.BlueColor, { marginTop: 10, width: width*0.5 }]}
-                title={"Create"}
-                onPress={() => this.props.navigateToEdit()}
-              />
-            </View>
+            {this._renderOptions()}
         </ScrollView>
       </View>
     )
