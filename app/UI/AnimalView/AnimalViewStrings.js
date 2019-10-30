@@ -18,6 +18,7 @@ export let AnimalStrings = new LocalizedStrings({
     unknown: "unknown",
     contact: "Contact",
     edit: "Edit",
+    event: "Events",
   },
   es: {
     name: "Name",
@@ -36,5 +37,6 @@ export let AnimalStrings = new LocalizedStrings({
     unknown: "Desconocido",
     contact: "Contactar",
     edit: "Editar",
+    event: "Eventos",
   }
 });

@@ -1,13 +1,14 @@
 import React, { Component } from "react";
-import { View, StyleSheet, ScrollView, Text, Dimensions} from "react-native";
+import { View, StyleSheet, ScrollView, Text, Dimensions } from "react-native";
 
-import { Button, Input} from 'react-native-elements';
-import {strings} from './LoginStrings';
+import Spinner from 'react-native-loading-spinner-overlay';
+import { Button, Input } from 'react-native-elements';
+import { strings } from './LoginStrings';
 
-const {height, width} = Dimensions.get('window');
+const { height, width } = Dimensions.get('window');
 
-class LogInScreen extends Component{
-  constructor(props){
+class LogInScreen extends Component {
+  constructor(props) {
     super(props);
     this.state = {
       username: "",
@@ -17,14 +18,14 @@ class LogInScreen extends Component{
     }
   }
 
-  handleSubmit(){
+  handleSubmit() {
 
     var user = {
       username: this.state.username,
       password: this.state.password
     };
 
-    if(this.state.submitted && !this.state.correct){
+    if (this.state.submitted && !this.state.correct) {
       return;
     }
 
@@ -36,7 +37,7 @@ class LogInScreen extends Component{
 
     const result = this.props.tryLogin(user);
 
-    if(result){
+    if (result) {
       this.setState({
         submitted: true,
         correct: user.username.length != 0 && user.password.length != 0
@@ -44,43 +45,55 @@ class LogInScreen extends Component{
     }
   }
 
-  render(){
-    return(
+  renderLoadingSpinner() {
+    if (this.props.isLoggingIn) {
+      return <Spinner
+        visible={true}
+        textContent={"Loading..."}
+        animation='slide'
+      />
+    }
+    return null
+  }
+
+  render() {
+    return (
       <View style={styles.Background}>
+        {this.renderLoadingSpinner()}
         <ScrollView>
           <View style={styles.Superior}>
             <Text style={styles.Titles}>{strings.login_title}</Text>
           </View>
           <View style={styles.Body}>
-           <Input
+            <Input
               name="username"
               placeholder={strings.username}
-              onChangeText={(username) => this.setState({username})}
+              onChangeText={(username) => this.setState({ username })}
               value={this.state.username}
             />
             <Input
               name="password"
-              inputStyle={{marginTop: 20}}
-              placeholder= {strings.password}
+              inputStyle={{ marginTop: 20 }}
+              placeholder={strings.password}
               secureTextEntry={true}
-              onChangeText={(password) => this.setState({password})}
+              onChangeText={(password) => this.setState({ password })}
               value={this.state.password}
             />
             {this.state.submitted && !this.state.correct &&
-            <Text style={{paddingLeft: 5, paddingRight: 5, marginTop:20, color:"red"}}>{strings.fill_all}</Text>}
-            <View style={{paddingLeft: 75, paddingRight: 75, marginTop:20}}>
+              <Text style={{ paddingLeft: 5, paddingRight: 5, marginTop: 20, color: "red" }}>{strings.fill_all}</Text>}
+            <View style={{ paddingLeft: 75, paddingRight: 75, marginTop: 20 }}>
               <Button
                 onPress={() => this.handleSubmit()}
-                buttonStyle={{marginTop: 20, backgroundColor: '#77A6F7'}}
-                title= {strings.login}
+                buttonStyle={{ marginTop: 20, backgroundColor: '#77A6F7' }}
+                title={strings.login}
               />
             </View>
             <View>
               <Button
-              onPress={() => this.props.changeToSignUp()}
-                buttonStyle={{marginTop: 20}}
-                titleStyle={{color: '#77A6F7'}}
-                title= {strings.register}
+                onPress={() => this.props.changeToSignUp()}
+                buttonStyle={{ marginTop: 20 }}
+                titleStyle={{ color: '#77A6F7' }}
+                title={strings.register}
                 type="clear"
               />
             </View>
@@ -97,12 +110,12 @@ const styles = StyleSheet.create({
     backgroundColor: "#77A6F7"
   },
   Superior: {
-    height: height*0.3,
+    height: height * 0.3,
     justifyContent: 'center',
     alignItems: "center",
   },
   Body: {
-    minHeight: height*0.7,
+    minHeight: height * 0.7,
     backgroundColor: '#fff',
     borderTopLeftRadius: 50,
     borderTopRightRadius: 50,
@@ -111,7 +124,7 @@ const styles = StyleSheet.create({
     paddingRight: 40
   },
   Titles: {
-    fontSize: width*0.1,
+    fontSize: width * 0.1,
     color: '#fff',
   },
 

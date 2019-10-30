@@ -3,18 +3,15 @@ import React, { Component } from "react";
 import Spinner from 'react-native-loading-spinner-overlay';
 
 import PhetsInitialScreen from "./PhetsInitialView"
-import Demo from "./Demo";
-import { getAllAnimalsService } from "../../services/AnimalServices";
-import { likeService } from "../../services/InteractionServices";
+import { createInteractionService, isMatchService, getAllPhetsService } from "../../services/InteractionServices";
 import { connect } from "react-redux";
 
 class PhetsInitialComponent extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      /* Se guarda el listado de todos los animales con sus caracteristicas. JSON */
       animals: null,
-      animalsData: null,
+      isMatch: false,
     }
   }
 
@@ -27,15 +24,26 @@ class PhetsInitialComponent extends Component {
   }
 
   onSwiped(state, animal) {
-    if(!animal || !this.props.user) return;
-    /* Se indica para donde se fue la tarjeta si left or right */
-    /* Recuperando el like o dislike */
-    var response = likeService(this.props.user.id, animal.id, state);
-    console.log(response);
+    if (!animal || !this.props.user) return;
+    createInteractionService({
+      // TODO: This ID most be from the current animal given by the storage.
+      id1: this.props.user.id,
+      id2: animal.id,
+      state
+    }, (data) => {
+      this._checkIfMatch(data.idMain, data.idSecondary)
+    });
+  }
+
+  _checkIfMatch(id1, id2) {
+    isMatchService({ id1, id2 }, (data) => {
+      this.setState({ isMatch: true });
+      // THis should show something to indicate there is a match and invite to chat.
+    })
   }
 
   getAllAnimals() {
-    getAllAnimalsService((animals) => {
+    getAllPhetsService({ animalId: this.props.user.id, username: this.props.user.username }, (animals) => {
       this.setState({ animals });
     });
   }
@@ -53,6 +61,7 @@ class PhetsInitialComponent extends Component {
           onSwiped={(state, animal) => this.onSwiped(state, animal)}
           animals={this.state.animals}
           getDataAnimals={() => this.getDataAnimals()}
+          isMatch={this.state.isMatch}
         />
       )
     } else {

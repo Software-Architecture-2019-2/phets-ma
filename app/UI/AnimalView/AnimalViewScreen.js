@@ -47,8 +47,10 @@ class AnimalViewScreen extends Component {
   }
 
   _renderAge(birthdate) {
-    const age = this._getAnimalAge(birthdate);
-    return `${age.years} ${AnimalStrings.years}, ${age.months} ${AnimalStrings.months}, ${age.days} ${AnimalStrings.days}`;
+    if (birthdate){
+      const age = this._getAnimalAge(birthdate);
+      return `${age.years} ${AnimalStrings.years}, ${age.months} ${AnimalStrings.months}, ${age.days} ${AnimalStrings.days}`;
+    } else return AnimalStrings.unknown;
   }
 
   _renderGender(gender) {
@@ -57,13 +59,23 @@ class AnimalViewScreen extends Component {
 
   renderOptions() {
     if (this.props.showEditButton) {
-      return <Button
-        buttonStyle={styles.button}
-        titleStyle={{ color: '#FFF' }}
-        buttonStyle={[GeneralStyles.BlueColor, { marginTop: 10 }]}
-        title={AnimalStrings.edit}
-        onPress={() => this.props.navigateToEdit()}
-      />
+      return <View>
+        <Button
+          buttonStyle={styles.button}
+          titleStyle={{ color: '#FFF' }}
+          buttonStyle={[GeneralStyles.BlueColor, { marginTop: 10, width: width*0.5, marginLeft: width*0.2 }]}
+          title={AnimalStrings.edit}
+          onPress={() => this.props.navigateToEdit()}
+        />
+
+        <Button
+          buttonStyle={[styles.button,{marginTop: 20}]}
+          titleStyle={{ color: '#FFF' }}
+          buttonStyle={[GeneralStyles.BlueColor, { marginTop: 10, width: width*0.5, marginLeft: width*0.2 }]}
+          title={AnimalStrings.event}
+          onPress={() => this.props.navigateToListEvents()}
+        />
+      </View>
     } else {
       return <View>
         <Text style={styles.Title}>Una mascota</Text>
@@ -78,7 +90,7 @@ class AnimalViewScreen extends Component {
         <Button
           buttonStyle={styles.button}
           titleStyle={{ color: '#FFF' }}
-          buttonStyle={[GeneralStyles.BlueColor, { marginTop: 10 }]}
+          buttonStyle={[GeneralStyles.BlueColor, { marginTop: 10}]}
           title={AnimalStrings.contact}
         />
       </View>
