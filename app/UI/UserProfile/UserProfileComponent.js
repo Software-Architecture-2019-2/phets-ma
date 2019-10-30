@@ -1,11 +1,12 @@
 import React, { Component } from "react";
 import Spinner from 'react-native-loading-spinner-overlay';
 
+import { connect } from "react-redux";
 import UserProfileScreen from "./UserProfileScreen"
-import { getUserByUsernameService, getUserAnimals } from '../../services/UserServices';
 import { FILES_MS_URI } from '../../services/utils';
 import { UserProfileStrings } from "./UserProfileStrings";
-import { connect } from "react-redux";
+import { phetsActions } from "../../redux/actions/PhetsActions";
+import { getUserByUsernameService, getUserAnimals } from '../../services/UserServices';
 
 class UserComponent extends Component {
   constructor(props) {
@@ -73,6 +74,9 @@ class UserComponent extends Component {
       const adoption = animals ? animals.filter(animal => { return animal.adoption }) : [];
       adoption.sort(this._sortAnimalList);
       this.setState({ animals: { phets, adoption } });
+
+      const { dispatch } = this.props;
+      dispatch(phetsActions.setPhetsList(phets));
     });
   }
 

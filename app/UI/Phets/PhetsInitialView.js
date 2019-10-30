@@ -1,8 +1,9 @@
 import React, { Component } from "react";
-import { Text, View, Image, Dimensions, Modal, TouchableHighlight, } from "react-native";
+import { Text, View, Image, Dimensions, Modal, TouchableHighlight, Picker } from "react-native";
 import CardStack, { Card } from "react-native-card-stack-swiper";
 import styles from "./PhetsStyles";
 import { connect } from "react-redux";
+import { Button, Input,  Avatar } from 'react-native-elements';
 
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faTimes, faHeart, faSadTear } from '@fortawesome/free-solid-svg-icons'
@@ -61,6 +62,12 @@ class PhetsInitialScreen extends Component {
     );
   }
 
+  _renderPhet(animal){
+    return (
+      <Picker.Item label={animal.name} value={animal.name} />
+    );
+  }
+
   swiperCallback(state, animal) {
     this.props.onSwiped(state, animal);
   }
@@ -68,16 +75,26 @@ class PhetsInitialScreen extends Component {
   render() {
     return (
       <View style={styles.phetsbg}>
-        <CardStack
-          loop={false}
-          verticalSwipe={false}
-          renderNoMoreCards={() => this._renderDefaultCard()}
-          onSwipedLeft={() => this.props.onSwiped('left')}
-          onSwipedRight={() => this.props.onSwiped('right')}
-          ref={swiper => (this.swiper = swiper)}
-        >
-          {this.props.animals.map((animal, index) => this._renderAnimalCard(animal, index))}
-        </CardStack>
+        <Picker
+            selectedValue={this.state.language}
+            style={styles.contentHead}
+            onValueChange={(itemValue, itemIndex) =>
+              this.props.selectDefaultPhet(itemValue)
+            }>
+            {this.props.phets.map((animal, index) => this._renderPhet(animal))} 
+        </Picker>
+        <View style={styles.phetscard}>
+          <CardStack
+            loop={false}
+            verticalSwipe={false}
+            renderNoMoreCards={() => this._renderDefaultCard()}
+            onSwipedLeft={() => this.props.onSwiped('left')}
+            onSwipedRight={() => this.props.onSwiped('right')}
+            ref={swiper => (this.swiper = swiper)}
+          >
+            {this.props.animals.map((animal, index) => this._renderAnimalCard(animal, index))}
+          </CardStack>
+        </View>
       </View>
     );
   }

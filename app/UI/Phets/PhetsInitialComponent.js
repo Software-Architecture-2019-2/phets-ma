@@ -24,6 +24,7 @@ class PhetsInitialComponent extends Component {
   }
 
   onSwiped(state, animal) {
+
     if (!animal || !this.props.user) return;
     createInteractionService({
       // TODO: This ID most be from the current animal given by the storage.
@@ -38,7 +39,7 @@ class PhetsInitialComponent extends Component {
   _checkIfMatch(id1, id2) {
     isMatchService({ id1, id2 }, (data) => {
       this.setState({ isMatch: true });
-      // THis should show something to indicate there is a match and invite to chat.
+      // This should show something to indicate there is a match and invite to chat.
     })
   }
 
@@ -48,6 +49,11 @@ class PhetsInitialComponent extends Component {
     });
   }
 
+  selectDefaultPhet(animalName){
+    const { dispatch } = this.props;
+    dispatch(phetsActions.setDefaultPhet(phets));
+    console.log(animalName);
+  }
 
   changeToBack() {
     this.props.navigation.popToTop();
@@ -60,6 +66,8 @@ class PhetsInitialComponent extends Component {
           changeToBack={() => this.changeToBack()}
           onSwiped={(state, animal) => this.onSwiped(state, animal)}
           animals={this.state.animals}
+          phets={this.props.phets}
+          selectDefaultPhet={(animalName) => this.selectDefaultPhet(animalName)}
           getDataAnimals={() => this.getDataAnimals()}
           isMatch={this.state.isMatch}
         />
@@ -76,8 +84,10 @@ class PhetsInitialComponent extends Component {
 
 function mapStateToProps(state) {
   const user = state.login.user;
+  const phets = state.setPhetsList.phets;
   return {
-    user
+    user,
+    phets
   };
 }
 const connectedPhetsInitialComponent = connect(mapStateToProps)(PhetsInitialComponent);
