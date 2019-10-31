@@ -3,6 +3,7 @@ import { View, StyleSheet, ScrollView, Text, Dimensions, } from "react-native";
 
 import { Button } from 'react-native-elements';
 import { SliderBox } from 'react-native-image-slider-box';
+import DialogInput from 'react-native-dialog-input';
 
 import { FILES_MS_URI } from "../../services/utils";
 import { AnimalStrings } from "./AnimalViewStrings";
@@ -14,6 +15,9 @@ class AnimalViewScreen extends Component {
   constructor(props) {
     super(props);
     this.animal = this.props.animal;
+    this.state = {
+      isDialogVisible: false
+    }
   }
 
   _getPhotosUris(media) {
@@ -47,7 +51,7 @@ class AnimalViewScreen extends Component {
   }
 
   _renderAge(birthdate) {
-    if (birthdate){
+    if (birthdate) {
       const age = this._getAnimalAge(birthdate);
       return `${age.years} ${AnimalStrings.years}, ${age.months} ${AnimalStrings.months}, ${age.days} ${AnimalStrings.days}`;
     } else return AnimalStrings.unknown;
@@ -63,15 +67,15 @@ class AnimalViewScreen extends Component {
         <Button
           buttonStyle={styles.button}
           titleStyle={{ color: '#FFF' }}
-          buttonStyle={[GeneralStyles.BlueColor, { marginTop: 10, width: width*0.5, marginLeft: width*0.2 }]}
+          buttonStyle={[GeneralStyles.BlueColor, { marginTop: 10, width: width * 0.5, marginLeft: width * 0.2 }]}
           title={AnimalStrings.edit}
           onPress={() => this.props.navigateToEdit()}
         />
 
         <Button
-          buttonStyle={[styles.button,{marginTop: 20}]}
+          buttonStyle={[styles.button, { marginTop: 20 }]}
           titleStyle={{ color: '#FFF' }}
-          buttonStyle={[GeneralStyles.BlueColor, { marginTop: 10, width: width*0.5, marginLeft: width*0.2 }]}
+          buttonStyle={[GeneralStyles.BlueColor, { marginTop: 10, width: width * 0.5, marginLeft: width * 0.2 }]}
           title={AnimalStrings.event}
           onPress={() => this.props.navigateToListEvents()}
         />
@@ -90,12 +94,26 @@ class AnimalViewScreen extends Component {
         <Button
           buttonStyle={styles.button}
           titleStyle={{ color: '#FFF' }}
-          buttonStyle={[GeneralStyles.BlueColor, { marginTop: 10}]}
+          buttonStyle={[GeneralStyles.BlueColor, { marginTop: 10 }]}
           title={AnimalStrings.contact}
+          onPress={() => this.showDialog(true)}
         />
+        <DialogInput
+          isDialogVisible={this.state.isDialogVisible}
+          title={"Get in touch to adopt"}
+          message={"Start talking"}
+          hintInput={"Message"}
+          submitInput={(inputText) => { this.props.submitMessageAndNavigate(inputText) }}
+          closeDialog={() => { this.showDialog(false) }}>
+        </DialogInput>
       </View>
     }
   }
+
+  showDialog = (value) => {
+    this.setState({ isDialogVisible: value })
+  }
+
 
   render() {
     return (
