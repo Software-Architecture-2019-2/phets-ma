@@ -15,10 +15,7 @@ class LobbyComponent extends Component{
   constructor(props){
     super(props);
     this.state = {
-      subject: "",
-      description: "",
       showCalendar: false,
-      date: "",
     }
   }
 
@@ -48,7 +45,15 @@ class LobbyComponent extends Component{
         titleStyle={{ color: '#FFF' }}
         buttonStyle={[GeneralStyles.BlueColor, { marginTop: 10, width: width*0.5 }]}
         title={"Save"}
-        /*onPress={}*/
+        onPress={() => this.props.editEvent()}
+      />
+
+      <Button
+        buttonStyle={styles.button}
+        titleStyle={{ color: '#FFF' }}
+        buttonStyle={[GeneralStyles.BlueColor, { marginTop: 20, width: width*0.5 }]}
+        title={"Delete"}
+        onPress={() => this.props.removeEvent()}
       />
     </View>
     }else{
@@ -59,7 +64,7 @@ class LobbyComponent extends Component{
         titleStyle={{ color: '#FFF' }}
         buttonStyle={[GeneralStyles.BlueColor, { marginTop: 10, width: width*0.5 }]}
         title={"Create"}
-        /*onPress={}*/
+        onPress={() => this.props.createEvent()}
       />
     </View>
     }
@@ -68,6 +73,7 @@ class LobbyComponent extends Component{
   setDate = (_, date) => {
     if (date) {
       this.setState({ date: date.toISOString().substring(0, 10), showCalendar: false })
+      this.props.setDate(date.toISOString().substring(0, 10))
     }
   }
 
@@ -82,7 +88,7 @@ class LobbyComponent extends Component{
               <Input
                 name="username"
                 placeholder={EventsStrings.subject}
-                onChangeText={(subject) => this.setState({subject})}
+                onChangeText={(subject) => this.props.setSubject(subject)}
                 value={this.state.username}
                 inputStyle={{width: width*0.5}}
                 >
@@ -92,7 +98,7 @@ class LobbyComponent extends Component{
               <TextInput
                 style={{ height: 100, borderColor: 'gray', borderWidth: 1, marginTop: 20, width: width*0.8,
                 marginLeft: width*0.05 }}
-                onChangeText={(description) => this.setState({description})}
+                onChangeText={(description) => this.props.setDescription(description)}
                 value={this.setState.description}
                 placeholder="Description..."
               />

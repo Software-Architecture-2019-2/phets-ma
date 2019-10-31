@@ -20,8 +20,8 @@ class AnimalViewComponent extends Component {
     this.props.navigation.navigate("EditAnimal", { animal: this.animal, editionForm: true });
   }
 
-  navigateToListEvents = () => {
-    this.props.navigation.navigate("ListEvent");
+  navigateToListEvents(){
+    this.props.navigation.navigate("ListEvent", {animal: this.animal});
   }
 
   render() {
@@ -30,7 +30,7 @@ class AnimalViewComponent extends Component {
       navigateToEdit={this.navigateToEdit}
       animal={this.animal}
       showEditButton={this.showEdit}
-      navigateToListEvents={this.navigateToListEvents}
+      navigateToListEvents={() => this.navigateToListEvents()}
     />
   }
 }

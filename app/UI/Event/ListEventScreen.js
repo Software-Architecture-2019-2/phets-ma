@@ -14,26 +14,29 @@ class ListEventScreen extends Component{
   constructor(props){
     super(props);
     this.state = {
-      events: [
-        {
-          "id": "1",
-          "subject": "Cita de rutinas para vacunas",
-          "description": "Asistir a la cita de vacunas pendiente",
-          "date": "2019-11-21 14:20",
-          "animal_id": "1",
-          "created_at": "2019-10-08",
-          "updated_at": "2019-10-08"
-        },
-        {
-          "id": "1",
-          "subject": "Cita Veterinario",
-          "description": "Asistir a la cita para la ultima vacuna",
-          "date": "2019-12-21 07:20",
-          "animal_id": "1",
-          "created_at": "2019-10-20",
-          "updated_at": "2019-10-20"
-        }
-      ]
+      
+    }
+  }
+
+  _validateEvent(event){
+    if(this.props.getAnimal().id== event.animal_id){
+      return <View style={styles.rowBetween}>
+      <View style={styles.row}>
+        <View style={{justifyContent: "center"}}>
+            <FontAwesomeIcon icon={faCircle} size={20} color={"#77A6F7"} />
+          </View>
+          <View>
+            <Text style={styles.titleEvent}>{event.subject}</Text>
+            <Text style={styles.bodyEvent}>{event.description}</Text>
+            <Text style={styles.bodyEvent}>{event.date}</Text>
+          </View>
+        </View>
+        <View>
+          <FontAwesomeIcon icon={faChevronRight} size={20} color={"#77A6F7"} onPress = {() => this.props.editEvent(event)} />
+        </View>
+      </View>
+    }else{
+      return <View></View>
     }
   }
 
@@ -48,25 +51,9 @@ class ListEventScreen extends Component{
             <View style={styles.titleBack}>
               <Text style={styles.title}>{EventsStrings.upcoming}</Text>
             </View>
-            {this.state.events.map((event) => (
-              <View style={styles.rowBetween}>
-                <View style={styles.row}>
-                  <View style={{justifyContent: "center"}}>
-                    <FontAwesomeIcon icon={faCircle} size={20} color={"#77A6F7"} />
-                  </View>
-                  <View>
-                    <Text style={styles. titleEvent}>{event.subject}</Text>
-                    <Text style={styles.bodyEvent}>{event.description}</Text>
-                    <Text style={styles.bodyEvent}>{event.date}</Text>
-                  </View>
-                </View>
-                <View>
-                  <FontAwesomeIcon icon={faChevronRight} size={20} color={"#77A6F7"} onPress = {() => this.props.editEvent()} />
-                </View>
-              </View>
+            {this.props.getEventsAnimal().map((event) => (
+              this._validateEvent(event)
             ))}
-            
-            
             <View style={styles.button}>
               <Text style={styles.titleBlack}>{EventsStrings.create}</Text>
               <Button buttonStyle={{ width: 35, paddingTop:5 }}
