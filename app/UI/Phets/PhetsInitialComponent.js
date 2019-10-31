@@ -31,7 +31,6 @@ class PhetsInitialComponent extends Component {
 
     if (!animal || !this.props.user) return;
     createInteractionService({
-      // TODO: This ID most be from the current animal given by the storage.
       id1: this.state.selectedPhet.id,
       id2: animal.id,
       state

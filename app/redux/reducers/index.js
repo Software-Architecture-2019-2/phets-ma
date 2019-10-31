@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
 import { login } from "../reducers/LoginReducer";
 import { signup } from "../reducers/SignUpReducer";
-import { setDefaultPet, setPhetsList } from "../reducers/PhetsReducer";
+import { setDefaultPhet, setPhetsList } from "../reducers/PhetsReducer";
 
-const rootReducer = combineReducers({ login, signup, setDefaultPet, setPhetsList });
+const rootReducer = combineReducers({ login, signup, setDefaultPhet, setPhetsList });
 
 export default rootReducer;
