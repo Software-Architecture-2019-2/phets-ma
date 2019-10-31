@@ -14,7 +14,8 @@ class PhetsInitialScreen extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      animal: undefined
+      animal: undefined,
+      animals: this.props.animals
     }
     this.swiperCallback = this.swiperCallback.bind(this);
   }
@@ -64,7 +65,7 @@ class PhetsInitialScreen extends Component {
 
   _renderPhet(animal){
     return (
-      <Picker.Item label={animal.name} value={animal.name} />
+      <Picker.Item label={animal.name} value={animal} />
     );
   }
 
@@ -72,15 +73,28 @@ class PhetsInitialScreen extends Component {
     this.props.onSwiped(state, animal);
   }
 
+  selectDefaultPhet(animal){
+    // this.props.selectDefaultPhet(animal, (animals) => {
+    //   console.log(animals);
+    //   this.setState({animals},this.forceUpdate());
+    // });
+    this.props.selectDefaultPhet(animal);
+  }
+
+  componentWillReceiveProps(){
+    
+    console.log(this.props);
+    this.setState({animals: this.props.animals});
+    this.forceUpdate();
+  }
+
   render() {
     return (
       <View style={styles.phetsbg}>
         <Picker
-            selectedValue={this.state.language}
+            selectedValue={this.props.defaultPhet}
             style={styles.contentHead}
-            onValueChange={(itemValue, itemIndex) =>
-              this.props.selectDefaultPhet(itemValue)
-            }>
+            onValueChange={(itemValue, itemIndex) => this.selectDefaultPhet(itemValue) }>
             {this.props.phets.map((animal, index) => this._renderPhet(animal))} 
         </Picker>
         <View style={styles.phetscard}>
@@ -92,7 +106,7 @@ class PhetsInitialScreen extends Component {
             onSwipedRight={() => this.props.onSwiped('right')}
             ref={swiper => (this.swiper = swiper)}
           >
-            {this.props.animals.map((animal, index) => this._renderAnimalCard(animal, index))}
+            {this.state.animals.map((animal, index) => this._renderAnimalCard(animal, index))}
           </CardStack>
         </View>
       </View>
