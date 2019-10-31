@@ -13,7 +13,8 @@ export default StyleSheet.create({
 		backgroundColor: WHITE,
 		borderRadius: 10,
 		alignItems: "center",
-		margin: 20,
+    margin: 20,
+    marginTop: 60,
 		shadowOpacity: 0.05,
 		shadowRadius: 10,
 		shadowColor: BLACK,
@@ -24,10 +25,27 @@ export default StyleSheet.create({
     textAlign: "center",
     paddingHorizontal: 10,
     marginBottom: 20
-	},
+  },
+  contentHead: {
+    marginTop: 10,
+    zIndex: 10,
+    flexDirection: "row",
+    alignItems: 'center',
+    left: 0, 
+    right: 0,
+    width: 150,
+    justifyContent: "center",
+    position: "absolute",
+  },
 
 	// CONTAINER - GENERAL
 	phetsbg: {
+    flex: 1,
+    backgroundColor: "#FFCCBC",
+		width: DIMENSION_WIDTH,
+		height: DIMENSION_HEIGHT
+  },
+  phetscard: {
     flex: 1,
     backgroundColor: "#FFCCBC",
 		width: DIMENSION_WIDTH,
@@ -38,7 +56,10 @@ export default StyleSheet.create({
     borderTopLeftRadius: 10,
     borderTopRightRadius: 10,
 		width: DIMENSION_WIDTH - 40,
-		height: DIMENSION_HEIGHT*0.75,
+		height: DIMENSION_HEIGHT*0.6,
+  },
+  userStyle: {
+    marginLeft: 20
   },
   nameStyle: {
     marginTop: 35,

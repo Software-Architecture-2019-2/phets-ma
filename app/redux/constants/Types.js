@@ -10,6 +10,12 @@ export const userConstants = {
   LOGOUT: "USERS_LOGOUT"
 };
 
+export const phetsConstants = {
+  DEFAULT_PHET_REQUEST: "DEFAULT_PHET_REQUEST",
+  DEFAULT_PHET_SET: "DEFAULT_PHET_SET",
+  PHETS_LIST_SET: "PHETS_LIST_SET",
+};
+
 export const alertConstants = {
   SUCCESS: "ALERT_SUCCESS",
   ERROR: "ALERT_ERROR",

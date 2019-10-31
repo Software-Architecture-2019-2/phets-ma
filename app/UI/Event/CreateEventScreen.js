@@ -15,10 +15,7 @@ class LobbyComponent extends Component{
   constructor(props){
     super(props);
     this.state = {
-      subject: "",
-      description: "",
       showCalendar: false,
-      date: ""
     }
   }
 
@@ -31,9 +28,52 @@ class LobbyComponent extends Component{
       showCalendar: false})
   }
 
+  _renderTitle() {
+    if (this.props.getType()) {
+      return <Text style={styles.titlePhets}>{EventsStrings.edit}</Text>
+    }else{
+      return <Text style={styles.titlePhets}>{EventsStrings.create}</Text>
+    }
+  }
+
+  _renderOptions() {
+    if (this.props.getType()) {
+      /* Boton para guardar cambios de eventos */
+      return <View style={styles.button}>
+      <Button
+        buttonStyle={styles.button}
+        titleStyle={{ color: '#FFF' }}
+        buttonStyle={[GeneralStyles.BlueColor, { marginTop: 10, width: width*0.5 }]}
+        title={"Save"}
+        onPress={() => this.props.editEvent()}
+      />
+
+      <Button
+        buttonStyle={styles.button}
+        titleStyle={{ color: '#FFF' }}
+        buttonStyle={[GeneralStyles.BlueColor, { marginTop: 20, width: width*0.5 }]}
+        title={"Delete"}
+        onPress={() => this.props.removeEvent()}
+      />
+    </View>
+    }else{
+      /* Boton para crear eventos */
+      return <View style={styles.button}>
+      <Button
+        buttonStyle={styles.button}
+        titleStyle={{ color: '#FFF' }}
+        buttonStyle={[GeneralStyles.BlueColor, { marginTop: 10, width: width*0.5 }]}
+        title={"Create"}
+        onPress={() => this.props.createEvent()}
+      />
+    </View>
+    }
+  }
+
   setDate = (_, date) => {
     if (date) {
       this.setState({ date: date.toISOString().substring(0, 10), showCalendar: false })
+      this.props.setDate(date.toISOString().substring(0, 10))
     }
   }
 
@@ -41,14 +81,14 @@ class LobbyComponent extends Component{
     return(
       <View style = {styles.Background}>
         <View style={styles.head}>
-          <Text style={styles.titlePhets}>{EventsStrings.create}</Text>
+        {this._renderTitle()}
         </View>
         <ScrollView style={styles.Body}>
             <View Style={{paddingLeft: 20, paddingRight: 20}}>
               <Input
                 name="username"
                 placeholder={EventsStrings.subject}
-                onChangeText={(subject) => this.setState({subject})}
+                onChangeText={(subject) => this.props.setSubject(subject)}
                 value={this.state.username}
                 inputStyle={{width: width*0.5}}
                 >
@@ -58,7 +98,7 @@ class LobbyComponent extends Component{
               <TextInput
                 style={{ height: 100, borderColor: 'gray', borderWidth: 1, marginTop: 20, width: width*0.8,
                 marginLeft: width*0.05 }}
-                onChangeText={(description) => this.setState({description})}
+                onChangeText={(description) => this.props.setDescription(description)}
                 value={this.setState.description}
                 placeholder="Description..."
               />
@@ -82,15 +122,7 @@ class LobbyComponent extends Component{
               onChange={this.setDate}
               minimumDate={new Date(1990, 0, 1)}
             />}
-            <View style={styles.button}>
-              <Button
-                buttonStyle={styles.button}
-                titleStyle={{ color: '#FFF' }}
-                buttonStyle={[GeneralStyles.BlueColor, { marginTop: 10, width: width*0.5 }]}
-                title={"Create"}
-                onPress={() => this.props.navigateToEdit()}
-              />
-            </View>
+            {this._renderOptions()}
         </ScrollView>
       </View>
     )
