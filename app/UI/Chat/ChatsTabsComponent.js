@@ -33,7 +33,7 @@ export class ChatsTabsComponent extends Component {
 
   renderAdoptionChatsItems(adoptionChats) {
     return adoptionChats.map((adoption, index) => {
-      return <TouchableOpacity key={adoption.id} onPress={() => this.handleOnPressItem({
+      return <TouchableOpacity key={index} onPress={() => this.handleOnPressItem({
         from: adoption.from_entity,
         to: adoption.id,
         name: adoption.name,

@@ -33,18 +33,17 @@ class AnimalViewComponent extends Component {
 
   submitMessageAndNavigate = (text) => {
     createMessageService({
-      sent: this.props.user.username,
+      sent: "crdgonzalezca",
       received: this.animal.id,
-      content: text,
+      messages: text,
       adopt: true,
     }, (_) => {
-      console.log("asdasd")
-      // this.props.navigation.navigate("ChatView", {
-      //   from: {id: this.props.user.username, username: this.props.user.username},
-      //   to: this.animal.id,
-      //   name: this.animal.name,
-      //   image: this.getImageUri(this.animal.media)
-      // })
+      this.props.navigation.navigate("ChatView", {
+        from: {id: "crdgonzalezca", username: "crdgonzalezca"},
+        to: this.animal.id,
+        name: this.animal.name,
+        image: this.getImageUri(this.animal.media)
+      })
     });
   }
 

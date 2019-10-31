@@ -103,7 +103,7 @@ class AnimalViewScreen extends Component {
           title={"Get in touch to adopt"}
           message={"Start talking"}
           hintInput={"Message"}
-          submitInput={(inputText) => { this.props.submitMessageAndNavigate(inputText) }}
+          submitInput={(inputText) => { this.showDialog(false), this.props.submitMessageAndNavigate(inputText) }}
           closeDialog={() => { this.showDialog(false) }}>
         </DialogInput>
       </View>

@@ -25,7 +25,8 @@ class AllChatsComponent extends Component {
   }
 
   componentDidMount() {
-    this.getUserAnimals();
+    this.loadChats();
+    this._registerDidFocusListener();
   }
 
   getAdoptionChats(animals) {
@@ -52,7 +53,6 @@ class AllChatsComponent extends Component {
       matchHistoryService(animal.id, matches => {
         const animalsIds = matches.map(match => match.idSecondary);
         this._getAnimals(animalsIds, { name: animal.name, id: animal.id }, this.phetsAnimals, () => {
-          console.log(animalsIds, this.phetsAnimals)
           this.countPhets++;
           if (this.countPhets === animals.length) {
             this.setState({ phetsChats: this.phetsAnimals });
@@ -62,7 +62,13 @@ class AllChatsComponent extends Component {
     });
   }
 
-  getUserAnimals() {
+  loadChats() {
+    this.setState({adoptionChats: null, phetsChats: null})
+    this.adoptionAnimals = [];
+    this.phetsAnimals = [];
+    this.countPhets = 0;
+    this.countAdoption = 0;
+
     getUserAnimals(this.username, (animals) => {
       const phetsIds = animals ? animals
         .filter(animal => !animal.adoption) : [];
@@ -86,6 +92,12 @@ class AllChatsComponent extends Component {
     }
   }
 
+  _registerDidFocusListener() {
+    this.props.navigation.addListener(
+      'didFocus',
+      () => this.loadChats()
+    );
+  }
 
   navigateToChatView = (params) => {
     this.props.navigation.navigate("ChatView", params)
