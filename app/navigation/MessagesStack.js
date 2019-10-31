@@ -2,13 +2,13 @@ import { createAppContainer } from "react-navigation";
 import { createStackNavigator } from 'react-navigation-stack';
 
 // Components
-import ChatInitialComponent from "../UI/Chat/ChatInitialComponent";
+import AllChatsComponent from "../UI/Chat/AllChatsComponent";
 import ChatComponent from "../UI/Chat/ChatComponent"
 
 const MessagesStack = createStackNavigator(
   {
-    ChatInitialView: {
-      screen: ChatInitialComponent,
+    AllChats: {
+      screen: AllChatsComponent,
       navigationOptions: {
         header: null, //Para no poner la barra superior
       }
@@ -21,7 +21,7 @@ const MessagesStack = createStackNavigator(
     },
   },
   {
-    initialRouteName: "ChatInitialView"
+    initialRouteName: "AllChats"
   }
 );
 

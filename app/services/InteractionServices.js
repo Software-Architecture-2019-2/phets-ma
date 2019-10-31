@@ -1,6 +1,7 @@
 import { API_GATEWAY_URI } from './utils';
 import { request } from 'graphql-request';
 
+
 export function getAllPhetsService(filter, callbackService) {
   const query = `query AllPhets($filter: PhetsFilter!){
     allPhets(filter: $filter){
@@ -69,6 +70,32 @@ export function isMatchService(data, callbackService) {
     .catch(error => {
       return Promise.reject(error);
     });
+}
+
+export function matchHistoryService(id, callbackService) {
+  const query = `query MatchHistory($id: Int!){
+    matchHistory(id1: $id){
+      idMain,
+      idSecondary,
+      match1,
+      match2,
+    }
+  }`;
+
+  const body = {
+    query,
+    variables: { id }
+  }
+  const request = {
+    method: "POST",
+    body: JSON.stringify(body),
+    callback: (data) => callbackService(data.data.matchHistory)
+  };
+  try {
+    sendRequest(request);
+  } catch (error) {
+    console.error(error);
+  }
 }
 
 function sendRequest(request) {
