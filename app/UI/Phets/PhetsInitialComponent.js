@@ -13,6 +13,7 @@ class PhetsInitialComponent extends Component {
     this.state = {
       animals: null,
       isMatch: false,
+      matchedAnimal: {name: "Sandra"},
       selectedPhet: this.props.phets[0]
     }
   }
@@ -35,13 +36,13 @@ class PhetsInitialComponent extends Component {
       id2: animal.id,
       state
     }, (data) => {
-      this._checkIfMatch(data.idMain, data.idSecondary)
+      this._checkIfMatch(data.idMain, data.idSecondary, animal)
     });
   }
 
-  _checkIfMatch(id1, id2) {
+  _checkIfMatch(id1, id2, animal) {
     isMatchService({ id1, id2 }, (data) => {
-      this.setState({ isMatch: true });
+      this.setState({ isMatch: true, matchedAnimal: animal });
       // This should show something to indicate there is a match and invite to chat.
     })
   }
@@ -71,6 +72,14 @@ class PhetsInitialComponent extends Component {
     this.props.navigation.popToTop();
   }
 
+  startChat(){
+    console.log("Chat started");
+  }
+
+  closeModal(){
+    this.setState({ isMatch: false, matchedAnimal: null });
+  }
+
   render() {
     if (this.state.animals) {
       return (
@@ -83,6 +92,9 @@ class PhetsInitialComponent extends Component {
           selectDefaultPhet={(animalName) => this.selectDefaultPhet(animalName)}
           getDataAnimals={() => this.getDataAnimals()}
           isMatch={this.state.isMatch}
+          matchedAnimal={this.state.matchedAnimal}
+          closeModal={() => this.closeModal()}
+          startChat={() => this.startChat()}
         />
       )
     } else {

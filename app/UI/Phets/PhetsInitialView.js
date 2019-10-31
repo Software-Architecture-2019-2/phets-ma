@@ -8,6 +8,8 @@ import { Button, Input,  Avatar } from 'react-native-elements';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faTimes, faHeart, faSadTear } from '@fortawesome/free-solid-svg-icons'
 import { FILES_MS_URI } from "../../services/utils";
+import {strings} from './PhetsStrings';
+
 const { height, width } = Dimensions.get('window');
 
 class PhetsInitialScreen extends Component {
@@ -24,8 +26,8 @@ class PhetsInitialScreen extends Component {
     return (
       // <Card>
       <View style={[styles.containerCardItem, { height: 300, alignContent: 'center' }]}>
-        <Text style={{ fontSize: 30 }}>There are no more pets</Text>
-        <Text style={{ fontSize: 30 }}>Comeback later</Text>
+        <Text style={{ fontSize: 30 }}>{strings.no_more_phets}</Text>
+        <Text style={{ fontSize: 30 }}>{strings.come_back_later}</Text>
         <FontAwesomeIcon icon={faSadTear} size={80} color={'gray'} />
         {/* <Image source={{ uri: `${FILES_MS_URI}\\${animal.media[0]}` }} style={styles.imageStyle} /> */}
         {/* <Text style={styles.nameStyle}>{animal.name}</Text> */}
@@ -74,16 +76,10 @@ class PhetsInitialScreen extends Component {
   }
 
   selectDefaultPhet(animal){
-    // this.props.selectDefaultPhet(animal, (animals) => {
-    //   console.log(animals);
-    //   this.setState({animals},this.forceUpdate());
-    // });
     this.props.selectDefaultPhet(animal);
   }
 
   componentWillReceiveProps(){
-    
-    console.log(this.props);
     this.setState({animals: this.props.animals});
     this.forceUpdate();
   }
@@ -109,6 +105,34 @@ class PhetsInitialScreen extends Component {
             {this.state.animals.map((animal, index) => this._renderAnimalCard(animal, index))}
           </CardStack>
         </View>
+        {this.props.isMatch && (
+          <View
+            style={{position: "absolute", zIndex: 10, width: width*0.8, marginLeft: width*0.1, backgroundColor: "#FFF", borderColor: "gray", borderWidth: 1,
+            borderRadius: 10, marginTop: height*0.3}}
+            >
+            <View>
+              <Text style={{fontSize: 20, fontWeight: "bold", textAlign: "center",marginTop: 20}}>{strings.match}</Text>
+              <Text style={{fontSize: 16, textAlign: "center", marginTop: 20}}>{strings.you_matched}</Text>
+              <Text style={{fontSize: 16, textAlign: "center"}}>{this.props.matchedAnimal.name}!</Text>
+            </View>
+            <View style={{flexDirection: "row", justifyContent: "space-around", marginTop: 20, marginBottom: 30}}>
+              <Button
+                buttonStyle={styles.button}
+                titleStyle={{ color: '#FFF' }}
+                buttonStyle={{ marginTop: 10, width: width*0.3 }}
+                title={strings.chat}
+                onPress={() => this.props.startChat()}
+              />
+              <Button
+                buttonStyle={styles.button}
+                titleStyle={{ color: '#FFF' }}
+                buttonStyle={{ marginTop: 10, width: width*0.3 }}
+                title={strings.close}
+                onPress={() => this.props.closeModal()}
+              />
+            </View>
+        </View>
+        )}
       </View>
     );
   }

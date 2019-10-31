@@ -61,7 +61,7 @@ class ListEventScreen extends Component{
                   <FontAwesomeIcon icon={faPlus} size={35} color={"#77A6F7"} />
                 }
                 type="clear"
-                onPress={() => this.props.createEvent()}
+                onPress={() => this.props.editEvent()}
               />
             </View>
         </ScrollView>

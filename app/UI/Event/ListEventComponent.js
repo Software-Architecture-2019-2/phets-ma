@@ -22,7 +22,6 @@ class ListEventComponent extends Component{
 
   editEvent(event){
     this.props.navigation.navigate("CreateEvent",{edit: true, animal: this.state.animal, event: event});
-    
   }
 
   createEvent(){
