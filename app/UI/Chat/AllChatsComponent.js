@@ -51,7 +51,6 @@ class AllChatsComponent extends Component {
   getPhetsChats(animals) {
     animals.forEach((animal, index) => {
       matchHistoryService(animal.id, matches => {
-        if(matches.length == 0) return;
 
         const animalsIds = matches.map(match => match.idSecondary);
         this._getAnimals(animalsIds, { name: animal.name, id: animal.id }, this.phetsAnimals, () => {
@@ -72,8 +71,6 @@ class AllChatsComponent extends Component {
     this.countAdoption = 0;
 
     getUserAnimals(this.state.username, (animals) => {
-      console.log("Animals are:");
-      console.log(animals);
       const phetsIds = animals ? animals
         .filter(animal => !animal.adoption) : [];
       const adoption = animals ? animals
@@ -86,7 +83,6 @@ class AllChatsComponent extends Component {
   _getAnimals(animalIds, data, target, callback) {
     if (!animalIds.length) callback(); 
     for (let index = 0; index < animalIds.length; index++) {
-      console.log(animalIds[index]); 
       getAnimalByIDService(animalIds[index], (animal) => {
         animal.from_entity = data;
         target.push(animal);
@@ -113,7 +109,7 @@ class AllChatsComponent extends Component {
   }
 
   render() {
-    if (this.state.adoptionChats && this.state.phetsChats) {
+    if (this.state.adoptionChats && this.state.phetsChats) {  
       return (
         <AllChatsScreen
           changeToBack={() => this.changeToBack()}
