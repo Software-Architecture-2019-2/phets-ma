@@ -13,20 +13,25 @@ class PhetsInitialComponent extends Component {
   constructor(props) {
     super(props);
 
-    console.log(props);
+    console.log("PROPS ARE");
+    console.log(this.props);
 
     this.state = {
       animals: null,
       isMatch: false,
-      selectedPhet: this.props.phets[0]
+      empty: this.props.phets.length == 0,
+      phets: this.props.phets,
+      selectedPhet: this.props.phets.length != 0 ? this.props.phets[0] : null
     }
   }
 
   componentDidMount() {
 
+    if(!this.state.selectedPhet){
+      return;
+    }
     this.getAllAnimals();
-
-    this.selectDefaultPhet(this.props.phets[0]);
+    this.selectDefaultPhet(this.state.phets[0]);
   }
 
   getDataAnimals() {
@@ -107,7 +112,7 @@ class PhetsInitialComponent extends Component {
           changeToBack={() => this.changeToBack()}
           onSwiped={(state, animal) => this.onSwiped(state, animal)}
           animals={this.state.animals}
-          phets={this.props.phets}
+          phets={this.state.phets}
           defaultPhet={this.state.selectedPhet} 
           selectDefaultPhet={(animalName) => this.selectDefaultPhet(animalName)}
           getDataAnimals={() => this.getDataAnimals()}
@@ -117,7 +122,25 @@ class PhetsInitialComponent extends Component {
           startChat={() => this.startChat()}
         />
       )
-    } else {
+    } 
+    else if(this.state.phets.length == 0){
+      return (
+        <PhetsInitialScreen
+          changeToBack={() => this.changeToBack()}
+          onSwiped={(state, animal) => this.onSwiped(state, animal)}
+          animals={this.state.animals}
+          phets={this.state.phets}
+          defaultPhet={this.state.selectedPhet} 
+          selectDefaultPhet={(animalName) => this.selectDefaultPhet(animalName)}
+          getDataAnimals={() => this.getDataAnimals()}
+          isMatch={this.state.isMatch}
+          matchedAnimal={this.state.matchedAnimal}
+          closeModal={() => this.closeModal()}
+          startChat={() => this.startChat()}
+        />
+      )
+    }
+    else {
       return <Spinner
         visible={true}
         textContent={"Loading..."}

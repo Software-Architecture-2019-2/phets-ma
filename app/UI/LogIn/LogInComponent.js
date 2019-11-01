@@ -37,7 +37,6 @@ class LogInComponent extends Component {
           user.token = response;
           dispatch(userActions.login(true, user, null));
           this.setState({ isLoggingIn: false });
-          this.changeToLobby();
         });
 
         getUserAnimals(usr.username, (animals) => {
@@ -47,6 +46,7 @@ class LogInComponent extends Component {
           adoption.sort(this._sortAnimalList);
     
           dispatch(phetsActions.setPhetsList(phets));
+          this.changeToLobby();
         });
 
         return true;
