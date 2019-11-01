@@ -4,13 +4,14 @@ import { ListItem } from 'react-native-elements';
 import { TabView, SceneMap, TabBar } from 'react-native-tab-view';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faChevronRight } from '@fortawesome/free-solid-svg-icons';
+import { connect } from "react-redux";
 
 import { ChatStrings } from './ChatStrings';
 import { FILES_MS_URI } from "../../services/utils";
 
 const { height, width } = Dimensions.get('window');
 
-export class ChatsTabsComponent extends Component {
+class ChatsTabsComponent extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -20,7 +21,7 @@ export class ChatsTabsComponent extends Component {
         { key: 'second', title: ChatStrings.adoptionLabel },
       ],
     };
-    this.username = "crdgonzalezca";
+    this.username = this.props.user.username;
   }
 
   handleOnPressItem = (data) => {
@@ -183,3 +184,16 @@ const styles = StyleSheet.create({
   }
 
 })
+
+function mapStateToProps(state) {
+  const user = state.login.user;
+  const phets = state.setPhetsList.phets;
+  const defaultPhet = state;
+  return {
+    user,
+    phets,
+    defaultPhet
+  };
+}
+const connectedChatsTabsComponent = connect(mapStateToProps)(ChatsTabsComponent);
+export default connectedChatsTabsComponent;

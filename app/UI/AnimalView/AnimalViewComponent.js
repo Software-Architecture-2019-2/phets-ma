@@ -1,11 +1,13 @@
 import React, { Component } from "react";
 
 import Spinner from 'react-native-loading-spinner-overlay';
+import { connect } from "react-redux";
 
 import AnimalViewScreen from "./AnimalViewScreen"
 import { AnimalStrings } from "./AnimalViewStrings";
 import { createMessageService } from "../../services/ChatServices";
 import { FILES_MS_URI } from "../../services/utils";
+
 
 class AnimalViewComponent extends Component {
   constructor(props) {
@@ -33,13 +35,13 @@ class AnimalViewComponent extends Component {
 
   submitMessageAndNavigate = (text) => {
     createMessageService({
-      sent: "crdgonzalezca",
+      sent: this.props.user.username,
       received: this.animal.id,
       messages: text,
       adopt: true,
     }, (_) => {
       this.props.navigation.navigate("ChatView", {
-        from: {id: "crdgonzalezca", username: "crdgonzalezca"},
+        from: {id: this.props.user.username, username: this.props.user.username},
         to: this.animal.id,
         name: this.animal.name,
         image: this.getImageUri(this.animal.media)
@@ -59,4 +61,15 @@ class AnimalViewComponent extends Component {
   }
 }
 
-export default AnimalViewComponent;
+function mapStateToProps(state) {
+  const user = state.login.user;
+  const phets = state.setPhetsList.phets;
+  const defaultPhet = state;
+  return {
+    user,
+    phets,
+    defaultPhet
+  };
+}
+const connectedAnimalViewComponent = connect(mapStateToProps)(AnimalViewComponent);
+export default connectedAnimalViewComponent;

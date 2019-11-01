@@ -21,7 +21,6 @@ class AllChatsComponent extends Component {
     this.phetsAnimals = [];
     this.countPhets = 0;
     this.countAdoption = 0;
-    // TODO: Bring data from redux
     this.username = this.props.user.username;
   }
 
@@ -31,7 +30,6 @@ class AllChatsComponent extends Component {
   }
 
   getAdoptionChats(animals) {
-
     getAdoptionChatsService(this.username, (chats) => {
       this._getAnimals(chats, { name: this.username, id: this.username }, this.adoptionAnimals, () => {
         animals.forEach(animal => {
@@ -73,9 +71,9 @@ class AllChatsComponent extends Component {
     this.countPhets = 0;
     this.countAdoption = 0;
 
-    console.log();
-
     getUserAnimals(this.state.username, (animals) => {
+      console.log("Animals are:");
+      console.log(animals);
       const phetsIds = animals ? animals
         .filter(animal => !animal.adoption) : [];
       const adoption = animals ? animals
@@ -86,8 +84,9 @@ class AllChatsComponent extends Component {
   }
 
   _getAnimals(animalIds, data, target, callback) {
-    if (!animalIds.length) callback();
+    if (!animalIds.length) callback(); 
     for (let index = 0; index < animalIds.length; index++) {
+      console.log(animalIds[index]); 
       getAnimalByIDService(animalIds[index], (animal) => {
         animal.from_entity = data;
         target.push(animal);

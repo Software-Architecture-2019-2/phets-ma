@@ -10,6 +10,7 @@ import {
   Alert,
 } from "react-native";
 import { Input, Button } from "react-native-elements";
+import { connect } from "react-redux";
 
 import { SliderBox } from 'react-native-image-slider-box';
 import Spinner from 'react-native-loading-spinner-overlay';
@@ -43,7 +44,7 @@ class AnimalFormScreen extends Component {
       media: this.props.isEditionForm ? this._animal.media : [],
       selectedImages: [],
     }
-    this.user = "crdgonzalezca";
+    this.user = this.props.user.usename;
   }
 
   parseMediaToUris(media) {
@@ -298,4 +299,15 @@ class AnimalFormScreen extends Component {
   }
 }
 
-export default AnimalFormScreen;
+function mapStateToProps(state) {
+  const user = state.login.user;
+  const phets = state.setPhetsList.phets;
+  const defaultPhet = state;
+  return {
+    user,
+    phets,
+    defaultPhet
+  };
+}
+const connectedAnimalFormScreen = connect(mapStateToProps)(AnimalFormScreen);
+export default connectedAnimalFormScreen;

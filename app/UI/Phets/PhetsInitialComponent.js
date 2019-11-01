@@ -13,9 +13,6 @@ class PhetsInitialComponent extends Component {
   constructor(props) {
     super(props);
 
-    console.log("PROPS ARE");
-    console.log(this.props);
-
     this.state = {
       animals: null,
       isMatch: false,
@@ -55,7 +52,8 @@ class PhetsInitialComponent extends Component {
 
   _checkIfMatch(id1, id2, animal) {
     isMatchService({ id1, id2 }, (data) => {
-      this.setState({ isMatch: true });
+      if(data.state == true){
+        this.setState({ isMatch: true });
         Alert.alert(
           strings.match,
           (strings.you_matched + " " + animal.name),
@@ -69,6 +67,7 @@ class PhetsInitialComponent extends Component {
           ],
           {cancelable: true},
         )
+      }
     })
   }
 
