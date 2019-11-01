@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 
 import Spinner from 'react-native-loading-spinner-overlay';
+import { connect } from "react-redux";
 
 import AllChatsScreen from "./AllChatsScreen"
 import { matchHistoryService } from "../../services/InteractionServices";
@@ -21,7 +22,7 @@ class AllChatsComponent extends Component {
     this.countPhets = 0;
     this.countAdoption = 0;
     // TODO: Bring data from redux
-    this.username = "crdgonzalezca";
+    this.username = this.props.user.username;
   }
 
   componentDidMount() {
@@ -30,6 +31,7 @@ class AllChatsComponent extends Component {
   }
 
   getAdoptionChats(animals) {
+
     getAdoptionChatsService(this.username, (chats) => {
       this._getAnimals(chats, { name: this.username, id: this.username }, this.adoptionAnimals, () => {
         animals.forEach(animal => {
@@ -51,6 +53,8 @@ class AllChatsComponent extends Component {
   getPhetsChats(animals) {
     animals.forEach((animal, index) => {
       matchHistoryService(animal.id, matches => {
+        if(matches.length == 0) return;
+
         const animalsIds = matches.map(match => match.idSecondary);
         this._getAnimals(animalsIds, { name: animal.name, id: animal.id }, this.phetsAnimals, () => {
           this.countPhets++;
@@ -69,7 +73,9 @@ class AllChatsComponent extends Component {
     this.countPhets = 0;
     this.countAdoption = 0;
 
-    getUserAnimals(this.username, (animals) => {
+    console.log();
+
+    getUserAnimals(this.state.username, (animals) => {
       const phetsIds = animals ? animals
         .filter(animal => !animal.adoption) : [];
       const adoption = animals ? animals
@@ -128,4 +134,15 @@ class AllChatsComponent extends Component {
   }
 }
 
-export default AllChatsComponent;
+function mapStateToProps(state) {
+  const user = state.login.user;
+  const phets = state.setPhetsList.phets;
+  const defaultPhet = state;
+  return {
+    user,
+    phets,
+    defaultPhet
+  };
+}
+const connectedAllChatsComponent = connect(mapStateToProps)(AllChatsComponent);
+export default connectedAllChatsComponent;

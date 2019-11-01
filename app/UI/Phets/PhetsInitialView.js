@@ -74,10 +74,6 @@ class PhetsInitialScreen extends Component {
   }
 
   selectDefaultPhet(animal){
-    // this.props.selectDefaultPhet(animal, (animals) => {
-    //   console.log(animals);
-    //   this.setState({animals},this.forceUpdate());
-    // });
     this.props.selectDefaultPhet(animal);
   }
 

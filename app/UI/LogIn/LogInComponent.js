@@ -4,8 +4,9 @@ import { connect } from "react-redux";
 
 import { loginService } from "../../services/UserServices";
 import LogInScreen from "./LoginScreen"
-import { getUserByUsernameService } from '../../services/UserServices';
+import { getUserByUsernameService, getUserAnimals } from '../../services/UserServices';
 import { userActions } from "../../redux/actions/UserActions";
+import { phetsActions } from "../../redux/actions/PhetsActions";
 
 class LogInComponent extends Component {
   constructor(props) {
@@ -37,8 +38,18 @@ class LogInComponent extends Component {
           dispatch(userActions.login(true, user, null));
           this.setState({ isLoggingIn: false });
           this.changeToLobby();
-          return true
         });
+
+        getUserAnimals(usr.username, (animals) => {
+          const phets = animals ? animals.filter(animal => { return !animal.adoption }) : [];
+          phets.sort(this._sortAnimalList);
+          const adoption = animals ? animals.filter(animal => { return animal.adoption }) : [];
+          adoption.sort(this._sortAnimalList);
+    
+          dispatch(phetsActions.setPhetsList(phets));
+        });
+
+        return true;
       },
       error => {
         this.setState({ isLoggingIn: false });
@@ -47,6 +58,16 @@ class LogInComponent extends Component {
         return false
       }
     );
+  }
+
+  _sortAnimalList = (a, b) => {
+    if (a.name > b.name) {
+      return 1;
+    }
+    if (a.name < b.name) {
+      return -1;
+    }
+    return 0;
   }
 
   render() {

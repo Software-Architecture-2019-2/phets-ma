@@ -6,10 +6,15 @@ import PhetsInitialScreen from "./PhetsInitialView"
 import { createInteractionService, isMatchService, getAllPhetsService } from "../../services/InteractionServices";
 import { connect } from "react-redux";
 import { phetsActions } from "../../redux/actions/PhetsActions";
+import { strings } from "./PhetsStrings";
+import { Alert } from "react-native";
 
 class PhetsInitialComponent extends Component {
   constructor(props) {
     super(props);
+
+    console.log(props);
+
     this.state = {
       animals: null,
       isMatch: false,
@@ -18,6 +23,7 @@ class PhetsInitialComponent extends Component {
   }
 
   componentDidMount() {
+
     this.getAllAnimals();
 
     this.selectDefaultPhet(this.props.phets[0]);
@@ -35,14 +41,29 @@ class PhetsInitialComponent extends Component {
       id2: animal.id,
       state
     }, (data) => {
-      this._checkIfMatch(data.idMain, data.idSecondary)
+      const newAnimalsList = this.state.animals;
+      newAnimalsList.filter((anim) => animal.id != anim.id);
+      this.setState({animals: newAnimalsList});
+      this._checkIfMatch(data.idMain, data.idSecondary, animal)
     });
   }
 
-  _checkIfMatch(id1, id2) {
+  _checkIfMatch(id1, id2, animal) {
     isMatchService({ id1, id2 }, (data) => {
       this.setState({ isMatch: true });
-      // This should show something to indicate there is a match and invite to chat.
+        Alert.alert(
+          strings.match,
+          (strings.you_matched + " " + animal.name),
+          [
+            {
+              text: strings.close,
+              onPress: () => console.log('Cancel Pressed'),
+              style: 'cancel',
+            },
+            {text: strings.chat, onPress: () => console.log('Chat Pressed')},
+          ],
+          {cancelable: true},
+        )
     })
   }
 
@@ -71,6 +92,14 @@ class PhetsInitialComponent extends Component {
     this.props.navigation.popToTop();
   }
 
+  closeModal(){
+
+  }
+
+  startChat(){
+
+  }
+
   render() {
     if (this.state.animals) {
       return (
@@ -83,6 +112,9 @@ class PhetsInitialComponent extends Component {
           selectDefaultPhet={(animalName) => this.selectDefaultPhet(animalName)}
           getDataAnimals={() => this.getDataAnimals()}
           isMatch={this.state.isMatch}
+          matchedAnimal={this.state.matchedAnimal}
+          closeModal={() => this.closeModal()}
+          startChat={() => this.startChat()}
         />
       )
     } else {
