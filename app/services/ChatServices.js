@@ -18,7 +18,7 @@ export function createMessageService(message, callbackService) {
         sent: message.sent,
         received: message.received,
         content: message.messages,
-        adopt: false,
+        adopt: message.adopt,
       }
     }
   }
