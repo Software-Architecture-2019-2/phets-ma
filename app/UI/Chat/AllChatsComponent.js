@@ -70,7 +70,7 @@ class AllChatsComponent extends Component {
     this.countPhets = 0;
     this.countAdoption = 0;
 
-    getUserAnimals(this.state.username, (animals) => {
+    getUserAnimals(this.username, (animals) => {
       const phetsIds = animals ? animals
         .filter(animal => !animal.adoption) : [];
       const adoption = animals ? animals
@@ -110,8 +110,7 @@ class AllChatsComponent extends Component {
 
   render() {
     if (this.state.adoptionChats && this.state.phetsChats) {  
-      return (
-        <AllChatsScreen
+      return <AllChatsScreen
           changeToBack={() => this.changeToBack()}
           navigateToChatView={this.navigateToChatView}
           phetsChats={this.state.phetsChats}
@@ -119,7 +118,6 @@ class AllChatsComponent extends Component {
           currentPhet={this.currentPhet}
           username={this.username}
         />
-      )
     } else {
       return <Spinner
         visible={true}

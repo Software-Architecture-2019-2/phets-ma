@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { View, StyleSheet, ScrollView, Text, Dimensions } from "react-native";
 
-import { ChatsTabsComponent } from "./ChatsTabsComponent";
+import ChatsTabsComponent from "./ChatsTabsComponent";
 
 const { height, width } = Dimensions.get('window');
 

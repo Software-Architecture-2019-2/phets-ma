@@ -21,7 +21,7 @@ class ChatsTabsComponent extends Component {
         { key: 'second', title: ChatStrings.adoptionLabel },
       ],
     };
-    this.username = this.props.user.username;
+    this.username = this.props.username;
   }
 
   handleOnPressItem = (data) => {
