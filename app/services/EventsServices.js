@@ -66,7 +66,7 @@ export function removeEventService(id, callbackService) {
   }
 }
 
-export function getAllEvents(callbackService) {
+export function getAllEventsService(callbackService) {
   const query = `query{
     allEvents{
       total

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { View, StyleSheet, ScrollView, Text, Dimensions, TouchableOpacity,} from "react-native";
+import { View, StyleSheet, ScrollView, Text, Dimensions, TouchableOpacity, } from "react-native";
 
 import { Button, Image } from 'react-native-elements';
 
@@ -10,19 +10,16 @@ const { height, width } = Dimensions.get('window');
 
 import { EventsStrings } from "./ListEventString";
 
-class ListEventScreen extends Component{
-  constructor(props){
+class ListEventScreen extends Component {
+  constructor(props) {
     super(props);
-    this.state = {
-      
-    }
   }
 
-  _validateEvent(event){
-    if(this.props.getAnimal().id== event.animal_id){
-      return <View style={styles.rowBetween}>
-      <View style={styles.row}>
-        <View style={{justifyContent: "center"}}>
+  _renderEvent(event, index) {
+    return <TouchableOpacity onPress={() => this.props.editEvent(event)} key={index}>
+      <View style={styles.rowBetween}>
+        <View style={styles.row}>
+          <View style={{ justifyContent: "center" }}>
             <FontAwesomeIcon icon={faCircle} size={20} color={"#77A6F7"} />
           </View>
           <View>
@@ -32,38 +29,39 @@ class ListEventScreen extends Component{
           </View>
         </View>
         <View>
-          <FontAwesomeIcon icon={faChevronRight} size={20} color={"#77A6F7"} onPress = {() => this.props.editEvent(event)} />
+          <FontAwesomeIcon icon={faChevronRight} size={20} color={"#77A6F7"} />
         </View>
       </View>
-    }else{
-      return <View></View>
-    }
+    </TouchableOpacity>
   }
 
-  render(){
-    return(
-      <View style = {styles.Background}>
+  _renderAllEvents = () => {
+    return this.props.events.map((event, index) => {
+      return this._renderEvent(event, index);
+    })
+  }
+
+  render() {
+    return (
+      <View style={styles.Background}>
         <View style={styles.head}>
           <Text style={styles.titlePhets}>{EventsStrings.events}</Text>
         </View>
         <ScrollView style={styles.Body}>
-
-            <View style={styles.titleBack}>
-              <Text style={styles.title}>{EventsStrings.upcoming}</Text>
-            </View>
-            {this.props.getEventsAnimal().map((event) => (
-              this._validateEvent(event)
-            ))}
-            <View style={styles.button}>
-              <Text style={styles.titleBlack}>{EventsStrings.create}</Text>
-              <Button buttonStyle={{ width: 35, paddingTop:5 }}
-                icon={
-                  <FontAwesomeIcon icon={faPlus} size={35} color={"#77A6F7"} />
-                }
-                type="clear"
-                onPress={() => this.props.createEvent()}
-              />
-            </View>
+          <View style={styles.titleBack}>
+            <Text style={styles.title}>{EventsStrings.upcoming}</Text>
+          </View>
+          {this._renderAllEvents()}
+          <View style={styles.button}>
+            <Text style={styles.titleBlack}>{EventsStrings.create}</Text>
+            <Button buttonStyle={{ width: 35, paddingTop: 5 }}
+              icon={
+                <FontAwesomeIcon icon={faPlus} size={35} color={"#77A6F7"} />
+              }
+              type="clear"
+              onPress={() => this.props.createEvent()}
+            />
+          </View>
         </ScrollView>
       </View>
     )
@@ -102,9 +100,9 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 21,
     fontWeight: "bold",
-    color:"#FFCCBC"
+    color: "#FFCCBC"
   },
-  titleBlack:{
+  titleBlack: {
     fontSize: 20,
     fontWeight: "bold",
     color: "#000",
@@ -130,7 +128,7 @@ const styles = StyleSheet.create({
   row: {
     flexDirection: "row",
   },
-  rowBetween:{
+  rowBetween: {
     flexDirection: "row",
     alignItems: "center",
     padding: 10,
@@ -143,7 +141,7 @@ const styles = StyleSheet.create({
     marginTop: 50,
     marginBottom: 60,
     alignItems: "center"
-    
+
   }
 })
 

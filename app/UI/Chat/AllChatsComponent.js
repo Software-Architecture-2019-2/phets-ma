@@ -44,6 +44,7 @@ class AllChatsComponent extends Component {
             }
           })
         });
+        if (!animals) this.setState({ adoptionChats: this.adoptionAnimals });
       });
     })
   }
@@ -51,7 +52,6 @@ class AllChatsComponent extends Component {
   getPhetsChats(animals) {
     animals.forEach((animal, index) => {
       matchHistoryService(animal.id, matches => {
-
         const animalsIds = matches.map(match => match.idSecondary);
         this._getAnimals(animalsIds, { name: animal.name, id: animal.id }, this.phetsAnimals, () => {
           this.countPhets++;
@@ -64,7 +64,7 @@ class AllChatsComponent extends Component {
   }
 
   loadChats() {
-    this.setState({adoptionChats: null, phetsChats: null})
+    this.setState({ adoptionChats: null, phetsChats: null })
     this.adoptionAnimals = [];
     this.phetsAnimals = [];
     this.countPhets = 0;
@@ -81,7 +81,7 @@ class AllChatsComponent extends Component {
   }
 
   _getAnimals(animalIds, data, target, callback) {
-    if (!animalIds.length) callback(); 
+    if (!animalIds.length) callback();
     for (let index = 0; index < animalIds.length; index++) {
       getAnimalByIDService(animalIds[index], (animal) => {
         animal.from_entity = data;
@@ -109,15 +109,15 @@ class AllChatsComponent extends Component {
   }
 
   render() {
-    if (this.state.adoptionChats && this.state.phetsChats) {  
+    if (this.state.adoptionChats && this.state.phetsChats) {
       return <AllChatsScreen
-          changeToBack={() => this.changeToBack()}
-          navigateToChatView={this.navigateToChatView}
-          phetsChats={this.state.phetsChats}
-          adoptionChats={this.state.adoptionChats}
-          currentPhet={this.currentPhet}
-          username={this.username}
-        />
+        changeToBack={() => this.changeToBack()}
+        navigateToChatView={this.navigateToChatView}
+        phetsChats={this.state.phetsChats}
+        adoptionChats={this.state.adoptionChats}
+        currentPhet={this.currentPhet}
+        username={this.username}
+      />
     } else {
       return <Spinner
         visible={true}

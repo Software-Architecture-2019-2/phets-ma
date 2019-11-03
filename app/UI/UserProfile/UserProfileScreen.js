@@ -85,7 +85,7 @@ class UserProfileScreen extends Component {
               justifyContent: 'center',
               alignItems: 'center',
             }}>
-              <Button buttonStyle={{ width: 35, paddingTop:5 }}
+              <Button buttonStyle={{ width: 35, paddingTop: 5 }}
                 icon={
                   <FontAwesomeIcon icon={faPlus} size={35} color={"#77A6F7"} />
                 }
@@ -93,11 +93,11 @@ class UserProfileScreen extends Component {
                 onPress={() => this.props.navigateToCreateAnimal({ animal: {}, editionForm: false })}
               />
             </View>
-            <View style={{justifyContent: 'center', alignItems: 'center', paddingTop: 50}}>
-              <Button 
-                onPress={() => this.props.changeToBack() }
+            <View style={{ justifyContent: 'center', alignItems: 'center', paddingTop: 50 }}>
+              <Button
+                onPress={() => this.props.changeToBack()}
                 title="Cerrar sesión"
-                buttonStyle={{width:width*0.5}}
+                buttonStyle={{ width: width * 0.5 }}
               />
             </View>
           </View>

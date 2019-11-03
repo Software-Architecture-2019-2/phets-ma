@@ -5,11 +5,16 @@ export let EventsStrings = new LocalizedStrings({
     events: "Events",
     event: "Event",
     today: "Events today",
-    upcoming: "Events upcoming",
+    upcoming: "Upcoming events",
     past: "Past events",
     create: "Create event",
     edit: "Edit event",
-    subject: "Subject"
+    subject: "Subject",
+    loadingLabel: "Loading...",
+    save: "Save",
+    delete: "Delete",
+    description: "Description",
+    date: "Date"
   },
   es: {
     events: "Eventos",
@@ -19,6 +24,11 @@ export let EventsStrings = new LocalizedStrings({
     past: "Eventos pasados",
     create: "Crear evento",
     edit: "Editar evento",
-    subject: "Asunto"
+    subject: "Asunto",
+    loadingLabel: "Cargando...",
+    save: "Guardar",
+    delete: "Eliminar",
+    description: "Descripcion",
+    date: "Fecha"
   }
 });

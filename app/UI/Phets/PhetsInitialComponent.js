@@ -23,7 +23,6 @@ class PhetsInitialComponent extends Component {
   }
 
   componentDidMount() {
-
     if(!this.state.selectedPhet){
       return;
     }

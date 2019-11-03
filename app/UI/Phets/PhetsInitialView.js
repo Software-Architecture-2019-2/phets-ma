@@ -3,7 +3,7 @@ import { Text, View, Image, Dimensions, Modal, TouchableHighlight, Picker } from
 import CardStack, { Card } from "react-native-card-stack-swiper";
 import styles from "./PhetsStyles";
 import { connect } from "react-redux";
-import { Button, Input,  Avatar } from 'react-native-elements';
+import { Button, Input, Avatar } from 'react-native-elements';
 
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faTimes, faHeart, faSadTear } from '@fortawesome/free-solid-svg-icons'
@@ -51,9 +51,9 @@ class PhetsInitialScreen extends Component {
     );
   }
 
-  _renderPhet(animal){
+  _renderPhet(animal) {
     return (
-      <Picker.Item label={animal.name} value={animal} />
+      <Picker.Item label={animal.name} value={animal} key={animal.id} />
     );
   }
 
@@ -61,18 +61,17 @@ class PhetsInitialScreen extends Component {
     this.props.onSwiped(state, animal);
   }
 
-  selectDefaultPhet(animal){
+  selectDefaultPhet(animal) {
     this.props.selectDefaultPhet(animal);
   }
 
-  componentWillReceiveProps(){
-    
-    this.setState({animals: this.props.animals});
+  componentWillReceiveProps() {
+    this.setState({ animals: this.props.animals });
     this.forceUpdate();
   }
 
   render() {
-    if(this.props.phets.length == 0){
+    if (this.props.phets.length == 0) {
       console.log("Por aca");
       return (
         <View style={styles.phetscard}>
@@ -84,14 +83,14 @@ class PhetsInitialScreen extends Component {
         </View>
       )
     }
-    else{
+    else {
       return (
         <View style={styles.phetsbg}>
           <Picker
-              selectedValue={this.props.defaultPhet}
-              style={styles.contentHead}
-              onValueChange={(itemValue, itemIndex) => this.selectDefaultPhet(itemValue) }>
-              {this.props.phets.map((animal, index) => this._renderPhet(animal))} 
+            selectedValue={this.props.defaultPhet}
+            style={styles.contentHead}
+            onValueChange={(itemValue, itemIndex) => this.selectDefaultPhet(itemValue)}>
+            {this.props.phets.map((animal, index) => this._renderPhet(animal))}
           </Picker>
           <View style={styles.phetscard}>
             <CardStack

@@ -5,7 +5,7 @@ import { createStackNavigator } from 'react-navigation-stack';
 import AnimalViewComponent from "../UI/AnimalView/AnimalViewComponent";
 import AnimalFormComponent from "../UI/AnimalForm/AnimalFormComponent";
 import ListEventComponent from "../UI/Event/ListEventComponent";
-import CreateEventComponent from "../UI/Event/CreateEventComponent";
+import EventFormComponent from "../UI/Event/EventFormComponent";
 
 const AnimalStack = createStackNavigator(
   {
@@ -24,7 +24,7 @@ const AnimalStack = createStackNavigator(
       }
     },
     CreateEvent: {
-      screen: CreateEventComponent,
+      screen: EventFormComponent,
       navigationOptions: {
         header: null,
       }

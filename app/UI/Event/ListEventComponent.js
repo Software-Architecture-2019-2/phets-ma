@@ -1,43 +1,36 @@
 import React, { Component } from "react";
 
 import ListEventScreen from "./ListEventScreen"
+import { EventsStrings } from './ListEventString'
 import Spinner from 'react-native-loading-spinner-overlay';
 
-import { getAllEvents } from '../../services/EventsServices'
-import { AnimalFormStrings } from "../AnimalForm/AnimalFormStrings";
+import { getAllEventsService } from '../../services/EventsServices'
 
-class ListEventComponent extends Component{
-  constructor(props){
+class ListEventComponent extends Component {
+  constructor(props) {
     super(props);
-    this.state = {
-      animal: this.props.navigation.state.params.animal,
-      events: null,
-      eventsAnimal: null
-    }
-  }
-
-  changeToBack(){
-    this.props.navigation.popToTop();
-  }
-
-  editEvent(event){
-    this.props.navigation.navigate("CreateEvent",{edit: true, animal: this.state.animal, event: event});
-    
-  }
-
-  createEvent(){
-    this.props.navigation.navigate("CreateEvent",{edit: false, animal: this.state.animal, event: null});
-    console.log("press")
-  }
-
-  getEventsAnimal(){
-    return this.state.events
+    this.animal = this.props.navigation.state.params.animal,
+      this.state = {
+        events: null,
+        eventsAnimal: null
+      }
   }
 
   componentDidMount() {
     this._loadAsyncData();
     this._registerDidFocusListener()
-    this.getEvents();
+  }
+
+  changeToBack() {
+    this.props.navigation.popToTop();
+  }
+
+  editEvent(event) {
+    this.props.navigation.navigate("CreateEvent", { edit: true, animal: this.animal, event: event });
+  }
+
+  createEvent() {
+    this.props.navigation.navigate("CreateEvent", { edit: false, animal: this.animal, event: null });
   }
 
   _registerDidFocusListener() {
@@ -48,37 +41,37 @@ class ListEventComponent extends Component{
   }
 
   _loadAsyncData() {
-    this.getEvents();
+    this.loadAnimalEvents();
   }
 
-  getAnimal(){
-    return this.state.animal
+  eventsFilter(event) {
+    return event.animal_id === this.animal.id.toString(10) && (new Date(event.date) >= new Date())
   }
 
-  getEvents() {
-    getAllEvents((events) => {
-      this.setState({ events: events });
+  loadAnimalEvents() {
+    getAllEventsService((events) => {
+      const animalEvents = events.filter(event => this.eventsFilter(event))
+      this.setState({ events: animalEvents });
     });
   }
 
-  render(){
-  if (this.state.events != null) {
-    return(
-      <ListEventScreen 
-       changeToBack = {() => this.changeToBack()}
-       editEvent = {event => this.editEvent(event)}
-       createEvent = {() => this.createEvent()}
-       getEventsAnimal = {() => this.getEventsAnimal()}
-       getAnimal = {() => this.getAnimal()}
+  render() {
+    if (this.state.events !== null) {
+      return (
+        <ListEventScreen
+          changeToBack={() => this.changeToBack()}
+          editEvent={event => this.editEvent(event)}
+          createEvent={() => this.createEvent()}
+          events={this.state.events}
+        />
+      )
+    } else {
+      return <Spinner
+        visible={true}
+        textContent={EventsStrings.loadingLabel}
+        animation='slide'
       />
-    )
-  } else {
-    return <Spinner
-      visible={true}
-      textContent={AnimalFormStrings.loadingLabel}
-      animation='slide'
-    />
-  }
+    }
   }
 }
 
