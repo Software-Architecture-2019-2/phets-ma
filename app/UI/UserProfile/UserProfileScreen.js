@@ -96,7 +96,7 @@ class UserProfileScreen extends Component {
             <View style={{ justifyContent: 'center', alignItems: 'center', paddingTop: 50 }}>
               <Button
                 onPress={() => this.props.changeToBack()}
-                title="Cerrar sesión"
+                title={UserProfileStrings.logout}
                 buttonStyle={{ width: width * 0.5 }}
               />
             </View>

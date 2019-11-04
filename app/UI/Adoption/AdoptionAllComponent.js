@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 
 import Spinner from 'react-native-loading-spinner-overlay';
+import { connect } from "react-redux";
 
 import AdoptionAllScreen from "./AdoptionAllScreen"
 import { getAllAnimalsService } from "../../services/AnimalServices";
@@ -29,7 +30,7 @@ class AdoptionAllComponent extends Component {
   getAllAnimals() {
     getAllAnimalsService((animals) => {
       const adoptionAnimals = animals.filter((animal, _) => {
-        return animal.adoption;
+        return animal.adoption && animal.user != this.props.user.username;
       })
       this.setState({ animals: adoptionAnimals });
     });
@@ -54,4 +55,11 @@ class AdoptionAllComponent extends Component {
   }
 }
 
-export default AdoptionAllComponent;
+function mapStateToProps(state) {
+  const user = state.login.user;
+  return {
+    user
+  };
+}
+const connectedAdoptionAllComponent = connect(mapStateToProps)(AdoptionAllComponent);
+export default connectedAdoptionAllComponent;

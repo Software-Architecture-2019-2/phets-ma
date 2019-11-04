@@ -6,11 +6,13 @@ export let UserProfileStrings = new LocalizedStrings({
     addPetButton: "Add pet",
     adoptionLabel: "Adoption",
     loadingLabel: "Loading...",
+    logout: "Logout"
   },
   es: {
     editProfileButton: "Editar perfil",
     addPetButton: "Agregar mascota",
     adoptionLabel: "Adopción",
     loadingLabel: "Cargando...",
+    logout: "Cerrar sesión"
   }
 });

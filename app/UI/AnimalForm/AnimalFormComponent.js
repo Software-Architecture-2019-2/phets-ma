@@ -59,7 +59,7 @@ class AnimalFormComponent extends Component {
           onPress: () => console.log('Cancel Pressed'),
           style: 'cancel',
         },
-        { text: AnimalFormStrings.cancel, onPress: () => this.deleteAnimal(navigation) },
+        { text: AnimalFormStrings.confirmDelete, onPress: () => this.deleteAnimal(navigation) },
       ],
       { cancelable: false },
     );
