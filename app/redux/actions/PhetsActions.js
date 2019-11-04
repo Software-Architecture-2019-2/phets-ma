@@ -11,6 +11,17 @@ function setDefaultPhet(animal) {
     }
 }
 
+function deleteDefaultPhet() {
+    return dispatch => {
+      
+        dispatch(success());
+    };
+  
+    function success() {
+      return { type: phetsConstants.DEFAULT_PHET_SET, animal: {} };
+    }
+}
+
 function setPhetsList(animals) {
     return dispatch => {
         dispatch(success(animals));
@@ -21,7 +32,19 @@ function setPhetsList(animals) {
     }
 }
 
+function deletePhetsList() {
+    return dispatch => {
+        dispatch(success());
+    };
+  
+    function success() {
+      return { type: phetsConstants.PHETS_LIST_SET, animals: {} };
+    }
+}
+
 export const phetsActions = {
     setDefaultPhet,
-    setPhetsList
+    deleteDefaultPhet,
+    setPhetsList,
+    deletePhetsList
 };

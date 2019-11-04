@@ -55,9 +55,21 @@ function register_request(user){
   }
 }
 
+function logout() {
+  return dispatch => {
+    
+    dispatch(success());
+  };
+
+  function success() {
+    return { type: userConstants.LOGOUT, user: {} };
+  }
+}
+
 export const userActions = {
     login,
     login_request,
     register,
-    register_request
+    register_request,
+    logout
 };

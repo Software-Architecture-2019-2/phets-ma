@@ -3,13 +3,8 @@ import { loadAuthReducer } from "../store/LocalStorage";
 
 const initialState = loadAuthReducer();
 
-export function login(state = initialState, action) {
+export function logout(state = initialState, action) {
   switch (action.type) {
-    case userConstants.LOGIN_REQUEST:
-      return {
-        loggingIn: true,
-        user: action.user
-      };
     case userConstants.LOGIN_SUCCESS:
       return {
         loggedIn: true,
@@ -21,8 +16,7 @@ export function login(state = initialState, action) {
       };
     case userConstants.LOGOUT:
       return {
-        loggedIn: false,
-        user: {}
+        loggedIn: false
       };
     default:
       return state;

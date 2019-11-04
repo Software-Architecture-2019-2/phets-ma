@@ -14,6 +14,8 @@ class LogInComponent extends Component {
     this.state = {
       isLoggingIn: false,
     }
+    console.log("DEBUG");
+    console.log(this.props.debug);
   }
 
   changeToLobby() {
@@ -60,6 +62,11 @@ class LogInComponent extends Component {
     );
   }
 
+  componentDidUpdate(){
+    console.log("DEBUG");
+    console.log(this.props.debug);
+  }
+
   _sortAnimalList = (a, b) => {
     if (a.name > b.name) {
       return 1;
@@ -82,8 +89,10 @@ class LogInComponent extends Component {
 
 function mapStateToProps(state) {
   const user = state.user;
+  const debug = state;
   return {
-    user
+    user,
+    debug
   };
 }
 const connectedLoginComponent = connect(mapStateToProps)(LogInComponent);

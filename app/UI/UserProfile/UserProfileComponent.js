@@ -1,11 +1,13 @@
 import React, { Component } from "react";
 import Spinner from 'react-native-loading-spinner-overlay';
 
+import { BackHandler } from "react-native";
 import { connect } from "react-redux";
 import UserProfileScreen from "./UserProfileScreen"
 import { FILES_MS_URI } from '../../services/utils';
 import { UserProfileStrings } from "./UserProfileStrings";
 import { phetsActions } from "../../redux/actions/PhetsActions";
+import { userActions } from "../../redux/actions/UserActions";
 import { getUserByUsernameService, getUserAnimals } from '../../services/UserServices';
 
 class UserComponent extends Component {
@@ -18,12 +20,31 @@ class UserComponent extends Component {
   }
 
   componentDidMount() {
+    BackHandler.addEventListener('hardwareBackPress', this.handleBackPress);
     this._loadAsyncData();
     this._registerDidFocusListener()
   }
 
+  componentWillUnmount() {
+    BackHandler.removeEventListener('hardwareBackPress', this.handleBackPress);
+  }
+
+  handleBackPress = () => {
+    this.props.navigation.navigate('MainStack');
+    return true;
+  };
+
   changeToUserEdition() {
     this.props.navigation.navigate("UserEdition");
+  }
+
+  logout(){
+    console.log("Logout");
+    const { dispatch } = this.props;
+    dispatch(userActions.logout());
+    dispatch(phetsActions.deletePhetsList());
+    dispatch(phetsActions.deleteDefaultPhet());
+    this.props.navigation.popToTop();
   }
 
   changeToBack() {
@@ -90,6 +111,7 @@ class UserComponent extends Component {
       return (
         <UserProfileScreen
           changeToBack={() => this.changeToBack()}
+          logout={() => this.logout()}
           changeToUserEdition={() => this.changeToUserEdition()}
           navigateToAnimalView={this.navigateToAnimalView}
           navigateToCreateAnimal={this.navigateToCreateAnimal}

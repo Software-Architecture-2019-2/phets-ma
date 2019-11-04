@@ -95,7 +95,7 @@ class UserProfileScreen extends Component {
             </View>
             <View style={{ justifyContent: 'center', alignItems: 'center', paddingTop: 50 }}>
               <Button
-                onPress={() => this.props.changeToBack()}
+                onPress={() => this.props.logout()}
                 title={UserProfileStrings.logout}
                 buttonStyle={{ width: width * 0.5 }}
               />
