@@ -1,48 +1,77 @@
 import React, { Component } from "react";
-import { View, StyleSheet, ScrollView, Text, Dimensions} from "react-native";
+import { View, StyleSheet, ScrollView, Text, Dimensions, Picker} from "react-native";
 
 import { Button, Input} from 'react-native-elements';
 import {strings} from './SignUpStrings';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
-import { faUser, faEnvelope, faKey } from '@fortawesome/free-solid-svg-icons';
+import { faUser, faGlobeAmericas, faCity, faMapMarkerAlt} from '@fortawesome/free-solid-svg-icons';
 
 const {height, width} = Dimensions.get('window');
 
-class SignUpScreen extends Component{
+class SignUpInitialScreen extends Component{
   constructor(props){
     super(props);
     this.state = {
       firstName: "",
       lastName: "",
-      email: "",
-      username: "",
-      password: "",
-      confirmPassword: "",
-      submitted: false,
-      correct: false
+      country: "",
+      city: "",
+      address: "",
+      selectedCountryValue: "-1",
+      selectedCountryIndex: -1,
+      incomplete: false
     }
   }
 
   handleSubmit(){
-
-    this.setState({
-      submitted: true,
-      correct: this.state.password != "" && (this.state.password == this.state.confirmPassword)
-    });
-
-    var user = {
-      firstName: this.state.firstName,
-      lastName: this.state.lastName,
-      username: this.state.username,
-      password: this.state.password,
-      email: this.state.email
-    };
-
-    if(this.state.submitted && !this.state.correct){
-      return;
+    let temp = false
+    if(this.state.firstName.trim().length == 0)temp = true
+    if(this.state.lastName.trim().length == 0)temp = true
+    if(this.state.country.trim().length == 0)temp = true
+    if(this.state.city.trim().length == 0)temp = true
+    if(this.state.address.trim().length == 0)temp = true
+    if(temp){
+      this.setState({incomplete: true})
+      return
     }
+    var user={
+      first_name: this.state.firstName,
+      last_name: this.state.lastName,
+      country: this.state.country,
+      city: this.state.city,
+      address: this.state.address
+    }
+    this.props.setUser(user)
+    
+  }
 
-    this.props.tryRegister(user);
+  _handleOnChangePicker = (itemValue, itemIndex) => {
+    this.setState({ selectedCountryValue: itemValue, selectedCountryIndex: itemIndex - 1 })
+  };
+
+  _renderCountriesPicker() {
+    return (
+      <View style={{borderWidth: 1, borderColor: "gray", padding: 0, marginLeft: 10, marginRight: 10,
+      borderRadius: 5, flexDirection: "row", alignItems: "center", marginTop: 25}}>
+        <View style={{borderRightWidth: 1, borderColor: "gray", alignItems: "center", height: 40, width: 39,
+      justifyContent: 'center'}}>
+          <FontAwesomeIcon icon={faGlobeAmericas} size={18} color={"gray"}/>
+        </View>
+        <Picker
+          style={{ height: 40, width: Dimensions.get('window').width / 1.5, margin: 0 }}
+          chan
+          onValueChange={this._handleOnChangePicker}
+          selectedValue={this.state.selectedCountryValue}
+          prompt={strings.country}>
+          <Picker.Item label={strings.pickerDefault} value="-1" key="-1" />
+          {
+            this.props.countries.map((country) => {
+              return <Picker.Item label={country.name} value={`${country.id}`} key={`${country.id}`} />
+            })
+          }
+        </Picker>
+      </View>
+    )
   }
 
   render(){
@@ -60,7 +89,7 @@ class SignUpScreen extends Component{
               <Input
                 placeholder= {strings.first_name}
                 inputStyle={{ padding: 0, paddingLeft: 10 }}
-                onChangeText={(firstName) => this.setState({firstName})}
+                onChangeText={(firstName) => this.setState({firstName: firstName, incomplete: false})}
                 value={this.state.firstName}
                 leftIcon={<FontAwesomeIcon icon={faUser} size={18} color={"gray"} 
                 style={{marginLeft: -5, marginRight: 10,}}/>}
@@ -72,7 +101,7 @@ class SignUpScreen extends Component{
               <Input
                 inputStyle={{ padding: 0, paddingLeft: 10 }}
                 placeholder= {strings.last_name}
-                onChangeText={(lastName) => this.setState({lastName})}
+                onChangeText={(lastName) => this.setState({lastName: lastName, incomplete: false})}
                 value={this.state.lastName}
                 leftIcon={<FontAwesomeIcon icon={faUser} size={18} color={"gray"} 
                 style={{marginLeft: -5, marginRight: 10,}}/>}
@@ -80,13 +109,14 @@ class SignUpScreen extends Component{
                 leftIconContainerStyle={{borderRightWidth: 1, borderColor: "gray"}}
               />
             </View>
+            {this._renderCountriesPicker()}
             <View style={{marginTop: 25}}>
               <Input
                 inputStyle={{ padding: 0, paddingLeft: 10 }}
-                placeholder= {strings.username}
-                onChangeText={(username) => this.setState({username})}
-                value={this.state.username}
-                leftIcon={<FontAwesomeIcon icon={faUser} size={18} color={"gray"} 
+                placeholder= {strings.city}
+                onChangeText={(city) => this.setState({city: city, incomplete: false})}
+                value={this.state.city}
+                leftIcon={<FontAwesomeIcon icon={faCity} size={18} color={"gray"} 
                 style={{marginLeft: -5, marginRight: 10,}}/>}
                 inputContainerStyle={{borderWidth: 1, borderColor: "gray", borderRadius: 5}}
                 leftIconContainerStyle={{borderRightWidth: 1, borderColor: "gray"}}
@@ -95,48 +125,22 @@ class SignUpScreen extends Component{
             <View style={{marginTop: 25}}>
               <Input
                 inputStyle={{ padding: 0, paddingLeft: 10 }}
-                placeholder= {strings.email}
-                onChangeText={(email) => this.setState({email})}
-                value={this.state.email}
-                leftIcon={<FontAwesomeIcon icon={faEnvelope} size={18} color={"gray"} 
+                placeholder= {strings.address}
+                onChangeText={(address) => this.setState({address: address, incomplete: false})}
+                value={this.state.address}
+                leftIcon={<FontAwesomeIcon icon={faMapMarkerAlt} size={18} color={"gray"} 
                 style={{marginLeft: -5, marginRight: 10,}}/>}
                 inputContainerStyle={{borderWidth: 1, borderColor: "gray", borderRadius: 5}}
                 leftIconContainerStyle={{borderRightWidth: 1, borderColor: "gray"}}
               />
             </View>
-            <View style={{marginTop: 25}}>
-              <Input
-                inputStyle={{ padding: 0, paddingLeft: 10 }}
-                placeholder= {strings.password}
-                secureTextEntry={true}
-                onChangeText={(password) => this.setState({password})}
-                value={this.state.password}
-                leftIcon={<FontAwesomeIcon icon={faKey} size={18} color={"gray"} 
-                style={{marginLeft: -5, marginRight: 10,}}/>}
-                inputContainerStyle={{borderWidth: 1, borderColor: "gray", borderRadius: 5}}
-                leftIconContainerStyle={{borderRightWidth: 1, borderColor: "gray"}}
-              />
-            </View>
-            <View style={{marginTop: 25}}>
-              <Input
-                inputStyle={{ padding: 0, paddingLeft: 10 }}
-                placeholder= {strings.confirm_password}
-                secureTextEntry={true}
-                onChangeText={(confirmPassword) => this.setState({confirmPassword})}
-                value={this.state.confirmPassword}
-                leftIcon={<FontAwesomeIcon icon={faKey} size={18} color={"gray"} 
-                style={{marginLeft: -5, marginRight: 10,}}/>}
-                inputContainerStyle={{borderWidth: 1, borderColor: "gray", borderRadius: 5}}
-                leftIconContainerStyle={{borderRightWidth: 1, borderColor: "gray"}}
-              />
-            </View>
-            {this.state.submitted && !this.state.correct &&
-            <Text style={{paddingLeft: 5, paddingRight: 5, marginTop:20, color:"red"}}>{strings.passwords_dont_match}</Text>}
+            {this.state.incomplete &&
+            <Text style={{paddingLeft: 5, paddingRight: 5, marginTop:20, color:"red"}}>{strings.fill_all}</Text>}
             <View style={{paddingLeft: 75, paddingRight: 75, marginTop:20}}>
               <Button
                 onPress={() => this.handleSubmit()}
                 buttonStyle={{marginTop: 20, backgroundColor: '#77A6F7'}}
-                title= {strings.register_title}
+                title= {strings.continue}
               />
             </View>
             <View>
@@ -161,12 +165,12 @@ const styles = StyleSheet.create({
     backgroundColor: "#77A6F7"
   },
   Superior: {
-    height: height*0.25,
+    height: height*0.2,
     justifyContent: 'center',
     alignItems: "center",
   },
   Body: {
-    minHeight: height*0.75,
+    minHeight: height*0.8,
     backgroundColor: '#fff',
     borderTopLeftRadius: 40,
     borderTopRightRadius: 40,
@@ -197,4 +201,4 @@ const styles = StyleSheet.create({
 
 })
 
-export default SignUpScreen;
+export default SignUpInitialScreen;

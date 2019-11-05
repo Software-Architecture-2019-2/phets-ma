@@ -2,20 +2,26 @@ import LocalizedStrings from 'localized-strings';
 
 let strings = new LocalizedStrings({
   en:{
-    login_title:"Login to Phets",
-    username:"username",
+    name: "PHETS",
+    tagline:"A new world",
+    username:"Username",
+    invalid: "Invalid username or password", 
     login: "Login",
-    password:"password",
+    password:"Password",
     register:"Register",
     fill_all: "You must fill all fields",
+    text: "Enter your credentials"
   },
   es: {
-    login_title:"Iniciar Sesión en Phets",
-    username:"username",
+    name: "PHETS",
+    tagline:"Un nuevo mundo",
+    username:"Username",
+    invalid: "Usuario o contraseña invalido",
     login: "Iniciar Sesión",
-    password:"contraseña",
+    password:"Contraseña",
     register:"Registrarse",
     fill_all: "Debe llenar todos los campos",
+    text: "Ingrese sus credenciales"
   }},
 );
 

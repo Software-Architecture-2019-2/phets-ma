@@ -3,6 +3,8 @@ import LocalizedStrings from 'localized-strings';
 let strings = new LocalizedStrings({
   en:{
     register_title:"Register",
+    name: "PHETS",
+    tagline:"A new world",
     first_name: "First Name",
     last_name: "Last Name",
     username: "Username",
@@ -13,10 +15,18 @@ let strings = new LocalizedStrings({
     register:"Register",
     country: "Country",
     city: "City",
-    passwords_dont_match: "Passwords don't match"
+    passwords_dont_match: "Passwords don't match",
+    text: "Enter your data",
+    address: "Address",
+    continue: "continue",
+    fill_all: "You must fill all fields",
+    loadingLabel: "Loading...",
+    pickerDefault: "Choose a country",
   },
   es: {
     register_title:"Registrarse",
+    name: "PHETS",
+    tagline:"Un nuevo mundo",
     first_name: "Nombre",
     last_name: "Apellido",
     username: "Nombre de usuario",
@@ -27,7 +37,13 @@ let strings = new LocalizedStrings({
     register:"Registrarse",
     country: "País",
     city: "Ciudad",
-    passwords_dont_match: "Las contraseñas no coinciden"
+    passwords_dont_match: "Las contraseñas no coinciden",
+    text: "Ingrese sus datos",
+    address: "Dirección",
+    continue: "Continuar",
+    fill_all: "Debe llenar todos los campos",
+    loadingLabel: "Cargando...",
+    pickerDefault: "Seleccione un pais",
   }},
 );
 

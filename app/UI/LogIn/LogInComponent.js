@@ -13,6 +13,7 @@ class LogInComponent extends Component {
     super(props);
     this.state = {
       isLoggingIn: false,
+      InvalidUser: false
     }
     console.log("DEBUG");
     console.log(this.props.debug);
@@ -20,6 +21,16 @@ class LogInComponent extends Component {
 
   changeToLobby() {
     this.props.navigation.navigate("MainStack");
+  }
+
+  getInvalidUser(){
+    return this.state.InvalidUser
+  }
+
+  setInvalidUser(){
+    this.setState({ 
+      InvalidUser: false
+    });
   }
 
   changeToSignUp() {
@@ -54,7 +65,10 @@ class LogInComponent extends Component {
         return true;
       },
       error => {
-        this.setState({ isLoggingIn: false });
+        this.setState({ 
+          isLoggingIn: false,
+          InvalidUser: true
+        });
         console.log("ERROR: " + error);
         dispatch(userActions.login(false, null, null));
         return false
@@ -83,6 +97,8 @@ class LogInComponent extends Component {
         tryLogin={(user) => this.tryLogin(user)}
         changeToSignUp={() => this.changeToSignUp()}
         isLoggingIn={this.state.isLoggingIn}
+        getInvalidUser={() => this.getInvalidUser()}
+        setInvalidUser={() => this.setInvalidUser()}
       />)
   }
 }
