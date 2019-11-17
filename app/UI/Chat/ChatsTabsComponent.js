@@ -45,7 +45,7 @@ class ChatsTabsComponent extends Component {
           leftAvatar={{ source: { uri: this.getImageUri(adoption.media) } }}
           sty
           title={`${adoption.from_entity.name} - ${adoption.name}`}
-          // subtitle={`${user} - ${user.breed}`}
+          badge={adoption.unread ? { value: adoption.unread, textStyle:{fontSize: 15}, badgeStyle:{minHeight: 30, minWidth: 40, backgroundColor: "#F74B31"}} : undefined}
           bottomDivider
           chevron={<FontAwesomeIcon icon={faChevronRight} size={20} color={"#77A6F7"} />}
         />

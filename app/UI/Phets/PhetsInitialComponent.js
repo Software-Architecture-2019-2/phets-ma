@@ -23,7 +23,7 @@ class PhetsInitialComponent extends Component {
   }
 
   componentDidMount() {
-    if(!this.state.selectedPhet){
+    if (!this.state.selectedPhet) {
       return;
     }
     this.getAllAnimals();
@@ -44,14 +44,14 @@ class PhetsInitialComponent extends Component {
     }, (data) => {
       const newAnimalsList = this.state.animals;
       newAnimalsList.filter((anim) => animal.id != anim.id);
-      this.setState({animals: newAnimalsList});
+      this.setState({ animals: newAnimalsList });
       this._checkIfMatch(data.idMain, data.idSecondary, animal)
     });
   }
 
   _checkIfMatch(id1, id2, animal) {
     isMatchService({ id1, id2 }, (data) => {
-      if(data.state == true){
+      if (data.state === true) {
         this.setState({ isMatch: true });
         Alert.alert(
           strings.match,
@@ -62,9 +62,9 @@ class PhetsInitialComponent extends Component {
               onPress: () => console.log('Cancel Pressed'),
               style: 'cancel',
             },
-            {text: strings.chat, onPress: () => console.log('Chat Pressed')},
+            { text: strings.chat, onPress: () => console.log('Chat Pressed') },
           ],
-          {cancelable: true},
+          { cancelable: true },
         )
       }
     })
@@ -72,20 +72,15 @@ class PhetsInitialComponent extends Component {
 
   getAllAnimals() {
     getAllPhetsService({ animalId: this.state.selectedPhet.id, username: this.props.user.username }, (animals) => {
-      var filteredAnimals = animals.filter((animal) => 
-        (animal.animal_type.id == this.state.selectedPhet.animal_type.id)
-        && (animal.gender != this.state.selectedPhet.gender)
-        && !animal.adoption
-      );
-      this.setState({ animals: filteredAnimals });
+      this.setState({ animals: animals });
     });
   }
 
-  selectDefaultPhet(animal){
-    this.setState({animals: null});
+  selectDefaultPhet(animal) {
+    this.setState({ animals: null });
     const { dispatch } = this.props;
     dispatch(phetsActions.setDefaultPhet(animal));
-    
+
     this.setState({
       selectedPhet: animal
     }, this.getAllAnimals());
@@ -95,11 +90,11 @@ class PhetsInitialComponent extends Component {
     this.props.navigation.popToTop();
   }
 
-  closeModal(){
+  closeModal() {
 
   }
 
-  startChat(){
+  startChat() {
 
   }
 
@@ -111,7 +106,7 @@ class PhetsInitialComponent extends Component {
           onSwiped={(state, animal) => this.onSwiped(state, animal)}
           animals={this.state.animals}
           phets={this.state.phets}
-          defaultPhet={this.state.selectedPhet} 
+          defaultPhet={this.state.selectedPhet}
           selectDefaultPhet={(animalName) => this.selectDefaultPhet(animalName)}
           getDataAnimals={() => this.getDataAnimals()}
           isMatch={this.state.isMatch}
@@ -120,15 +115,15 @@ class PhetsInitialComponent extends Component {
           startChat={() => this.startChat()}
         />
       )
-    } 
-    else if(this.state.phets.length == 0){
+    }
+    else if (this.state.phets.length == 0) {
       return (
         <PhetsInitialScreen
           changeToBack={() => this.changeToBack()}
           onSwiped={(state, animal) => this.onSwiped(state, animal)}
           animals={this.state.animals}
           phets={this.state.phets}
-          defaultPhet={this.state.selectedPhet} 
+          defaultPhet={this.state.selectedPhet}
           selectDefaultPhet={(animalName) => this.selectDefaultPhet(animalName)}
           getDataAnimals={() => this.getDataAnimals()}
           isMatch={this.state.isMatch}

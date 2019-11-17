@@ -22,12 +22,11 @@ class ChatScreen extends Component {
       adopt: false,
     });
     this.setState(previousState => ({
-      messages: GiftedChat.append(previousState.messages, messages),
+      messages: GiftedChat.append(messages, previousState.messages),
     }))
   }
 
   render() {
-
     return (
       <View style={styles.Background}>
         <View style={styles.head}>
@@ -44,21 +43,18 @@ class ChatScreen extends Component {
                 <Text style={styles.NameChat}>{this.props.name}</Text>
               </View>
             </View>
-
           </View>
         </View>
-        {/* <ScrollView> */}
         <View style={[styles.Body, { paddingBottom: 100 }]}>
           <GiftedChat
             messages={this.state.messages}
             onSend={messages => this.onSend(messages)}
             user={{
-              _id: this.props.from.id.toString(10)
+              _id: this.props.from.id
             }}
             inverted={false}
           />
         </View>
-        {/* </ScrollView> */}
       </View>
     )
   }

@@ -4,7 +4,11 @@ import Spinner from 'react-native-loading-spinner-overlay';
 
 
 import ChatScreen from "./ChatScreen"
-import { getMessagesService, createMessageService } from "../../services/ChatServices";
+import {
+  getMessagesService,
+  createMessageService,
+  setAsReadMessagesService
+} from "../../services/ChatServices";
 import { ChatStrings } from "./ChatStrings";
 
 class ChatComponent extends Component {
@@ -22,6 +26,7 @@ class ChatComponent extends Component {
 
   loadMessages() {
     getMessagesService(this.chatData.from.id, this.chatData.to, (messages) => {
+      setAsReadMessagesService(this.chatData.to, this.chatData.from.id)
       this.setState({ messages: this.parseMessages(messages) })
     });
   }
@@ -38,9 +43,7 @@ class ChatComponent extends Component {
   }
 
   createMessage = (data) => {
-    createMessageService(data, (res) => {
-      console.log(res)
-    })
+    createMessageService(data, (_) => { })
   }
 
   changeToBack() {
@@ -58,7 +61,7 @@ class ChatComponent extends Component {
           name={this.chatData.name}
           image={this.chatData.image}
           createMessage={this.createMessage}
-          
+
         />
       )
     } else {

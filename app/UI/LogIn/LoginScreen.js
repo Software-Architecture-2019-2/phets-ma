@@ -4,7 +4,7 @@ import { View, StyleSheet, ScrollView, Text, Dimensions } from "react-native";
 import Spinner from 'react-native-loading-spinner-overlay';
 import { Button, Input } from 'react-native-elements';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
-import { faEnvelope, faKey } from '@fortawesome/free-solid-svg-icons';
+import { faUser, faKey } from '@fortawesome/free-solid-svg-icons';
 import { strings } from './LoginStrings';
 
 const { height, width } = Dimensions.get('window');
@@ -22,40 +22,33 @@ class LogInScreen extends Component {
   }
 
   handleSubmit() {
-
-    if(this.state.username.trim().length != 0 && this.state.password.trim().length != 0){
+    if (this.state.username.trim().length != 0 && this.state.password.trim().length != 0) {
       var user = {
         username: this.state.username,
         password: this.state.password
       };
-  
+
       if (this.state.submitted && !this.state.correct) {
         return;
       }
-  
+
       this.setState({
         username: "",
         password: "",
       });
-  
+
       const result = this.props.tryLogin(user);
-      console.log("-------------------")
-      console.log(result)
-      console.log(result)
-      console.log("-------------------")
       if (result) {
         this.setState({
           submitted: true,
           correct: user.username.length != 0 && user.password.length != 0
         });
       }
-    }else{
-       this.setState({
+    } else {
+      this.setState({
         incomplete: true
       });
     }
-
-   
   }
 
   renderLoadingSpinner() {
@@ -69,17 +62,17 @@ class LogInScreen extends Component {
     return null
   }
 
-  setUsername(username){
+  setUsername(username) {
     this.setState({
-      username:username,
+      username: username,
       incomplete: false
     })
     this.props.setInvalidUser()
   }
 
-  setPassword(password){
+  setPassword(password) {
     this.setState({
-      password:password,
+      password: password,
       incomplete: false
     })
     this.props.setInvalidUser()
@@ -97,35 +90,35 @@ class LogInScreen extends Component {
           <View style={styles.Body}>
             <Text style={styles.Titles}>{strings.login}</Text>
             <Text style={styles.subTitles}>{strings.text}</Text>
-            <View style={{marginTop: 25}}>
+            <View style={{ marginTop: 25 }}>
               <Input
                 inputStyle={{ padding: 0, paddingLeft: 10 }}
                 placeholder={strings.username}
                 onChangeText={(username) => this.setUsername(username)}
                 value={this.state.username}
-                leftIcon={<FontAwesomeIcon icon={faEnvelope} size={18} color={"gray"} 
-                style={{marginLeft: -5, marginRight: 10,}}/>}
-                inputContainerStyle={{borderWidth: 1, borderColor: "gray", borderRadius: 5}}
-                leftIconContainerStyle={{borderRightWidth: 1, borderColor: "gray"}}
+                leftIcon={<FontAwesomeIcon icon={faUser} size={18} color={"gray"}
+                  style={{ marginLeft: -5, marginRight: 10, }} />}
+                inputContainerStyle={{ borderWidth: 1, borderColor: "gray", borderRadius: 5 }}
+                leftIconContainerStyle={{ borderRightWidth: 1, borderColor: "gray" }}
               />
             </View>
-            <View style={{marginTop: 20}}>
+            <View style={{ marginTop: 20 }}>
               <Input
                 inputStyle={{ padding: 0, paddingLeft: 10 }}
                 placeholder={strings.password}
                 secureTextEntry={true}
                 onChangeText={(password) => this.setPassword(password)}
                 value={this.state.password}
-                leftIcon={<FontAwesomeIcon icon={faKey} size={18} color={"gray"} 
-                style={{marginLeft: -5, marginRight: 10,}}/>}
-                inputContainerStyle={{borderWidth: 1, borderColor: "gray", borderRadius: 5}}
-                leftIconContainerStyle={{borderRightWidth: 1, borderColor: "gray"}}
+                leftIcon={<FontAwesomeIcon icon={faKey} size={18} color={"gray"}
+                  style={{ marginLeft: -5, marginRight: 10, }} />}
+                inputContainerStyle={{ borderWidth: 1, borderColor: "gray", borderRadius: 5 }}
+                leftIconContainerStyle={{ borderRightWidth: 1, borderColor: "gray" }}
               />
             </View>
             {this.props.getInvalidUser() &&
               <Text style={{ paddingLeft: 5, paddingRight: 5, marginTop: 20, color: "red" }}>{strings.invalid}</Text>}
             {this.state.incomplete &&
-             <Text style={{ paddingLeft: 5, paddingRight: 5, marginTop: 20, color: "red" }}>{strings.fill_all}</Text>}
+              <Text style={{ paddingLeft: 5, paddingRight: 5, marginTop: 20, color: "red" }}>{strings.fill_all}</Text>}
             <View style={{ paddingLeft: 75, paddingRight: 75, marginTop: 20 }}>
               <Button
                 onPress={() => this.handleSubmit()}
@@ -181,7 +174,7 @@ const styles = StyleSheet.create({
   },
   Tagline: {
     color: '#FFCCBC',
-    fontSize: width*0.05
+    fontSize: width * 0.05
   },
   subTitles: {
     marginTop: 5,

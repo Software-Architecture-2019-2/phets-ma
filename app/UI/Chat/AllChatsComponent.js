@@ -8,7 +8,10 @@ import { matchHistoryService } from "../../services/InteractionServices";
 import { getUserAnimals } from "../../services/UserServices";
 import { ChatStrings } from "./ChatStrings";
 import { getAnimalByIDService } from "../../services/AnimalServices";
-import { getAdoptionChatsService } from "../../services/ChatServices";
+import {
+  getAdoptionChatsService,
+  getNotificationsService
+} from "../../services/ChatServices";
 
 class AllChatsComponent extends Component {
   constructor(props) {
@@ -22,6 +25,7 @@ class AllChatsComponent extends Component {
     this.countPhets = 0;
     this.countAdoption = 0;
     this.username = this.props.user.username;
+    this.loadingChats = false;
   }
 
   componentDidMount() {
@@ -40,7 +44,7 @@ class AllChatsComponent extends Component {
             })
             this.countAdoption++;
             if (this.countAdoption === animals.length) {
-              this.setState({ adoptionChats: this.adoptionAnimals });
+              this._loadNotifications(this.adoptionAnimals, () => this.setState({ adoptionChats: this.adoptionAnimals }));
             }
           })
         });
@@ -50,25 +54,38 @@ class AllChatsComponent extends Component {
   }
 
   getPhetsChats(animals) {
-    animals.forEach((animal, index) => {
+    animals.forEach((animal, _) => {
       matchHistoryService(animal.id, matches => {
         const animalsIds = matches.map(match => match.idSecondary);
         this._getAnimals(animalsIds, { name: animal.name, id: animal.id }, this.phetsAnimals, () => {
           this.countPhets++;
           if (this.countPhets === animals.length) {
-            this.setState({ phetsChats: this.phetsAnimals });
+            this._loadNotifications(this.phetsAnimals, () => { this.setState({ phetsChats: this.phetsAnimals }) })
           }
         });
       })
     });
   }
 
+  _loadNotifications(animals, callback) {
+    let count = 0;
+    if (!animals.length) callback();
+    animals.forEach(animal => {
+      getNotificationsService(animal.id, this.username, (data) => {
+        count++;
+        animal.unread = data.total
+        if (count === animals.length) callback();
+      });
+    });
+  }
+
   loadChats() {
-    this.setState({ adoptionChats: null, phetsChats: null })
     this.adoptionAnimals = [];
     this.phetsAnimals = [];
     this.countPhets = 0;
     this.countAdoption = 0;
+    this.loadingChats = true;
+    this.setState({ adoptionChats: null, phetsChats: null })
 
     getUserAnimals(this.username, (animals) => {
       const phetsIds = animals ? animals
@@ -96,7 +113,9 @@ class AllChatsComponent extends Component {
   _registerDidFocusListener() {
     this.props.navigation.addListener(
       'didFocus',
-      () => this.loadChats()
+      () => {
+        if (!this.loadingChats) this.loadChats();
+      }
     );
   }
 
@@ -110,6 +129,7 @@ class AllChatsComponent extends Component {
 
   render() {
     if (this.state.adoptionChats && this.state.phetsChats) {
+      this.loadingChats = false;
       return <AllChatsScreen
         changeToBack={() => this.changeToBack()}
         navigateToChatView={this.navigateToChatView}

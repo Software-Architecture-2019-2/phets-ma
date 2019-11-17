@@ -68,12 +68,17 @@ class UserProfileScreen extends Component {
                 {this._renderImage()}
               </View>
             </View>
-            <View style={{ paddingBottom: 5 }}>
+            <View style={{ flexDirection: 'row', justifyContent: 'space-around', paddingBottom: 5 }}>
               <Button
                 onPress={() => this.props.changeToUserEdition()}
                 type="solid"
                 title={UserProfileStrings.editProfileButton}
-                buttonStyle={GeneralStyles.BlueColor}
+                buttonStyle={[GeneralStyles.BlueColor, {width: width * 0.7}]}
+              />
+              <Button
+                onPress={() => this.props.logout()}
+                title={UserProfileStrings.logout}
+                buttonStyle={{ width: width * 0.3 }}
               />
             </View>
             <PetTabsComponent
@@ -91,13 +96,6 @@ class UserProfileScreen extends Component {
                 }
                 type="clear"
                 onPress={() => this.props.navigateToCreateAnimal({ animal: {}, editionForm: false })}
-              />
-            </View>
-            <View style={{ justifyContent: 'center', alignItems: 'center', paddingTop: 50 }}>
-              <Button
-                onPress={() => this.props.logout()}
-                title={UserProfileStrings.logout}
-                buttonStyle={{ width: width * 0.5 }}
               />
             </View>
           </View>

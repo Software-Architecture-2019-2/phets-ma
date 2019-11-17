@@ -15,11 +15,9 @@ class LogInComponent extends Component {
       isLoggingIn: false,
       InvalidUser: false
     }
-    console.log("DEBUG");
-    console.log(this.props.debug);
   }
 
-  changeToLobby() {
+  navigateToMainStack() {
     this.props.navigation.navigate("MainStack");
   }
 
@@ -59,7 +57,7 @@ class LogInComponent extends Component {
           adoption.sort(this._sortAnimalList);
     
           dispatch(phetsActions.setPhetsList(phets));
-          this.changeToLobby();
+          this.navigateToMainStack();
         });
 
         return true;
@@ -74,11 +72,6 @@ class LogInComponent extends Component {
         return false
       }
     );
-  }
-
-  componentDidUpdate(){
-    console.log("DEBUG");
-    console.log(this.props.debug);
   }
 
   _sortAnimalList = (a, b) => {
