@@ -35,8 +35,8 @@ export function createMessageService(message, token, callbackService) {
 
 }
 
-export function getAdoptionChatsService(entity, token, callback) {
-  if(typeof entity === 'number') entity  = entity.toString(10);
+export function getAdoptionChatsService(entity, callback) {
+  if (typeof entity === 'number') entity = entity.toString(10);
   firestore().collection('adoptChatList')
     .doc(entity)
     .collection('users').get()
@@ -49,11 +49,9 @@ export function getAdoptionChatsService(entity, token, callback) {
     })
 }
 
-export function getMessagesService(entity1, entity2, token, callback) {
+export function getMessagesService(entity1, entity2, callback) {
   if (typeof entity1 === 'number') entity1 = entity1.toString(10);
   if (typeof entity2 === 'number') entity2 = entity2.toString(10);
-
-  console.log(entity1, entity2);
 
   const query1 = firestore().collection('channels')
     .doc(entity1)

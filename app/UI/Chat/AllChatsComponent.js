@@ -30,11 +30,11 @@ class AllChatsComponent extends Component {
   }
 
   getAdoptionChats(animals) {
-    const {token} = this.props.user.token;
-    getAdoptionChatsService(this.username, token, (chats) => {
+    getAdoptionChatsService(this.username, (chats) => {
       this._getAnimals(chats, { name: this.username, id: this.username }, this.adoptionAnimals, () => {
+        if (!animals || !animals.length) this.setState({ adoptionChats: this.adoptionAnimals });
         animals.forEach(animal => {
-          getAdoptionChatsService(animal.id, token, (chats) => {
+          getAdoptionChatsService(animal.id, (chats) => {
             chats.forEach(chat => {
               animal.from_entity = { name: chat, id: chat };
               this.adoptionAnimals.push(animal);
@@ -45,13 +45,13 @@ class AllChatsComponent extends Component {
             }
           })
         });
-        if (!animals) this.setState({ adoptionChats: this.adoptionAnimals });
       });
     })
   }
 
   getPhetsChats(animals) {
-    const {token} = this.props.user.token;
+    const { token } = this.props.user;
+    if (!animals || !animals.length) this.setState({ phetsChats: [] });
     animals.forEach((animal, index) => {
       matchHistoryService(animal.id, token, matches => {
         const animalsIds = matches.map(match => match.idSecondary);
@@ -83,8 +83,11 @@ class AllChatsComponent extends Component {
   }
 
   _getAnimals(animalIds, data, target, callback) {
-    const {token} = this.props.user.token;
-    if (!animalIds.length) callback();
+    const { token } = this.props.user;
+    if (animalIds.length === 0) {
+      callback();
+      return;
+    }
     for (let index = 0; index < animalIds.length; index++) {
       getAnimalByIDService(animalIds[index], token, (animal) => {
         animal.from_entity = data;

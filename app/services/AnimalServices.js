@@ -37,6 +37,8 @@ export function createAnimalService(animal, token, callbackService) {
 }
 
 export function updateAnimalService(id, animal, token, callbackService) {
+  if (typeof id === 'string') id = parseInt(id);
+
   const query = `mutation UpdateAnimal($id: Int!,  $animal: AnimalInput!){
     updateAnimal(id: $id, animal: $animal){
       name,
@@ -92,6 +94,8 @@ export function getAllAnimalTypesService(token, callbackService) {
 }
 
 export function deleteAnimalService(id, token, callbackService) {
+  if (typeof id === 'string') id = parseInt(id);
+
   const query = `mutation DeleteAnimal($id: Int!){
     deleteAnimal(id: $id){
       name,
@@ -158,6 +162,7 @@ export function getAllAnimalsService(token, callbackService) {
 }
 
 export function getAnimalByIDService(id, token, callbackService) {
+  if (typeof id === 'string') id = parseInt(id);
   const query = `query AnimalById($id: Int!){
     animalById(id: $id){
       id,

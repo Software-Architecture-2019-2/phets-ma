@@ -22,12 +22,11 @@ class ChatComponent extends Component {
 
   loadMessages() {
     getMessagesService(
-      this.chatData.from.id, 
+      this.chatData.from.id,
       this.chatData.to,
-      this.props.user.token,
-       (messages) => {
+      (messages) => {
         this.setState({ messages: this.parseMessages(messages) })
-    });
+      });
   }
 
   parseMessages(messages) {
@@ -42,7 +41,7 @@ class ChatComponent extends Component {
   }
 
   createMessage = (data) => {
-    const {token} = this.props.username;
+    const { token } = this.props.user;
     createMessageService(data, token, (res) => {
       console.log(res)
     })
@@ -63,7 +62,6 @@ class ChatComponent extends Component {
           name={this.chatData.name}
           image={this.chatData.image}
           createMessage={this.createMessage}
-          
         />
       )
     } else {
