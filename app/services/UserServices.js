@@ -3,13 +3,13 @@ import { API_GATEWAY_URI } from './utils'
 
 function loginService(user) {
 
-  const b = `mutation {
+  const query = `mutation {
         login(credentials: {username: "${user.username}", password: "${user.password}"}){
             token
         }
       }`;
 
-  return request(API_GATEWAY_URI, b)
+  return request(API_GATEWAY_URI, query)
     .then(data => {
       return data.login.token;
     })
@@ -20,7 +20,7 @@ function loginService(user) {
 
 function registerService(user) {
 
-  const b = `
+  const query = `
   mutation {
     register(user: {firstName: "${user.firstName}", lastName: "${user.lastName}", username: "${user.username}", email: "${user.email}", password: "${user.password}"}){
       firstName,
@@ -31,7 +31,7 @@ function registerService(user) {
     }
   }`;
 
-  return request(API_GATEWAY_URI, b)
+  return request(API_GATEWAY_URI, query)
     .then(data => {
       return data;
     })
@@ -41,7 +41,27 @@ function registerService(user) {
     });
 }
 
-export function getUserByUsernameService(username, callbackService) {
+function logoutService(token, callbackService){
+
+  const query = `mutation{
+    destroySession(token: { token: "${token}" })
+  }`;
+  const body = {
+    query
+  }
+  const request = {
+    method: "POST",
+    body: JSON.stringify(body),
+    callback: (data) => callbackService(data)
+  };
+  try {
+    sendRequest(request, token);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+function getUserByUsernameService(user, callbackService) {
   const query = `query UserByUsername($username: String!){
       userByUsername(username: $username){
         firstName,
@@ -61,7 +81,7 @@ export function getUserByUsernameService(username, callbackService) {
   }`;
   const body = {
     query,
-    variables: { username }
+    variables: { username: user.username }
   }
   const request = {
     method: "POST",
@@ -69,13 +89,13 @@ export function getUserByUsernameService(username, callbackService) {
     callback: (data) => callbackService(data.data.userByUsername)
   };
   try {
-    sendRequest(request);
+    sendRequest(request, user.token);
   } catch (error) {
     console.error(error);
   }
 }
 
-export function getUserAnimals(username, callbackService) {
+function getUserAnimals(user, callbackService) {
   const query = `query AllAnimalsByUser($username: String!){
     allAnimalsByUser(username: $username){
       id,
@@ -94,7 +114,7 @@ export function getUserAnimals(username, callbackService) {
 
   const body = {
     query,
-    variables: { username }
+    variables: { username: user.username }
   }
   const request = {
     method: "POST",
@@ -102,13 +122,13 @@ export function getUserAnimals(username, callbackService) {
     callback: (data) => callbackService(data.data ? data.data.allAnimalsByUser : null)
   };
   try {
-    sendRequest(request);
+    sendRequest(request, user.token);
   } catch (error) {
     console.error(error);
   }
 }
 
-export function updateUserService(user, callbackService) {
+function updateUserService(user, token, callbackService) {
   const query = `mutation UpdateUser($username: String!, $user: UserInput!){
     updateUser(username: $username, user: $user){
       firstName,
@@ -133,16 +153,18 @@ export function updateUserService(user, callbackService) {
   const request = {
     method: "POST",
     body: JSON.stringify(body),
-    callback: (data) => callbackService(data.data.updateUser)
-  };
+    callback: (data) => {
+      callbackService(data.data.updateUser)
+    }};
+  
   try {
-    sendRequest(request);
+    sendRequest(request, token);
   } catch (error) {
     console.error(error);
   }
 }
 
-export function getAllCountriesService(callbackService) {
+function getAllCountriesService(token, callbackService) {
   const query = `query{
     allCountries{
       id,
@@ -158,18 +180,19 @@ export function getAllCountriesService(callbackService) {
     callback: (data) => callbackService(data.data.allCountries)
   };
   try {
-    sendRequest(request);
+    sendRequest(request, token);
   } catch (error) {
     console.error(error);
   }
 }
 
-function sendRequest(request) {
+function sendRequest(request, token = null) {
   fetch(API_GATEWAY_URI, {
     method: request.method,
     body: request.body,
     headers: {
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`
     }
   })
     .then((response) => response.json())
@@ -178,4 +201,11 @@ function sendRequest(request) {
     });
 }
 
-export { loginService, registerService };
+export { loginService, 
+  registerService, 
+  getUserByUsernameService,
+  updateUserService,
+  getAllCountriesService,
+  getUserAnimals,
+  logoutService
+};

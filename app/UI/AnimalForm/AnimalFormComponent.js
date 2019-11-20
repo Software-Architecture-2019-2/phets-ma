@@ -66,8 +66,9 @@ class AnimalFormComponent extends Component {
   }
 
   static deleteAnimal = (navigation) => {
+    const {token} = this.props.user;
     const animal = navigation.getParam('animal', {});
-    deleteAnimalService(animal.id, (_) => {
+    deleteAnimalService(animal.id, token, (_) => {
       this.props.navigation.navigate('Profile');
     })
   }
@@ -77,20 +78,21 @@ class AnimalFormComponent extends Component {
   }
 
   getAllAnimalTypes() {
-    getAllAnimalTypesService((types) => {
+    getAllAnimalTypesService(this.props.user.token, (types) => {
       this.setState({ animalTypes: types });
     });
   }
 
   createAnimal = (animal) => {
     animal.user = this.props.user.username;
-    createAnimalService(animal, (_) => {
+    createAnimalService(animal, this.props.user.token, (_) => {
       this.navigateToProfile();
     });
   }
 
   updateAnimal = (id, animal) => {
-    updateAnimalService(id, animal, (_) => {
+    const {token} = this.props.user;
+    updateAnimalService(id, animal, token, (_) => {
       this.navigateToProfile();
     });
   }
@@ -104,7 +106,7 @@ class AnimalFormComponent extends Component {
   }
 
   uploadPhoto = async (photo) => {
-    return await uploadFile(photo);
+    return await uploadFile(photo, this.props.user.token);
   }
 
   render() {

@@ -60,19 +60,19 @@ class UserEditionComponent extends Component {
   }
 
   getUser() {
-    getUserByUsernameService(this.props.user.username, (data) => {
+    getUserByUsernameService(this.props.user, (data) => {
       this.setState({ user: data });
     });
   }
 
   getAllCountries() {
-    getAllCountriesService((countries) => {
+    getAllCountriesService(this.props.user.token, (countries) => {
       this.setState({ countries });
     });
   }
 
   updateUser = (user) => {
-    updateUserService(user, (updatedUser) => {
+    updateUserService(user, this.props.user.token, (updatedUser) => {
       this.setState({ user: updatedUser })
       this.props.navigation.navigate('Profile');
     });
@@ -88,7 +88,7 @@ class UserEditionComponent extends Component {
   }
 
   uploadPhoto = async (photo) => {
-    return await uploadFile(photo);
+    return await uploadFile(photo, this.props.user.token);
   }
 
   render() {

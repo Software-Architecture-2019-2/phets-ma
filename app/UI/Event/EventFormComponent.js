@@ -5,7 +5,8 @@ import {
   createEventService,
   editEventService,
   removeEventService
-} from '../../services/EventsServices'
+} from '../../services/EventsServices';
+import { connect } from "react-redux";
 
 class EventFormComponent extends Component {
   constructor(props) {
@@ -28,24 +29,26 @@ class EventFormComponent extends Component {
   createEvent = (eventToCreate) => {
     if (!this.isEdit) {
       eventToCreate.animal_id = this.animal.id;
-      createEventService(eventToCreate, (_) => {
+      createEventService(eventToCreate, this.props.user.token, (_) => {
         this.props.navigation.navigate("ListEvent");
       });
     }
   }
 
   editEvent = (eventToEdit) => {
+    const { token } =this.props.user.token;
     if (this.isEdit) {
       eventToEdit.animal_id = this.animal.id;
-      editEventService(this.event.id, eventToEdit, (_) => {
+      editEventService(this.event.id, eventToEdit, token, (_) => {
         this.props.navigation.navigate("ListEvent");
       });
     }
   }
 
   removeEvent = () => {
+    const { token } =this.props.user.token;
     if (this.isEdit) {
-      removeEventService(this.event.id, (_) => {
+      removeEventService(this.event.id, token, (_) => {
         this.props.navigation.navigate("ListEvent");
       });
     }
@@ -66,4 +69,15 @@ class EventFormComponent extends Component {
   }
 }
 
-export default EventFormComponent;
+function mapStateToProps(state) {
+  const user = state.login.user;
+  const phets = state.setPhetsList.phets;
+  const defaultPhet = state;
+  return {
+    user,
+    phets,
+    defaultPhet
+  };
+}
+const connectedEventFormComponent = connect(mapStateToProps)(EventFormComponent);
+export default connectedEventFormComponent;

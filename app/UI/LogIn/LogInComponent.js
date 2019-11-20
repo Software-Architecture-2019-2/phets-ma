@@ -15,8 +15,6 @@ class LogInComponent extends Component {
       isLoggingIn: false,
       InvalidUser: false
     }
-    console.log("DEBUG");
-    console.log(this.props.debug);
   }
 
   changeToLobby() {
@@ -45,14 +43,15 @@ class LogInComponent extends Component {
 
     loginService(usr).then(
       response => {
-        getUserByUsernameService(usr.username, (data) => {
-          const user = data;
+        usr.token = response;
+        getUserByUsernameService(usr, (data) => {
+          var user = data;
           user.token = response;
           dispatch(userActions.login(true, user, null));
           this.setState({ isLoggingIn: false });
         });
 
-        getUserAnimals(usr.username, (animals) => {
+        getUserAnimals(usr, (animals) => {
           const phets = animals ? animals.filter(animal => { return !animal.adoption }) : [];
           phets.sort(this._sortAnimalList);
           const adoption = animals ? animals.filter(animal => { return animal.adoption }) : [];
@@ -74,11 +73,6 @@ class LogInComponent extends Component {
         return false
       }
     );
-  }
-
-  componentDidUpdate(){
-    console.log("DEBUG");
-    console.log(this.props.debug);
   }
 
   _sortAnimalList = (a, b) => {

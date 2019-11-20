@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 import Spinner from 'react-native-loading-spinner-overlay';
 
-
+import { connect } from "react-redux";
 import ChatScreen from "./ChatScreen"
 import { getMessagesService, createMessageService } from "../../services/ChatServices";
 import { ChatStrings } from "./ChatStrings";
@@ -21,8 +21,12 @@ class ChatComponent extends Component {
   }
 
   loadMessages() {
-    getMessagesService(this.chatData.from.id, this.chatData.to, (messages) => {
-      this.setState({ messages: this.parseMessages(messages) })
+    getMessagesService(
+      this.chatData.from.id, 
+      this.chatData.to,
+      this.props.user.token,
+       (messages) => {
+        this.setState({ messages: this.parseMessages(messages) })
     });
   }
 
@@ -38,7 +42,8 @@ class ChatComponent extends Component {
   }
 
   createMessage = (data) => {
-    createMessageService(data, (res) => {
+    const {token} = this.props.username;
+    createMessageService(data, token, (res) => {
       console.log(res)
     })
   }
@@ -70,4 +75,15 @@ class ChatComponent extends Component {
   }
 }
 
-export default ChatComponent;
+function mapStateToProps(state) {
+  const user = state.login.user;
+  const phets = state.setPhetsList.phets;
+  const defaultPhet = state;
+  return {
+    user,
+    phets,
+    defaultPhet
+  };
+}
+const connectedChatComponent = connect(mapStateToProps)(ChatComponent);
+export default connectedChatComponent;

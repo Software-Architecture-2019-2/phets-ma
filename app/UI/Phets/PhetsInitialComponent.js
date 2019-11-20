@@ -40,6 +40,7 @@ class PhetsInitialComponent extends Component {
     createInteractionService({
       id1: this.state.selectedPhet.id,
       id2: animal.id,
+      token: this.props.username.token,
       state
     }, (data) => {
       const newAnimalsList = this.state.animals;
@@ -50,7 +51,7 @@ class PhetsInitialComponent extends Component {
   }
 
   _checkIfMatch(id1, id2, animal) {
-    isMatchService({ id1, id2 }, (data) => {
+    isMatchService({ id1, id2, token: this.props.user.token }, (data) => {
       if(data.state == true){
         this.setState({ isMatch: true });
         Alert.alert(
@@ -71,13 +72,16 @@ class PhetsInitialComponent extends Component {
   }
 
   getAllAnimals() {
-    getAllPhetsService({ animalId: this.state.selectedPhet.id, username: this.props.user.username }, (animals) => {
-      var filteredAnimals = animals.filter((animal) => 
-        (animal.animal_type.id == this.state.selectedPhet.animal_type.id)
-        && (animal.gender != this.state.selectedPhet.gender)
-        && !animal.adoption
-      );
-      this.setState({ animals: filteredAnimals });
+    getAllPhetsService({ animalId: this.state.selectedPhet.id, username: this.props.user.username },
+      this.props.user.token, 
+      (animals) => {
+        console.log(animals); 
+        var filteredAnimals = animals.filter((animal) => 
+          (animal.animal_type.id == this.state.selectedPhet.animal_type.id)
+          && (animal.gender != this.state.selectedPhet.gender)
+          && !animal.adoption
+        );
+        this.setState({ animals: filteredAnimals });
     });
   }
 

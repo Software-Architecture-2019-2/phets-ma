@@ -8,7 +8,9 @@ import { FILES_MS_URI } from '../../services/utils';
 import { UserProfileStrings } from "./UserProfileStrings";
 import { phetsActions } from "../../redux/actions/PhetsActions";
 import { userActions } from "../../redux/actions/UserActions";
-import { getUserByUsernameService, getUserAnimals } from '../../services/UserServices';
+import { getUserByUsernameService, 
+  getUserAnimals,
+  logoutService } from '../../services/UserServices';
 
 class UserComponent extends Component {
   constructor(props) {
@@ -20,13 +22,13 @@ class UserComponent extends Component {
   }
 
   componentDidMount() {
-    BackHandler.addEventListener('hardwareBackPress', this.handleBackPress);
+    // BackHandler.addEventListener('hardwareBackPress', this.handleBackPress);
     this._loadAsyncData();
     this._registerDidFocusListener()
   }
 
   componentWillUnmount() {
-    BackHandler.removeEventListener('hardwareBackPress', this.handleBackPress);
+    // BackHandler.removeEventListener('hardwareBackPress', this.handleBackPress);
   }
 
   handleBackPress = () => {
@@ -39,11 +41,11 @@ class UserComponent extends Component {
   }
 
   logout(){
-    console.log("Logout");
     const { dispatch } = this.props;
     dispatch(userActions.logout());
     dispatch(phetsActions.deletePhetsList());
     dispatch(phetsActions.deleteDefaultPhet());
+    logoutService(this.props.user.token, (data) => console.log(data));
     this.props.navigation.popToTop();
   }
 
@@ -73,7 +75,7 @@ class UserComponent extends Component {
   }
 
   getUser() {
-    getUserByUsernameService(this.props.user.username, (data) => {
+    getUserByUsernameService(this.props.user, (data) => {
       this.setState({ user: data });
     });
   }
@@ -89,7 +91,7 @@ class UserComponent extends Component {
   }
 
   getUserAnimals() {
-    getUserAnimals(this.props.user.username, (animals) => {
+    getUserAnimals(this.props.user, (animals) => {
       const phets = animals ? animals.filter(animal => { return !animal.adoption }) : [];
       phets.sort(this._sortAnimalList);
       const adoption = animals ? animals.filter(animal => { return animal.adoption }) : [];

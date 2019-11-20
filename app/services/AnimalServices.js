@@ -1,6 +1,6 @@
 import { API_GATEWAY_URI } from './utils'
 
-export function createAnimalService(animal, callbackService) {
+export function createAnimalService(animal, token, callbackService) {
   const query = `mutation CreateAnimal($animal: AnimalInput!){
     createAnimal(animal: $animal){
       name,
@@ -24,16 +24,19 @@ export function createAnimalService(animal, callbackService) {
   const request = {
     method: "POST",
     body: JSON.stringify(body),
-    callback: (data) => callbackService(data.data.createAnimal)
+    callback: (data) => {
+      console.log(data);
+      callbackService(data.data.createAnimal)
+    }
   };
   try {
-    sendRequest(request);
+    sendRequest(request, token);
   } catch (error) {
     console.error(error);
   }
 }
 
-export function updateAnimalService(id, animal, callbackService) {
+export function updateAnimalService(id, animal, token, callbackService) {
   const query = `mutation UpdateAnimal($id: Int!,  $animal: AnimalInput!){
     updateAnimal(id: $id, animal: $animal){
       name,
@@ -60,13 +63,13 @@ export function updateAnimalService(id, animal, callbackService) {
     callback: (data) => callbackService(data.data.updateAnimal)
   };
   try {
-    sendRequest(request);
+    sendRequest(request, token);
   } catch (error) {
     console.error(error);
   }
 }
 
-export function getAllAnimalTypesService(callbackService) {
+export function getAllAnimalTypesService(token, callbackService) {
   const query = `query{
     allAnimalTypes{
       id,
@@ -82,13 +85,13 @@ export function getAllAnimalTypesService(callbackService) {
     callback: (data) => callbackService(data.data.allAnimalTypes)
   };
   try {
-    sendRequest(request);
+    sendRequest(request, token);
   } catch (error) {
     console.error(error);
   }
 }
 
-export function deleteAnimalService(id, callbackService) {
+export function deleteAnimalService(id, token, callbackService) {
   const query = `mutation DeleteAnimal($id: Int!){
     deleteAnimal(id: $id){
       name,
@@ -111,17 +114,17 @@ export function deleteAnimalService(id, callbackService) {
   }
   const request = {
     method: "POST",
-    body: JSON.stringify(body),
+    body: JSON.stringify(body, token),
     callback: (data) => callbackService(data.data.updateAnimal)
   };
   try {
-    sendRequest(request);
+    sendRequest(request, token);
   } catch (error) {
     console.error(error);
   }
 }
 
-export function getAllAnimalsService(callbackService) {
+export function getAllAnimalsService(token, callbackService) {
   const query = `query{
     allAnimals{
       id,
@@ -148,13 +151,13 @@ export function getAllAnimalsService(callbackService) {
     callback: (data) => callbackService(data.data.allAnimals)
   };
   try {
-    sendRequest(request);
+    sendRequest(request, token);
   } catch (error) {
     console.error(error);
   }
 }
 
-export function getAnimalByIDService(id, callbackService) {
+export function getAnimalByIDService(id, token, callbackService) {
   const query = `query AnimalById($id: Int!){
     animalById(id: $id){
       id,
@@ -182,18 +185,19 @@ export function getAnimalByIDService(id, callbackService) {
     callback: (data) => callbackService(data.data.animalById)
   };
   try {
-    sendRequest(request);
+    sendRequest(request, token);
   } catch (error) {
     console.error(error);
   }
 }
 
-function sendRequest(request) {
+function sendRequest(request, token = null) {
   fetch(API_GATEWAY_URI, {
     method: request.method,
     body: request.body,
     headers: {
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`
     }
   })
     .then((response) => response.json())

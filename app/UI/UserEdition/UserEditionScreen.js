@@ -64,7 +64,7 @@ class UserEditionScreen extends Component {
         <Picker.Item label={UserEditionStrings.pickerDefault} value="-1" key="-1" />
         {
           this.props.countries.map((country) => {
-            return <Picker.Item label={country.name} value={`${country.id}`} key={`${country.id}`} />
+            return <Picker.Item label={country.name} value={country.id} key={`${country.id}`} />
           })
         }
       </Picker>
@@ -85,7 +85,7 @@ class UserEditionScreen extends Component {
     };
 
     userToUpdate.country = this.state.selectedCountryValue !== "-1" ? {
-      id: this.state.selectedCountryValue,
+      id: this.state.selectedCountryIndex + 1,
       name: this.props.countries[this.state.selectedCountryIndex].name
     } : this._user.country;
 

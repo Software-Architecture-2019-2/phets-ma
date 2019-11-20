@@ -28,7 +28,6 @@ class SignUpComponent extends Component{
 
     registerService(user).then(
       response => {
-          console.log(response);
           const user = response.register;
           dispatch(userActions.register(true, user, null));
           this.setState({

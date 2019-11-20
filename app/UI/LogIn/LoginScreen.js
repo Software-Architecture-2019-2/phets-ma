@@ -39,10 +39,6 @@ class LogInScreen extends Component {
       });
   
       const result = this.props.tryLogin(user);
-      console.log("-------------------")
-      console.log(result)
-      console.log(result)
-      console.log("-------------------")
       if (result) {
         this.setState({
           submitted: true,
@@ -54,8 +50,6 @@ class LogInScreen extends Component {
         incomplete: true
       });
     }
-
-   
   }
 
   renderLoadingSpinner() {

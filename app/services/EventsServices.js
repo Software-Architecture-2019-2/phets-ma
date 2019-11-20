@@ -1,6 +1,6 @@
 import { API_GATEWAY_URI } from './utils'
 
-export function createEventService(event, callbackService) {
+export function createEventService(event, token, callbackService) {
   const query = `mutation CreateEvent($event: EventInput!){
     createEvent(event: $event){
       id
@@ -16,13 +16,13 @@ export function createEventService(event, callbackService) {
     callback: (data) => callbackService(data.data.createEvent)
   };
   try {
-    sendRequest(request);
+    sendRequest(request, token);
   } catch (error) {
     console.error(error);
   }
 }
 
-export function editEventService(id, event, callbackService) {
+export function editEventService(id, event, token, callbackService) {
   const query = `mutation UpdateEvent($id: String!, $event: EventInput!){
     updateEvent(id: $id, event: $event){
       id
@@ -38,13 +38,13 @@ export function editEventService(id, event, callbackService) {
     callback: (data) => callbackService(data.data.updateEvent)
   };
   try {
-    sendRequest(request);
+    sendRequest(request, token);
   } catch (error) {
     console.error(error);
   }
 }
 
-export function removeEventService(id, callbackService) {
+export function removeEventService(id, token, callbackService) {
   const query = `mutation RemoveEvent($id: String!){
     deleteEvent(id: $id){
       id
@@ -60,13 +60,13 @@ export function removeEventService(id, callbackService) {
     callback: (data) => callbackService(data.data.deleteEvent)
   };
   try {
-    sendRequest(request);
+    sendRequest(request, token);
   } catch (error) {
     console.error(error);
   }
 }
 
-export function getAllEventsService(callbackService) {
+export function getAllEventsService(token, callbackService) {
   const query = `query{
     allEvents{
       total
@@ -88,18 +88,19 @@ export function getAllEventsService(callbackService) {
     callback: (data) => callbackService(data.data.allEvents.list)
   };
   try {
-    sendRequest(request);
+    sendRequest(request, token);
   } catch (error) {
     console.error(error);
   }
 }
 
-function sendRequest(request) {
+function sendRequest(request, token = null) {
   fetch(API_GATEWAY_URI, {
     method: request.method,
     body: request.body,
     headers: {
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`
     }
   })
     .then((response) => response.json())

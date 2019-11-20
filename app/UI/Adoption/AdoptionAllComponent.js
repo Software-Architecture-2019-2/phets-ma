@@ -28,7 +28,7 @@ class AdoptionAllComponent extends Component {
   }
 
   getAllAnimals() {
-    getAllAnimalsService((animals) => {
+    getAllAnimalsService(this.props.user.token, (animals) => {
       const adoptionAnimals = animals.filter((animal, _) => {
         return animal.adoption && animal.user != this.props.user.username;
       })

@@ -1,7 +1,7 @@
 import firestore from '@react-native-firebase/firestore';
 import { API_GATEWAY_URI } from './utils';
 
-export function createMessageService(message, callbackService) {
+export function createMessageService(message, token, callbackService) {
   const query = `mutation CreateMessage($message: MessageInput!){
     createMessage(message: $message){
       data
@@ -28,14 +28,14 @@ export function createMessageService(message, callbackService) {
     callback: (data) => callbackService(data.data.createMessage)
   };
   try {
-    sendRequest(request);
+    sendRequest(request, token);
   } catch (error) {
     console.error(error);
   }
 
 }
 
-export function getAdoptionChatsService(entity, callback) {
+export function getAdoptionChatsService(entity, token, callback) {
   if(typeof entity === 'number') entity  = entity.toString(10);
   firestore().collection('adoptChatList')
     .doc(entity)
@@ -49,7 +49,7 @@ export function getAdoptionChatsService(entity, callback) {
     })
 }
 
-export function getMessagesService(entity1, entity2, callback) {
+export function getMessagesService(entity1, entity2, token, callback) {
   if (typeof entity1 === 'number') entity1 = entity1.toString(10);
   if (typeof entity2 === 'number') entity2 = entity2.toString(10);
 
@@ -81,12 +81,13 @@ export function getMessagesService(entity1, entity2, callback) {
     })
 }
 
-function sendRequest(request) {
+function sendRequest(request, token = null) {
   fetch(API_GATEWAY_URI, {
     method: request.method,
     body: request.body,
     headers: {
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`
     }
   })
     .then((response) => response.json())

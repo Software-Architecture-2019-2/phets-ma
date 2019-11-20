@@ -109,7 +109,7 @@ class SignUpInitialScreen extends Component{
                 leftIconContainerStyle={{borderRightWidth: 1, borderColor: "gray"}}
               />
             </View>
-            {this._renderCountriesPicker()}
+            {/* {this._renderCountriesPicker()} */}
             <View style={{marginTop: 25}}>
               <Input
                 inputStyle={{ padding: 0, paddingLeft: 10 }}

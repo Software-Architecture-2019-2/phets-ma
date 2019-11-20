@@ -39,7 +39,9 @@ class AnimalViewComponent extends Component {
       received: this.animal.id,
       messages: text,
       adopt: true,
-    }, (_) => {
+    },
+    this.props.user.token
+    , (_) => {
       this.props.navigation.navigate("ChatView", {
         from: {id: this.props.user.username, username: this.props.user.username},
         to: this.animal.id,

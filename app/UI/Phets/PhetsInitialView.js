@@ -72,7 +72,6 @@ class PhetsInitialScreen extends Component {
 
   render() {
     if (this.props.phets.length == 0) {
-      console.log("Por aca");
       return (
         <View style={styles.phetscard}>
           <View style={[styles.containerCardItem, { height: 300, alignContent: 'center' }]}>

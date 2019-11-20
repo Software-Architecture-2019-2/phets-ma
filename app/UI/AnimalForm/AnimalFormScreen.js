@@ -131,7 +131,7 @@ class AnimalFormScreen extends Component {
     };
 
     animal.animal_type = this.state.selectedAnimalTypeValue !== "-1" ? {
-      id: this.state.selectedAnimalTypeValue,
+      id: this.state.selectedAnimalTypeIndex + 1,
       value: this.props.animalTypes[this.state.selectedAnimalTypeIndex].value
     } : null;
 

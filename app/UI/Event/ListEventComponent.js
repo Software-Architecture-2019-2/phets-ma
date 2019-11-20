@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 
-import ListEventScreen from "./ListEventScreen"
-import { EventsStrings } from './ListEventString'
+import ListEventScreen from "./ListEventScreen";
+import { EventsStrings } from './ListEventString';
+import { connect } from "react-redux";
 import Spinner from 'react-native-loading-spinner-overlay';
 
 import { getAllEventsService } from '../../services/EventsServices'
@@ -49,7 +50,8 @@ class ListEventComponent extends Component {
   }
 
   loadAnimalEvents() {
-    getAllEventsService((events) => {
+    const { token } =this.props.user.token;
+    getAllEventsService(token, (events) => {
       const animalEvents = events.filter(event => this.eventsFilter(event))
       this.setState({ events: animalEvents });
     });
@@ -75,4 +77,17 @@ class ListEventComponent extends Component {
   }
 }
 
-export default ListEventComponent;
+// export default ListEventComponent;
+
+function mapStateToProps(state) {
+  const user = state.login.user;
+  const phets = state.setPhetsList.phets;
+  const defaultPhet = state;
+  return {
+    user,
+    phets,
+    defaultPhet
+  };
+}
+const connectedListEventComponent = connect(mapStateToProps)(ListEventComponent);
+export default connectedListEventComponent;
